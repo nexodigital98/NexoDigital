@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Toda la página está aquí.
+       Si quieres cambiar textos o precios, solo busca la palabra
+       que quieres cambiar con Ctrl+F y la editas directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Aquí cambias el título que aparece en la pestaña del navegador y en Google -->
+    <title>Nexo Digital | Conectamos tu negocio con el mundo</title>
+    <link rel="icon" type="image/png" href="img/logos/NEXO%20DIGITAL.png">
+    <!-- Aquí va el texto que Google muestra debajo del título en los resultados de búsqueda -->
+    <meta name="description" content="Configuramos y optimizamos tu WhatsApp Business, Instagram, TikTok, LinkedIn y Facebook de forma profesional y 100% remota. Entrega en 24-72 horas.">
+    <!-- Palabras clave para Google, puedes añadir más separadas por comas -->
+    <meta name="keywords" content="marketing digital, whatsapp business, optimizacion redes sociales, ecuador, loja, meta verified, landing page">
+    <meta name="author" content="Nexo Digital">
+    
+    <!-- Fuentes de letra — no toques esto, son las que le dan el estilo futurista a la página -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Librería de iconos (el WhatsApp, Instagram, etc que ves en los botones) — no toques -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Aquí se conecta el archivo style.css que tiene todos los colores y diseño -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Luces de fondo azul/cyan que se mueven suavemente — son puramente decorativas -->
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ───────────────────────────────
+       Esto es lo primero que ve el cliente al abrir la página.
+       Es la tarjeta animada que gira al hacer clic en "Más Información".
+    ──────────────────────────────────────────────────────────────────── -->
+    <section id="card-screen">
+        <div class="perspective-container">
+            <!-- Contenedor de la tarjeta con efecto 3D -->
+            <div class="business-card" id="my-card">
+                
+                <!-- Cara frontal de la tarjeta -->
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+
+                        <!-- Efecto de brillo dorado animado — decorativo -->
+                        <div class="shimmer-layer"></div>
+
+                        <!-- Las 4 esquinas doradas decorativas de la tarjeta -->
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+
+                            <!-- El logo que aparece arriba en la tarjeta
+                                 Para cambiarlo: pon tu logo en img/logos/ con el nombre NEXO DIGITAL.png -->
+                            <div class="card-logo-container">
+                                <img src="img/logos/NEXO%20DIGITAL.png" alt="Nexo Digital Logo" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+
+                                <!-- Nombre principal de la tarjeta — cámbialo por el nombre de tu negocio -->
+                                <div class="fut-name-banner">
+                                    <h2>NEXO DIGITAL</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <!-- Frase debajo del nombre — cámbiala si quieres -->
+                                    <p class="card-slogan">Conectamos tu negocio con el mundo</p>
+                                    <div class="fut-divider"></div>
+
+                                    <!-- Iconos de redes sociales en la tarjeta
+                                         Cambia los href="https://wa.me/..." por tus propios links -->
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593986777289" target="_blank" class="social-btn" aria-label="WhatsApp">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                        <a href="https://instagram.com/nexodigital.ec" target="_blank" class="social-btn" aria-label="Instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="https://tiktok.com/@nexodigital.ec" target="_blank" class="social-btn" aria-label="TikTok">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Botón que gira la tarjeta — el texto "Más Información" lo puedes cambiar -->
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Círculo pequeño abajo de la tarjeta con las siglas del país -->
+                    <div class="bottom-rating-circle">EC</div>
+                </div>
+                
+                <!-- Cara trasera de la tarjeta (el reverso cuando gira) — solo decorativa -->
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ────────────────────────────
+       Todo lo que viene de aquí hacia abajo es el sitio web principal.
+       Aparece después de que el cliente hace clic en la tarjeta.
+    ──────────────────────────────────────────────────────────────────── -->
+    <main id="landing-screen">
+
+        <!-- Partículas y fondo animado -->
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Tarjeta</span>
+        </button>
+
+        <!-- ─── BARRA DE NAVEGACIÓN (menú arriba) ───────────────────────────
+             Para cambiar el nombre del menú, edita los textos entre <a> y </a>
+             Para cambiar el número de WhatsApp del botón "Iniciar", busca 593986777289
+        ──────────────────────────────────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <!-- Logo y nombre en el menú izquierdo -->
+                <img src="img/logos/NEXO%20DIGITAL.png" alt="Nexo Digital" class="sl-logo-img">
+                <span>NEXO <em>DIGITAL</em></span>
+            </div>
+            <!-- Links del menú — cámbia los textos si quieres renombrar secciones -->
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#sobre-nosotros">¿Qué Hacemos?</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#combos">Combos</a></li>
+                <li><a href="#mantenimiento">Mantenimiento</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <!-- Botón verde del menú — cambia el número de WhatsApp aquí -->
+                <li><a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Quiero%20comenzar." target="_blank" class="sl-nav-cta">
+                    <i class="fas fa-bolt"></i> Iniciar
+                </a></li>
+            </ul>
+            <!-- Ícono de menú hamburguesa para celulares — no toques -->
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── SECCIÓN HERO (lo primero que ves al entrar al sitio) ──────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <!-- Notificación pequeña arriba del título
+                         Cambia "Promo de Lanzamiento Activa - Primeros 10 clientes" por lo que quieras -->
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">SISTEMA NEXO DIGITAL</span>
+                            <span class="sl-sys-desc">Promo de Lanzamiento Activa - Primeros 10 clientes</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Título principal grande — cámbialo por el tuyo -->
+                    <h1 class="sl-hero-title">
+                        Configuramos tu<br>
+                        presencia digital para que<br>
+                        <span class="sl-glow-text">venda por ti</span>
+                    </h1>
+
+                    <!-- Párrafo de descripción debajo del título -->
+                    <p class="sl-hero-desc">
+                        Dejamos tus perfiles de redes sociales y WhatsApp Business optimizados al 100% de forma profesional.<br>
+                        <strong>Entrega en 24-72h.</strong> 100% remoto &middot; Todo Ecuador y LATAM.
+                    </p>
+                    
+                    <!-- Los dos botones del hero
+                         El primero abre WhatsApp — cambia el número 593986777289 por el tuyo
+                         El segundo baja al usuario a la sección de servicios -->
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Quiero%20agendar%20mi%20sesion." target="_blank" class="sl-btn-primary clip-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Sesión Gratuita</span>
+                        </a>
+                        <a href="#servicios" class="sl-btn-secondary clip-btn">
+                            <span>Ver Servicios</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+
+                    <!-- Las 3 estadísticas debajo de los botones
+                         Cambia el texto entre las etiquetas <span> si quieres otros números o palabras -->
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">24h</span><span class="sl-stat-label">Entrega Express</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">5</span><span class="sl-stat-label">Redes Sociales</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Remoto</span></div>
+                    </div>
+                </div>
+                
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Equipo de Especialistas Digitales" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: ¿QUÉ HACEMOS? ────────────────────────────────────
+             Para cambiar el título y el párrafo, busca más abajo la etiqueta <h2> y <p>
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="sobre-nosotros" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">01 // IDENTIDAD</div>
+                    <h2>El Arquitecto Digital<br><span class="sl-glow-text">de tu Negocio</span></h2>
+                    <p>Nuestra especialidad es configurar las redes para que trabajen por ti. Construimos la estructura estratégica y automatizaciones iniciales para que tú solo te enfoques en vender.</p>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Configuración Técnica</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Optimizamos nombres estratégicos, categorías, catálogos y botones de contacto.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Automatización</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Activamos respuestas rápidas, mensajes de bienvenida/ausencia y conectamos tu ecosistema Meta.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Educación al Cliente</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Te capacitamos mediante videollamada para que aprendas a usar y editar tus perfiles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sl-achievements-grid">
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-id-card"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Estructura de Bio y Perfil</div>
+                            <p>Optimizamos tu presencia visual con nombres estratégicos, categorías y descripción de marca.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-robot"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Respuestas Automatizadas</div>
+                            <p>Mensajes de bienvenida, ausencia y respuestas rápidas para que nunca pierdas un cliente.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-store"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Catálogos de Productos</div>
+                            <p>Cargamos hasta 15 productos con fotos, precios y descripciones optimizadas para vender.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-link"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Integración WhatsApp + Meta</div>
+                            <p>Conectamos tu ecosistema: botones de contacto, vinculaciones y links directos personalizados.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Guías Personalizadas en PDF</div>
+                            <p>Te entregamos una guía a medida para que administres tus redes con total autonomía.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-video"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Capacitación en Videollamada</div>
+                            <p>Sesión en vivo donde te enseñamos a usar y editar todos tus perfiles profesionalmente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: SERVICIOS INDIVIDUALES ──────────────────────────
+             Aquí están las 5 tarjetas de WhatsApp, Instagram, TikTok, LinkedIn y Facebook.
+             Para cambiar el precio, busca <span class="sl-price-main">$20</span>
+             Para cambiar los puntos de cada lista, edita el texto dentro de <li>
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">02 // SERVICIOS INDIVIDUALES</div>
+                    <h2>Nuestros Servicios<br><span class="sl-glow-text">por Red Social</span></h2>
+                    <p>¿Quieres optimizar solo una plataforma? Dejamos tu perfil profesional en cualquiera de estas plataformas en un tiempo récord.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-image"><img src="img/redes/WHATSAPP.png" alt="WhatsApp" class="sl-card-img"></div>
+                            <div class="sl-service-badge">Estrella</div>
+                        </div>
+                        <h3>WhatsApp Business</h3>
+                        <div class="sl-service-price"><span class="sl-price-main">$20</span><span class="sl-price-old">$35 USD</span></div>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Perfil de empresa optimizado</li>
+                            <li><i class="fas fa-circle-notch"></i> Catálogo hasta 15 productos</li>
+                            <li><i class="fas fa-circle-notch"></i> Mensaje de bienvenida/ausencia</li>
+                            <li><i class="fas fa-circle-notch"></i> 10 respuestas rápidas estratégicas</li>
+                            <li><i class="fas fa-circle-notch"></i> Enlace directo personalizado</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20WhatsApp%20Business." target="_blank" class="sl-btn-card clip-btn"><span>Contratar WA</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-image"><img src="img/redes/INSTAGRAM.png" alt="Instagram" class="sl-card-img"></div>
+                        </div>
+                        <h3>Instagram Business</h3>
+                        <div class="sl-service-price"><span class="sl-price-main">$20</span><span class="sl-price-old">$30 USD</span></div>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Cuenta empresa/creador</li>
+                            <li><i class="fas fa-circle-notch"></i> Bio optimizada con SEO local</li>
+                            <li><i class="fas fa-circle-notch"></i> Botones y enlaces integrados</li>
+                            <li><i class="fas fa-circle-notch"></i> Respuestas automáticas por DM</li>
+                            <li><i class="fas fa-circle-notch"></i> 3 Portadas destacadas (Canva)</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20Instagram." target="_blank" class="sl-btn-card clip-btn"><span>Contratar IG</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-image"><img src="img/redes/TIKTOK.png" alt="TikTok" class="sl-card-img"></div>
+                        </div>
+                        <h3>TikTok Business</h3>
+                        <div class="sl-service-price"><span class="sl-price-main">$20</span><span class="sl-price-old">$28 USD</span></div>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Perfil empresa / link activado</li>
+                            <li><i class="fas fa-circle-notch"></i> Bio estratégica y palabras clave</li>
+                            <li><i class="fas fa-circle-notch"></i> Respuestas automáticas básicas</li>
+                            <li><i class="fas fa-circle-notch"></i> Vinculación de redes</li>
+                            <li><i class="fas fa-circle-notch"></i> Estrategia para 5 primeros videos</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20TikTok." target="_blank" class="sl-btn-card clip-btn"><span>Contratar TikTok</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-image"><img src="img/redes/LINKEDLN.png" alt="LinkedIn" class="sl-card-img"></div>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <div class="sl-service-price"><span class="sl-price-main">$20</span><span class="sl-price-old">$40 USD</span></div>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Perfil personal u hoja empresa</li>
+                            <li><i class="fas fa-circle-notch"></i> Título estratégico y resumen</li>
+                            <li><i class="fas fa-circle-notch"></i> Historial y URL personalizada</li>
+                            <li><i class="fas fa-circle-notch"></i> Banner de portada profesional</li>
+                            <li><i class="fas fa-circle-notch"></i> Guía para 3 primeros posts</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20LinkedIn." target="_blank" class="sl-btn-card clip-btn"><span>Contratar LinkedIn</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-image"><img src="img/redes/FACEBOOK.png" alt="Facebook" class="sl-card-img"></div>
+                        </div>
+                        <h3>Facebook Fanpage</h3>
+                        <div class="sl-service-price"><span class="sl-price-main">$20</span><span class="sl-price-old">$25 USD</span></div>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Página de Facebook completa</li>
+                            <li><i class="fas fa-circle-notch"></i> Configuración Meta Business Suite</li>
+                            <li><i class="fas fa-circle-notch"></i> Catálogo integrado desde Meta</li>
+                            <li><i class="fas fa-circle-notch"></i> Botones y llamadas de acción</li>
+                            <li><i class="fas fa-circle-notch"></i> Vinculación con Instagram</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20Facebook." target="_blank" class="sl-btn-card clip-btn"><span>Contratar Facebook</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 03: COMBOS Y PAQUETES ───────────────────────────────
+             Los 4 combos con precio combinado.
+             Para cambiar precio: busca <span class="sl-price-main">$52</span> (o el número que sea)
+             Para cambiar qué incluye cada combo, edita los <li> dentro de cada tarjeta
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="combos" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">03 // PAQUETES</div>
+                    <h2>Combos y <span class="sl-glow-text">Paquetes</span></h2>
+                    <p>Ahorra seleccionando nuestros combos de configuración múltiple. Incluimos Facebook totalmente gratis en la compra de combos de WhatsApp o Instagram. ¡Sube de Rango!</p>
+                </div>
+
+                <div class="sl-combos-grid">
+                    <div class="sl-combo-card glass-panel clip-corner">
+                        <div class="sl-combo-rank-badge rank-c">RANGO C</div>
+                        <h3>Starter</h3>
+                        <p class="sl-combo-sub">WhatsApp Business + Instagram</p>
+                        <div class="sl-combo-price"><span class="sl-price-main">$52</span><span class="sl-price-old">$65 USD</span></div>
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> WhatsApp Business optimizado</li>
+                            <li><i class="fas fa-check"></i> Instagram optimizado completo</li>
+                            <li><i class="fas fa-check"></i> <strong style="color:var(--sl-blue);">Facebook Gratis</strong> (Meta Suite)</li>
+                            <li><i class="fas fa-check"></i> Soporte durante 2 semanas</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20el%20Combo%20Starter." target="_blank" class="sl-btn-combo clip-btn">Contratar Starter</a>
+                    </div>
+                    
+                    <div class="sl-combo-card glass-panel clip-corner">
+                        <div class="sl-combo-rank-badge rank-b">RANGO B</div>
+                        <h3>Impulso</h3>
+                        <p class="sl-combo-sub">WhatsApp Business + TikTok</p>
+                        <div class="sl-combo-price"><span class="sl-price-main">$50</span><span class="sl-price-old">$63 USD</span></div>
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> WhatsApp Business optimizado</li>
+                            <li><i class="fas fa-check"></i> TikTok optimizado completo</li>
+                            <li><i class="fas fa-check"></i> Vinculaciones y links directos</li>
+                            <li><i class="fas fa-check"></i> Soporte durante 2 semanas</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20el%20Combo%20Impulso." target="_blank" class="sl-btn-combo clip-btn">Contratar Impulso</a>
+                    </div>
+                    
+                    <div class="sl-combo-card glass-panel clip-corner sl-combo-featured">
+                        <div class="sl-combo-hot">⚡ MÁS VENDIDO</div>
+                        <div class="sl-combo-rank-badge rank-a">RANGO A</div>
+                        <h3>Top 3</h3>
+                        <p class="sl-combo-sub">WA + Instagram + TikTok</p>
+                        <div class="sl-combo-price"><span class="sl-price-main">$70</span><span class="sl-price-old">$93 USD</span></div>
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> WhatsApp Business optimizado</li>
+                            <li><i class="fas fa-check"></i> Instagram optimizado completo</li>
+                            <li><i class="fas fa-check"></i> TikTok optimizado completo</li>
+                            <li><i class="fas fa-check"></i> <strong style="color:var(--sl-blue);">Facebook Gratis</strong> (Meta Suite)</li>
+                            <li><i class="fas fa-check"></i> Entrega en 72 horas</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20el%20Combo%20Top%203." target="_blank" class="sl-btn-combo clip-btn sl-btn-combo-featured">Contratar Top 3</a>
+                    </div>
+                    
+                    <div class="sl-combo-card glass-panel clip-corner sl-combo-s">
+                        <div class="sl-combo-rank-badge rank-s">RANGO S</div>
+                        <h3>Elite</h3>
+                        <p class="sl-combo-sub">5 Redes configuradas al 100%</p>
+                        <div class="sl-combo-price"><span class="sl-price-main">$95</span><span class="sl-price-old">$133 USD</span></div>
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> WhatsApp + Instagram + TikTok</li>
+                            <li><i class="fas fa-check"></i> LinkedIn profesional completo</li>
+                            <li><i class="fas fa-check"></i> Facebook Fanpage y Catálogos</li>
+                            <li><i class="fas fa-check"></i> Plan integral de presencia digital</li>
+                            <li><i class="fas fa-check"></i> Soporte de 3 semanas</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20el%20Paquete%20Elite." target="_blank" class="sl-btn-combo clip-btn sl-btn-combo-s">Contratar Elite</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 04: MANTENIMIENTO MENSUAL ───────────────────────────
+             Los 3 planes mensuales. Cambia los precios igual que en los servicios.
+             Para cambiar el nombre del plan: edita el texto dentro de <h3>
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="mantenimiento" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">04 // SOPORTE</div>
+                    <h2>Mantenimiento <span class="sl-glow-text">Mensual</span></h2>
+                    <p>No te quedes desactualizado. Con nuestros planes mensuales, nos encargamos de que tus configuraciones y catálogos estén siempre al día.</p>
+                </div>
+
+                <div class="sl-maint-grid">
+                    <div class="sl-maint-card glass-panel clip-corner">
+                        <h3>Mantenimiento Basic</h3>
+                        <div class="sl-maint-price">$25 <span>/ mes</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Análisis mensual de redes</li>
+                            <li><i class="fas fa-check"></i> Reporte con 5 recomendaciones</li>
+                            <li><i class="fas fa-check"></i> Soporte por chat de consultas</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20Mantenimiento%20Basic." target="_blank" class="sl-btn-card clip-btn">Contratar Plan</a>
+                    </div>
+                    
+                    <div class="sl-maint-card glass-panel clip-corner sl-maint-featured">
+                        <div class="sl-maint-badge">Recomendado</div>
+                        <h3>Mantenimiento Pro</h3>
+                        <div class="sl-maint-price">$45 <span>/ mes</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Análisis mensual de redes</li>
+                            <li><i class="fas fa-check"></i> 2 Mensajes de difusión mensual</li>
+                            <li><i class="fas fa-check"></i> Soporte prioritario por WhatsApp</li>
+                            <li><i class="fas fa-check"></i> Ajustes menores en perfiles</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20Mantenimiento%20Pro." target="_blank" class="sl-btn-card clip-btn">Contratar Plan</a>
+                    </div>
+                    
+                    <div class="sl-maint-card glass-panel clip-corner">
+                        <h3>Mantenimiento Elite</h3>
+                        <div class="sl-maint-price">$75 <span>/ mes</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Todo lo del plan Pro</li>
+                            <li><i class="fas fa-check"></i> Actualización mensual de catálogos</li>
+                            <li><i class="fas fa-check"></i> Informe de rendimiento PDF</li>
+                            <li><i class="fas fa-check"></i> Diagnóstico de estrategia completo</li>
+                        </ul>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Me%20interesa%20Mantenimiento%20Elite." target="_blank" class="sl-btn-card clip-btn">Contratar Plan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 05: PROCESO DE TRABAJO ──────────────────────────────
+             Los 5 pasos que explican cómo trabajas. Para editar cada paso,
+             busca el texto dentro de cada <h3> y <p> más abajo.
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="proceso" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">05 // METODOLOGÍA</div>
+                    <h2>Nuestros 5 Pasos <span class="sl-glow-text">para el Éxito</span></h2>
+                    <p>Sabemos que tu tiempo es valioso. Hemos optimizado nuestro proceso para dejar tu perfil al 100% con la menor fricción posible.</p>
+                </div>
+                
+                <div class="sl-quest-list">
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">01</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-clipboard-list"></i> Formulario de Onboarding</h3>
+                            <p>Llenas nuestro formulario de Google Forms con la información de tu negocio, horarios, logotipos y productos.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">02</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-pen-nib"></i> Preparación de Textos</h3>
+                            <p>Nuestro equipo redacta los mensajes automatizados, respuestas rápidas y organiza tu catálogo antes de la llamada.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">03</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-video"></i> Sesión de Configuración</h3>
+                            <p>Nos conectamos por videollamada (Zoom o Meet) de 30 a 60 minutos para aplicar los cambios en vivo contigo.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">04</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-file-alt"></i> Entrega e Informe</h3>
+                            <p>Te enviamos un informe detallado por WhatsApp con las capturas de pantalla de todo lo configurado y guías de uso en PDF.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">05</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-shield-alt"></i> Soporte Post-Entrega</h3>
+                            <p>Tienes 2 semanas completas de soporte para resolver dudas operativas sobre el uso de tus redes configuradas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: PREGUNTAS FRECUENTES ────────────────────────────
+             Para cambiar una pregunta o respuesta, busca el texto con Ctrl+F
+             y edita lo que está entre <span class="faq-question"> y </span>
+             o entre <p class="faq-answer"> y </p>
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">06 // DUDAS FRECUENTES</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                <div class="faq-container">
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Cómo se realiza el servicio si es 100% remoto?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Nos conectamos por Zoom o Google Meet donde compartimos pantalla. Si la configuración es en el celular, te ayudamos a través de AnyDesk o TeamViewer de manera segura. ¡Es rápido y muy sencillo!</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Tienen experiencia configurando redes sociales?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Sí, contamos con una metodología validada que ya ha ayudado a decenas de emprendedores y profesionales en Ecuador a estructurar perfiles comerciales atractivos e integrados en el ecosistema Meta.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Cómo es la forma de pago? ¿Pagan a plazos?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Nuestro modelo de cobro es 50% de anticipo para iniciar el trabajo de redacción y preparación, y el 50% restante al finalizar el trabajo y hacer la entrega. No cobramos el 100% por adelantado.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Qué métodos de pago aceptan?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Aceptamos transferencias bancarias locales en Ecuador, efectivo (para clientes presenciales en Loja) y pagos con tarjeta de crédito/débito nacionales o internacionales a través de la pasarela de pagos PayPhone (QR o link de pago).</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Trabajan con clientes fuera de la ciudad de Loja?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">¡Totalmente! Trabajamos con clientes de todo Ecuador (Quito, Guayaquil, Cuenca, Ambato) y de otros países de Latinoamérica de forma 100% remota. El servicio tiene la misma calidad sin importar dónde te encuentres.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 07: LLAMADA A LA ACCIÓN (CTA) ──────────────────────
+             El bloque final grande que invita al cliente a contratar.
+             Cambia el título, el párrafo y el número de WhatsApp de los botones.
+        ──────────────────────────────────────────────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">07 // ACCIÓN</div>
+                    <h2>¿Listo para <span class="sl-glow-text">profesionalizar</span> tus redes?</h2>
+                    <p>Haz clic abajo para iniciar tu onboarding o agenda una llamada gratuita de diagnóstico digital para analizar tus cuentas actuales.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Quiero%20comenzar%20mi%20onboarding." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Iniciar Onboarding</span>
+                        </a>
+                        <a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Quisiera%20agendar%20sesion%20gratuita." target="_blank" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="far fa-calendar-alt"></i><span>Agendar Llamada</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER (Pie de página) ───────────────────────────────────────────
+             Aquí cambia: el nombre del negocio, la descripción corta,
+             los links de redes, el teléfono, el email y la ciudad.
+        ──────────────────────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3>NEXO <span>DIGITAL</span></h3>
+                        <p>Conectamos tu negocio con el mundo. Dejamos tus perfiles profesionales e integrados para que trabajen por ti.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593986777289" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/nexodigital.ec" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@nexodigital.ec" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 98 677 7289</li>
+                            <li><i class="far fa-envelope"></i> nexodigital@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Loja, Ecuador</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 Nexo Digital. Todos los derechos reservados.</p>
+                    <div><a href="#">Privacidad</a> &middot; <a href="#">Términos de Servicio</a></div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+
+    <!-- Enlace al archivo JS principal -->
+    <script src="script.js"></script>
+</body>
+</html>
