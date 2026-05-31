@@ -164,8 +164,22 @@ document.addEventListener('DOMContentLoaded', () => {
             // Solo se activa si el swipe es mayormente horizontal y mayor a 50px
             if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
                 if (!card.classList.contains('flipped')) {
-                    flipCard();
+                    // Swipe derecha: lanzar secuencia COMPLETA igual que el botón
+                    if (cardScreen && landingScreen && container) {
+                        flipCard();
+                        setTimeout(() => {
+                            container.classList.add('card-zoom');
+                            setTimeout(() => {
+                                cardScreen.classList.add('hide-card');
+                                document.body.style.overflow = '';
+                                landingScreen.classList.add('show-landing');
+                                window.scrollTo({ top: 0, behavior: 'instant' });
+                                initScrollAnimations();
+                            }, 150);
+                        }, 350);
+                    }
                 } else {
+                    // Swipe izquierda: simplemente desplegar la tarjeta
                     unflipCard();
                 }
             }
