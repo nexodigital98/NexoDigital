@@ -18,20 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.querySelector('.business-card');
     const container = document.querySelector('.perspective-container');
     const cardScreen     = document.getElementById('card-screen');
-        const landingScreen  = document.getElementById('landing-screen');
-
-    // === SALTO DIRECTO DESDE NUEVA TARJETA ANIMADA ===
-    if (window.location.hash === '#landing-screen') {
-        if (cardScreen) { cardScreen.classList.add('hide-card'); cardScreen.style.display = 'none'; }
-        if (landingScreen) landingScreen.classList.add('show-landing');
-        document.body.style.overflow = '';
-        setTimeout(() => { window.scrollTo(0, 0); }, 50);
-    }
+    const landingScreen  = document.getElementById('landing-screen');
 
     if (card && container) {
         container.addEventListener('mousemove', (e) => {
             // Si la tarjeta ya está volteada, desactivamos el efecto
             if (card.classList.contains('flipped')) return;
+            
+            // Eliminar el lag inicial si el cursor ya estaba dentro al cargar la página
+            if (card.style.transition !== 'none') {
+                card.style.transition = 'none';
+                card.style.animationPlayState = 'paused';
+            }
 
             const rect = container.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
@@ -113,25 +111,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function flipCard() {
         if (!card) return;
-        card.style.transition = 'transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        card.style.willChange = 'transform'; card.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         card.classList.add('flipped');
         card.style.transform = 'rotateY(180deg)';
     }
 
     function unflipCard() {
         if (!card) return;
-        card.style.transition = 'transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        card.style.willChange = 'transform'; card.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         card.classList.remove('flipped');
         card.style.transform = 'rotateX(0deg) rotateY(0deg)';
     }
 
     if (btnFlipInfo && card && cardScreen && landingScreen) {
         btnFlipInfo.addEventListener('click', () => {
-            // 1. Girar la tarjeta en su lugar (0.8s)
+            // 1. Girar la tarjeta en su lugar (0.4s)
             flipCard();
 
-            // 2. Cuando termina de girar, expansión tipo puerta
-            setTimeout(() => {
+              // 2. Cuando termina de girar, expansion
+              setTimeout(() => {
                 container.classList.add('card-zoom');
 
                 // 3. Cuando la expansión está en su pico, mostrar la landing
@@ -140,11 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     cardScreen.classList.add('hide-card');
                     // Liberar scroll y mostrar landing
                     document.body.style.overflow = '';
-                    landingScreen.classList.add('show-landing');
+                                        landingScreen.classList.add('show-landing');
                     window.scrollTo({ top: 0, behavior: 'instant' });
                     initScrollAnimations();
-                }, 500);
-            }, 800);
+                }, 150);
+            }, 350);
         });
     }
     btnBackCard && btnBackCard.addEventListener('click', unflipCard);
@@ -370,6 +368,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('✅ Nexus Digital — Scripts cargados correctamente (v2.0)');
 
 });
+
+
 
 
 
