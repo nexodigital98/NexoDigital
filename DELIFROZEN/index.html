@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>DeliFrozen | Heladería Artesanal y Postres</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="DeliFrozen - Los mejores helados artesanales, malteadas y postres. Pide a domicilio o visítanos.">
+    <meta name="keywords" content="heladería, helados artesanales, postres, malteadas, DeliFrozen, helados a domicilio">
+    <meta name="author" content="DeliFrozen">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#00BFFF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DeliFrozen">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="DeliFrozen Logo" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>DeliFrozen</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Artesanal · Dulce · Refrescante</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://facebook.com/delifrozen" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://instagram.com/delifrozen" target="_blank" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">DE</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ──────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Tarjeta</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ─────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="DeliFrozen" class="sl-logo-img">
+                <span style="font-family: 'Pacifico', cursive; font-size: 20px; text-transform: none; letter-spacing: 1px;">DeliFrozen</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#sabores">Sabores</a></li>
+                <li><a href="#combos">Combos Familiares</a></li>
+                <li><a href="#postres">Postres</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20hacer%20un%20pedido." target="_blank" class="sl-nav-cta">
+                    <i class="fab fa-whatsapp"></i> Pedir Ahora
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ───────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-truck"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">DELIVERY EXPRESS</span>
+                            <span class="sl-sys-desc">Llevamos la dulzura hasta la puerta de tu casa</span>
+                        </div>
+                    </div>
+
+                    <h1 class="sl-hero-title">
+                        El Sabor Auténtico<br>del <span class="sl-glow-text">Helado Artesanal</span>
+                    </h1>
+
+                    <p class="sl-hero-desc">
+                        Preparados diariamente con ingredientes 100% naturales, frutas frescas y mucho amor. Descubre nuestro menú de helados, malteadas y postres congelados.
+                    </p>
+
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20hacer%20un%20pedido%20a%20domicilio." target="_blank" class="sl-btn-primary clip-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Pedir a Domicilio</span>
+                        </a>
+                        <a href="#sabores" class="sl-btn-secondary clip-btn">
+                            <span>Ver Sabores</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">30+</span><span class="sl-stat-label">Sabores Únicos</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Fruta Natural</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">0</span><span class="sl-stat-label">Conservantes</span></div>
+                    </div>
+                </div>
+
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Helados DeliFrozen" class="sl-team-img" style="filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4)) drop-shadow(0 0 30px rgba(255,105,180,0.5));">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: SABORES CLÁSICOS Y PREMIUM ──────────────────── -->
+        <section id="sabores" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">NUESTRO ORGULLO</div>
+                    <h2>Catálogo de<br><span class="sl-glow-text">Sabores</span></h2>
+                    <p>Elige entre nuestras bases de crema, yogurt o agua (sorbetes). Todos hechos de forma tradicional.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- CREMA -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-ice-cream"></i></div>
+                            <div class="sl-service-badge">A base de crema</div>
+                        </div>
+                        <h3>Línea Cremosa</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-star"></i> Vainilla Francesa (Con trozos de vaina)</li>
+                            <li><i class="fas fa-star"></i> Chocolate Belga Intenso</li>
+                            <li><i class="fas fa-star"></i> Fresa a la Crema</li>
+                            <li><i class="fas fa-star"></i> Choco-Menta Chips</li>
+                            <li><i class="fas fa-star"></i> Dulce de Leche Tentación</li>
+                        </ul>
+                    </div>
+
+                    <!-- FRUTAL (AGUA) -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-lemon"></i></div>
+                            <div class="sl-service-badge">Veganos / Sin Lácteos</div>
+                        </div>
+                        <h3>Sorbetes Frutales</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-star"></i> Limonada Suiza (Refrescante)</li>
+                            <li><i class="fas fa-star"></i> Maracuyá Tropical</li>
+                            <li><i class="fas fa-star"></i> Frutos Rojos Silvestres</li>
+                            <li><i class="fas fa-star"></i> Mango Biche con Sal y Limón</li>
+                            <li><i class="fas fa-star"></i> Mora y Arándanos</li>
+                        </ul>
+                    </div>
+
+                    <!-- PREMIUM -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-crown"></i></div>
+                            <div class="sl-service-badge">Edición Especial</div>
+                        </div>
+                        <h3>Sabores Premium</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-star"></i> Pistacho Italiano con Trocitos</li>
+                            <li><i class="fas fa-star"></i> Ferrero Rocher & Avellanas</li>
+                            <li><i class="fas fa-star"></i> Cheesecake de Fresa</li>
+                            <li><i class="fas fa-star"></i> Baileys & Café Expreso</li>
+                            <li><i class="fas fa-star"></i> Oreo Cookies & Cream Extremo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: COMBOS FAMILIARES Y LITROS ──────────────────── -->
+        <section id="combos" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">PARA COMPARTIR</div>
+                    <h2>Combos y<br><span class="sl-glow-text">Litros para Casa</span></h2>
+                    <p>Lleva la felicidad en tamaño grande. Perfecto para reuniones, películas en casa o simplemente para tener reservas.</p>
+                </div>
+
+                <div class="sl-combos-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 1000px;">
+                    <div class="sl-combo-card glass-panel clip-corner">
+                        <div class="sl-combo-rank-badge rank-c">1/2 LITRO</div>
+                        <h3>Pinta DeliFrozen</h3>
+                        <p class="sl-combo-sub">Elige hasta 2 sabores diferentes en un solo envase.</p>
+                        
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> Envase térmico (473 ml)</li>
+                            <li><i class="fas fa-check"></i> 2 Conos de galleta de regalo</li>
+                            <li><i class="fas fa-check"></i> 1 Topping a elección (salsa o chispas)</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20pedir%20una%20pinta%20de%20medio%20litro." target="_blank" class="sl-btn-combo clip-btn">Añadir al Carrito</a>
+                    </div>
+
+                    <div class="sl-combo-card glass-panel clip-corner sl-combo-featured">
+                        <div class="sl-combo-hot">🔥 EL MÁS LLEVADO</div>
+                        <div class="sl-combo-rank-badge rank-a">1 LITRO FULL</div>
+                        <h3>Litro Familiar</h3>
+                        <p class="sl-combo-sub">Ideal para familias. Elige hasta 3 sabores diferentes.</p>
+                        
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> Envase térmico (1000 ml)</li>
+                            <li><i class="fas fa-check"></i> 5 Conos de galleta artesanales</li>
+                            <li><i class="fas fa-check"></i> 2 Salsas (Chocolate y Leche Condensada)</li>
+                            <li><i class="fas fa-check"></i> 2 Toppings secos (Gomitas, Chispas)</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20pedir%20un%20Litro%20Familiar." target="_blank" class="sl-btn-combo clip-btn sl-btn-combo-featured">Pedir Litro</a>
+                    </div>
+
+                    <div class="sl-combo-card glass-panel clip-corner">
+                        <div class="sl-combo-rank-badge rank-b">COMBO FIESTA</div>
+                        <h3>Pack Cumpleaños</h3>
+                        <p class="sl-combo-sub">Para que todos se armen su propio helado en la fiesta.</p>
+                        
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> 2 Litros de helado (6 sabores)</li>
+                            <li><i class="fas fa-check"></i> 15 Conos o vasitos con cucharillas</li>
+                            <li><i class="fas fa-check"></i> Barra de Toppings (5 variedades)</li>
+                            <li><i class="fas fa-check"></i> Envío gratis en zona centro</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20info%20del%20Pack%20Cumplea%C3%B1os." target="_blank" class="sl-btn-combo clip-btn">Añadir al Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 04: CÓMO PEDIR ─────────────────────────────────── -->
+        <section id="proceso" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">DELIVERY EXPRESS</div>
+                    <h2>Pide sin<br><span class="sl-glow-text">Complicaciones</span></h2>
+                </div>
+
+                <div class="sl-quest-list">
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">01</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fab fa-whatsapp"></i> Envía un mensaje</h3>
+                            <p>Escríbenos al WhatsApp indicando qué sabores o combos deseas.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">02</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-map-marker-alt"></i> Envía tu ubicación</h3>
+                            <p>Mándanos la ubicación GPS de tu casa o lugar de trabajo.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">03</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-motorcycle"></i> Despacho inmediato</h3>
+                            <p>Preparamos tu pedido en envases térmicos (no se derrite) y nuestro motorizado sale enseguida.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">04</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-grin-hearts"></i> ¡A disfrutar!</h3>
+                            <p>Recibes tu helado perfecto, pagas en efectivo o transferencia, y disfrutas el momento dulce.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 05: LLAMADA A LA ACCIÓN ────────────────────────── -->
+        <section id="ubicacion" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">VISÍTANOS O PIDE A DOMICILIO</div>
+                    <h2>¿Antojo de algo<br><span class="sl-glow-text">Dulce y Frío?</span></h2>
+                    <p>Estamos ubicados en el Centro de la Ciudad (Calle Principal y Secundaria). Abrimos de Martes a Domingo de 11:00 AM a 9:00 PM.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20el%20men%C3%BA%20completo%20porfa." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Pedir por WhatsApp</span>
+                        </a>
+                        <a href="#" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-map-marker-alt"></i><span>Ver en Google Maps</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family: 'Pacifico', cursive; font-size: 24px; text-transform: none;">DeliFrozen</h3>
+                        <p>Helados artesanales hechos con amor, frutas frescas e ingredientes de primera calidad. Tu momento feliz del día.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/delifrozen" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/delifrozen" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto y Horarios</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Mar - Dom: 11:00 - 21:00</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Centro de la Ciudad, Ecuador</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 DeliFrozen. Todos los derechos reservados.</p>
+                    <div><a href="#">Privacidad</a> &middot; <a href="#">Alergias</a></div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: DELIFROZEN -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Haz tu Pedido",
+    "subtitulo": "Cuéntanos qué deseas ordenar.",
+    "boton": "Enviar Pedido",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "¿Entrega a domicilio o recoges?",
+            "tipo": "radio",
+            "emoji": "🚚",
+            "opciones": [
+                "A domicilio",
+                "Recojo yo"
+            ]
+        },
+        {
+            "label": "Dirección (si es a domicilio)",
+            "tipo": "text",
+            "emoji": "📍",
+            "placeholder": "Tu dirección..."
+        },
+        {
+            "label": "Productos de interés",
+            "tipo": "textarea",
+            "emoji": "🛒",
+            "placeholder": "Lista lo que quieres pedir..."
+        }
+    ],
+    "negocio": "DELIFROZEN"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

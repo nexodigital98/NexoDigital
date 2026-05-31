@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Taller Mecánico | Mantenimiento y Reparación Automotriz</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Servicio técnico automotriz. Mantenimiento preventivo, reparación de motores, frenos, escáner multimarcas y cambio de aceite.">
+    <meta name="keywords" content="taller mecanico, mecanica automotriz, cambio de aceite, frenos, reparacion de motor, escanner automotriz">
+    <meta name="author" content="Taller Mecánico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#FF3333">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Taller Mecánico">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Logo Taller" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>MOTOR MAX</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Taller Mecánico Multimarcas</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://google.com/maps" target="_blank" class="social-btn" aria-label="Ubicación"><i class="fas fa-map-marker-alt"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">ME</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ──────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Contacto</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ─────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="Motor Max Logo" class="sl-logo-img">
+                <span style="font-family: 'Chakra Petch', sans-serif; font-size: 22px; font-weight: 700; font-style: italic;">MOTOR MAX</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#especialidad">Mantenimiento</a></li>
+                <li><a href="#promos">Combos</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Necesito%20una%20cita%20para%20mi%20auto." target="_blank" class="sl-nav-cta">
+                    <i class="fas fa-calendar-alt"></i> Agendar Cita
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ───────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-car-crash"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">¿LUZ DE CHECK ENGINE ENCENDIDA?</span>
+                            <span class="sl-sys-desc">Diagnóstico computarizado preciso y rápido</span>
+                        </div>
+                    </div>
+
+                    <h1 class="sl-hero-title" style="font-family: 'Chakra Petch', sans-serif;">
+                        Pasión por los Motores. <br><span class="sl-glow-text">Soluciones Reales.</span>
+                    </h1>
+
+                    <p class="sl-hero-desc">
+                        Taller mecánico especializado en todas las marcas. Brindamos servicios de mantenimiento preventivo, reparación de motores, frenos, suspensión y diagnóstico electrónico avanzado.
+                    </p>
+
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20agendar%20una%20revisi%C3%B3n." target="_blank" class="sl-btn-primary clip-btn">
+                            <span>Agendar Revisión</span>
+                        </a>
+                        <a href="#servicios" class="sl-btn-secondary clip-btn">
+                            <span>Nuestros Servicios</span>
+                        </a>
+                    </div>
+
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">15</span><span class="sl-stat-label">Años de Exp.</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Transparencia</span></div>
+                    </div>
+                </div>
+
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <!-- Imagen de un motor, mecánico trabajando o taller limpio -->
+                        <img src="img/hero/EQUIPO.png" alt="Taller Mecánico" class="sl-team-img" style="border-radius: 8px; border: 4px solid var(--sl-violet); box-shadow: 10px 10px 0px var(--sl-purple);">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: SERVICIOS PRINCIPALES ──────────────────── -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">ÁREAS DE TRABAJO</div>
+                    <h2>Servicios <span class="sl-glow-text">Especializados</span></h2>
+                    <p>Contamos con herramientas de última tecnología para garantizar que tu vehículo quede en perfectas condiciones.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- MECÁNICA GENERAL Y MOTOR -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-cogs"></i></div>
+                        </div>
+                        <h3>Mecánica de Motor</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Desde corrección de fugas hasta reparación y armado completo de motores (Overhaul).</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-wrench"></i> Cambio de banda de distribución</li>
+                            <li><i class="fas fa-wrench"></i> Reparación de culata (Cabezote)</li>
+                            <li><i class="fas fa-wrench"></i> Afinamiento de motor</li>
+                            <li><i class="fas fa-wrench"></i> Solución a recalentamientos</li>
+                        </ul>
+                    </div>
+
+                    <!-- FRENOS Y SUSPENSIÓN -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-car-side"></i></div>
+                            <div class="sl-service-badge">Seguridad</div>
+                        </div>
+                        <h3>Frenos y Suspensión</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Garantiza tu seguridad en la vía. Elimina ruidos molestos al frenar o pasar baches.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-wrench"></i> Cambio de pastillas y zapatas</li>
+                            <li><i class="fas fa-wrench"></i> Rectificación de discos</li>
+                            <li><i class="fas fa-wrench"></i> Cambio de amortiguadores</li>
+                            <li><i class="fas fa-wrench"></i> Revisión de tren delantero</li>
+                        </ul>
+                    </div>
+
+                    <!-- ELECTRÓNICA / ESCÁNER -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-laptop-code"></i></div>
+                            <div class="sl-service-badge">Avanzado</div>
+                        </div>
+                        <h3>Diagnóstico Computarizado</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Conectamos nuestro Escáner Multimarcas para leer códigos de error en la computadora (ECU).</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-wrench"></i> Lectura y borrado de códigos (Check Engine)</li>
+                            <li><i class="fas fa-wrench"></i> Revisión de sensores (Oxígeno, ABS, Airbag)</li>
+                            <li><i class="fas fa-wrench"></i> Limpieza de inyectores por ultrasonido</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: MANTENIMIENTO PREVENTIVO ───────────────────────────── -->
+        <section id="especialidad" class="sl-section" style="background: rgba(255, 204, 0, 0.03);">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">LO BARATO SALE CARO</div>
+                    <h2>La Importancia del<br><span class="sl-glow-text">Mantenimiento Preventivo</span></h2>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-oil-can"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Cambio de Aceite Premium</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Utilizamos aceites sintéticos y semi-sintéticos de las mejores marcas para proteger tu motor del desgaste, junto con filtros originales.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-battery-full"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Sistema Eléctrico</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Revisión del estado de la batería, alternador y motor de arranque para que tu auto nunca te deje botado en el peor momento.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-thermometer-half"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Fluidos y Refrigerantes</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Control y reemplazo de líquido de frenos, refrigerante de radiador y aceite de transmisión (cajas manuales y automáticas).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Tienen garantía en reparaciones?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Todos nuestros trabajos cuentan con garantía certificada tanto en mano de obra como en repuestos originales.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Ofrecen servicio de grúa?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Sí, contamos con rescate vial 24/7 para nuestros clientes afiliados dentro de la ciudad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Instalaciones modernas, sala de espera con Wi-Fi y monitoreo transparente de tu vehículo.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Parque Industrial, Nave 12</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 05: LLAMADA A LA ACCIÓN ────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">CONFÍA EN LOS PROFESIONALES</div>
+                    <h2>No dejes tu auto en<br><span class="sl-glow-text">manos inexpertas</span></h2>
+                    <p>Nuestro compromiso es la transparencia. Siempre te mostraremos las piezas viejas y te explicaremos exactamente qué trabajo realizamos.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20agendar%20una%20cita%20en%20el%20taller." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Escribir por WhatsApp</span>
+                        </a>
+                        <a href="https://google.com/maps" target="_blank" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-map-marker-alt"></i><span>Ver Ubicación</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family: 'Chakra Petch', sans-serif; font-size: 26px; font-style: italic;">MOTOR MAX</h3>
+                        <p>Taller mecánico multimarcas. Calidad, honestidad y rapidez para que tu auto vuelva al asfalto de manera segura.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Atención y Horarios</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Lunes a Viernes: 08:00 - 18:00<br>Sábados: 08:00 - 14:00</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Principal y Calle de los Motores</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 Taller Mecánico Motor Max. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: MecanicaAutomotriz -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Agenda tu Revisión",
+    "subtitulo": "Cuéntanos sobre tu vehículo.",
+    "boton": "Agendar Servicio",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Marca y modelo del vehículo",
+            "tipo": "text",
+            "emoji": "🚗",
+            "placeholder": "Ej: Toyota Corolla 2019"
+        },
+        {
+            "label": "Servicio requerido",
+            "tipo": "radio",
+            "emoji": "🔧",
+            "opciones": [
+                "Cambio aceite",
+                "Frenos",
+                "Revisión general",
+                "Motor",
+                "Otro"
+            ]
+        },
+        {
+            "label": "¿Cuándo fue el último servicio?",
+            "tipo": "radio",
+            "emoji": "📅",
+            "opciones": [
+                "Hace 3 meses",
+                "6 meses",
+                "1 año",
+                "No recuerdo"
+            ]
+        },
+        {
+            "label": "Síntoma o problema",
+            "tipo": "textarea",
+            "emoji": "📝",
+            "placeholder": "Ej: hace ruido al frenar..."
+        }
+    ],
+    "negocio": "MecanicaAutomotriz"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

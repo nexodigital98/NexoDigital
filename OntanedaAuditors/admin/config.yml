@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (main)
+
+media_folder: "img/cms" # Folder where uploaded files will be saved
+public_folder: "img/cms" # Public path to media files
+
+# Locale settings
+locale: 'es'
+
+collections:
+  - name: "contenido"
+    label: "Contenido de la Web"
+    editor:
+      preview: false
+    files:
+      - label: "Página Principal (Inicio)"
+        name: "inicio"
+        file: "data/content.json"
+        fields:
+          - { label: "Hero - Título Principal", name: "hero_title", widget: "string", default: "Expertos en Auditoría y Contabilidad" }
+          - { label: "Hero - Descripción", name: "hero_desc", widget: "text", default: "Confía en nosotros, auditamos tus finanzas brindándote transparencia y control total. Nos enfocamos en ofrecer el mejor servicio para tu satisfacción." }
+          - { label: "Hero - Años de Experiencia", name: "stat1_num", widget: "string", default: "10+" }
+          - { label: "Hero - Cantidad de Declaraciones", name: "stat2_num", widget: "string", default: "500+" }
+          - { label: "Hero - Imagen de Fondo/Equipo", name: "hero_image", widget: "image", required: false }
+          
+          - { label: "Nosotros - Título", name: "about_title", widget: "string", default: "Tu Mejor Opción en Auditoría y Contabilidad" }
+          - { label: "Nosotros - Párrafo", name: "about_text", widget: "text", default: "No somos solo un servicio más. Somos profesionales dedicados a brindarte la mejor experiencia en auditoría y contabilidad, asegurando calidad y compromiso." }
+          
+          - { label: "Servicio 1 - Nombre", name: "serv1_name", widget: "string", default: "Auditoría Externa" }
+          - { label: "Servicio 1 - Descripción", name: "serv1_desc", widget: "text", default: "Servicio especializado de auditoría externa diseñado para cubrir tus necesidades con total profesionalismo." }
+          
+          - { label: "Servicio 2 - Nombre", name: "serv2_name", widget: "string", default: "Revisión Fiscal" }
+          - { label: "Servicio 2 - Descripción", name: "serv2_desc", widget: "text", default: "Brindamos revisión fiscal con los más altos estándares de calidad y atención al detalle." }
+          
+          - { label: "Servicio 3 - Nombre", name: "serv3_name", widget: "string", default: "Consultoría Financiera" }
+          - { label: "Servicio 3 - Descripción", name: "serv3_desc", widget: "text", default: "Expertos en consultoría financiera, garantizando resultados eficientes y confiables." }
+          
+          - { label: "Servicio 4 - Nombre", name: "serv4_name", widget: "string", default: "Due Diligence" }
+          - { label: "Servicio 4 - Descripción", name: "serv4_desc", widget: "text", default: "Nuestro servicio de due diligence te ofrece seguridad y respaldo en cada etapa." }

@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>PrimeEstate | Real Estate de Lujo y Asesoría Inmobiliaria</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Encuentre su propiedad ideal o venda al mejor precio con PrimeEstate. Especialistas en bienes raíces residenciales y comerciales de alto nivel.">
+    <meta name="keywords" content="agente inmobiliario, bienes raices, real estate, venta de casas, comprar departamento, alquileres, asesoria inmobiliaria, propiedades de lujo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#3B82F6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PrimeEstate">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="PrimeEstate" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>PrimeEstate</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Exclusividad & Bienes Raíces</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">AG</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-address-card"></i><span>Catálogo</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="PrimeEstate" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:var(--sl-text);">PrimeEstate</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proceso">El Proceso</a></li>
+                <li><a href="#planes">Propiedades</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Busco%20asesoría%20inmobiliaria." target="_blank" class="sl-nav-cta"><i class="fas fa-key"></i> Contactar Agente</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-building"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">LISTADOS EXCLUSIVOS OFF-MARKET</span>
+                            <span class="sl-sys-desc">Acceda a propiedades que no se publican en portales comunes</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Encuentre el lugar perfecto. Venda al <span class="sl-glow-text">mejor valor de mercado</span>.</h1>
+                    <p class="sl-hero-desc">Elevamos el estándar del Real Estate. Le guiamos en cada paso de la compra, venta o inversión inmobiliaria con absoluta transparencia, marketing de lujo y cierre legal seguro.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20vender/comprar%20una%20propiedad." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Quiero Asesoría</span></a>
+                        <a href="#planes" class="sl-btn-secondary clip-btn"><span>Ver Propiedades Destacadas</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">300+</span><span class="sl-stat-label">Cierres Exitosos</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">A consultarM</span><span class="sl-stat-label">Volumen de Ventas</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Garantía Legal</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Agente PrimeEstate" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SERVICIOS -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">SERVICIOS INMOBILIARIOS</div>
+                    <h2>Más que vender casas, <span class="sl-glow-text">cerramos grandes negocios</span></h2>
+                    <p>Dominamos el mercado residencial y comercial. Nuestro enfoque es proteger su patrimonio y maximizar el retorno de su inversión inmobiliaria.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-home"></i></div><div class="sl-service-badge">Compradores</div></div>
+                        <h3>Búsqueda & Compra</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Filtramos el mercado para encontrar su casa ideal o inversión rentable. Negociamos el precio a su favor y aseguramos la limpieza legal de los títulos.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Acceso a propiedades Off-Market</li>
+                            <li><i class="fas fa-check"></i> Análisis comparativo de precios</li>
+                            <li><i class="fas fa-check"></i> Asesoría para créditos hipotecarios</li>
+                            <li><i class="fas fa-check"></i> Revisión legal y escrituración</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-sign"></i></div><div class="sl-service-badge">Vendedores</div></div>
+                        <h3>Marketing de Venta</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">No solo ponemos un cartel. Creamos una estrategia de marketing agresiva con fotos profesionales, video tour y pauta digital para vender en tiempo récord.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Valoración comercial gratuita</li>
+                            <li><i class="fas fa-check"></i> Fotografía y video con drones</li>
+                            <li><i class="fas fa-check"></i> Promoción en redes y portales premium</li>
+                            <li><i class="fas fa-check"></i> Calificación de compradores (Open House)</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-city"></i></div></div>
+                        <h3>Inversiones & Proyectos</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Asesoría para inversionistas que buscan alta rentabilidad. Venta de proyectos en planos, terrenos para desarrollo y flipping de propiedades.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Venta de proyectos en planos (Preventa)</li>
+                            <li><i class="fas fa-check"></i> Cálculo de CAP Rate / Rentabilidad</li>
+                            <li><i class="fas fa-check"></i> Terrenos para constructoras</li>
+                            <li><i class="fas fa-check"></i> Gestión de rentas a corto plazo (Airbnb)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESO -->
+        <section id="proceso" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">EL PROCESO PRIME</div>
+                    <h2>Una experiencia <span class="sl-glow-text">sin estrés ni complicaciones</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-search-location"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Análisis de Mercado</div>
+                            <p>Determinamos el precio correcto utilizando un Análisis Comparativo de Mercado (CMA) detallado. Ni subvaloramos su propiedad, ni la estancamos con precios irreales.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Negociación Estratégica</div>
+                            <p>Protegemos sus intereses. Gestionamos las ofertas, las contraofertas y los términos del contrato para que usted obtenga las condiciones más favorables posibles.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-file-signature"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Cierre Legal Blindado</div>
+                            <p>Trabajamos junto a abogados y notarias de confianza. Coordinamos el levantamiento de hipotecas, pagos de impuestos y promesas de compraventa para un cierre 100% seguro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">¿LISTO PARA VENDER?</div>
+                    <h2>Obtenga la valoración comercial <span class="sl-glow-text">gratuita</span> de su inmueble.</h2>
+                    <p>Deje de adivinar el precio de su casa. Llenaremos un reporte profesional con las ventas recientes en su sector para que sepa exactamente cuánto dinero puede obtener hoy.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20una%20valoración%20gratuita%20de%20mi%20propiedad." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Solicitar Valoración Gratis</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text);">PrimeEstate</h3>
+                        <p>Elevando el estándar inmobiliario. Honestidad, marketing premium y resultados garantizados en cada transacción.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-envelope"></i> ventas@primeestate.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Edificio Business Center, Ofic. 302</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 PrimeEstate Real Estate. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: AgenteInmobiliario -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Asesoría Inmobiliaria",
+    "subtitulo": "Cuéntanos qué estás buscando.",
+    "boton": "Agendar Asesoría",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "¿Quieres comprar o arrendar?",
+            "tipo": "radio",
+            "emoji": "🏠",
+            "opciones": [
+                "Comprar",
+                "Arrendar",
+                "Vender mi propiedad"
+            ]
+        },
+        {
+            "label": "Tipo de inmueble",
+            "tipo": "radio",
+            "emoji": "🏢",
+            "opciones": [
+                "Casa",
+                "Departamento",
+                "Local comercial",
+                "Terreno"
+            ]
+        },
+        {
+            "label": "Presupuesto aproximado",
+            "tipo": "select",
+            "emoji": "💰",
+            "opciones": [
+                "Menos de A consultark",
+                "A consultark-A consultark",
+                "A consultark-A consultark",
+                "Más de A consultark"
+            ]
+        },
+        {
+            "label": "¿En qué sector o ciudad?",
+            "tipo": "text",
+            "emoji": "📍",
+            "placeholder": "Ej: Norte de Quito"
+        }
+    ],
+    "negocio": "AgenteInmobiliario"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

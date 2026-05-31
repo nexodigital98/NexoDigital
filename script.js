@@ -1,4 +1,4 @@
-/* 
+﻿/* 
 ─────────────────────────────────────────────────────────────────────────
    script.js — Este archivo le da vida a la página.
    Aquí están todas las animaciones, el menú del celular,
@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         container.addEventListener('mousemove', (e) => {
             // Si la tarjeta ya está volteada, desactivamos el efecto
             if (card.classList.contains('flipped')) return;
+            
+            // Eliminar el lag inicial si el cursor ya estaba dentro al cargar la página
+            if (card.style.transition !== 'none') {
+                card.style.transition = 'none';
+                card.style.animationPlayState = 'paused';
+            }
 
             const rect = container.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
@@ -224,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!isActive) {
                 item.classList.add('active');
-                body.style.maxHeight = body.scrollHeight + 'px';
+                body.style.maxHeight = '600px';
             } else {
                 item.classList.remove('active');
                 body.style.maxHeight = null;
@@ -359,6 +365,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // INICIALIZACIÓN COMPLETADA
     // ==========================================
-    console.log('✅ Nexo Digital — Scripts cargados correctamente (v2.0)');
+    console.log('✅ Nexus Digital — Scripts cargados correctamente (v2.0)');
 
 });
+
+

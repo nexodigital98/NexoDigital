@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Madera & Arte | Ebanistería y Carpintería a Medida</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Taller de carpintería y ebanistería. Fabricación de muebles a medida, cocinas, clósets y restauración de muebles de madera fina.">
+    <meta name="keywords" content="carpinteria, muebles a medida, cocinas, closets, ebanista, madera, restauracion">
+    <meta name="author" content="Madera & Arte">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#F4D09C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Madera & Arte">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Logo Carpintería" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>MADERA & ARTE</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Ebanistería Profesional</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">CA</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ──────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Contacto</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ─────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="Carpintería Logo" class="sl-logo-img">
+                <span style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;">MADERA & ARTE</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#servicios">Diseños</a></li>
+                <li><a href="#especialidad">Materiales</a></li>
+                <li><a href="#combos">Paquetes Hogar</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20cotizar%20un%20mueble." target="_blank" class="sl-nav-cta">
+                    <i class="fas fa-ruler-combined"></i> Cotizar Ahora
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ───────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-medal"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">TRABAJOS GARANTIZADOS</span>
+                            <span class="sl-sys-desc">Más de 15 años de experiencia en acabados finos</span>
+                        </div>
+                    </div>
+
+                    <h1 class="sl-hero-title">
+                        Muebles que cuentan una <span class="sl-glow-text">Historia.</span>
+                    </h1>
+
+                    <p class="sl-hero-desc">
+                        Diseñamos y fabricamos cocinas integrales, clósets, puertas y muebles a medida. Utilizamos maderas nobles y tableros melamínicos de la más alta calidad.
+                    </p>
+
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Necesito%20una%20visita%20para%20tomar%20medidas." target="_blank" class="sl-btn-primary clip-btn">
+                            <span>Solicitar Visita Técnica</span>
+                        </a>
+                        <a href="#servicios" class="sl-btn-secondary clip-btn">
+                            <span>Ver Trabajos</span>
+                        </a>
+                    </div>
+
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">500+</span><span class="sl-stat-label">Hogares</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">A Medida</span></div>
+                    </div>
+                </div>
+
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <!-- Imagen de un carpintero trabajando o una cocina espectacular -->
+                        <img src="img/hero/EQUIPO.png" alt="Carpintero" class="sl-team-img" style="border-radius: 8px; border: 4px solid var(--sl-purple); box-shadow: 10px 10px 0px rgba(210, 105, 30, 0.2);">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: SERVICIOS PRINCIPALES ──────────────────── -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">LO QUE HACEMOS MEJOR</div>
+                    <h2>Diseño y <span class="sl-glow-text">Fabricación</span></h2>
+                    <p>Cada espacio es único. Adaptamos nuestros diseños a tus gustos y necesidades.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- COCINAS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-sink"></i></div>
+                        </div>
+                        <h3>Cocinas Integrales</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Renueva el corazón de tu hogar con diseños modernos, islas funcionales y optimización de espacio.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Modulares en Melamina RH (Resistente a humedad)</li>
+                            <li><i class="fas fa-check"></i> Mesones en cuarzo y granito</li>
+                            <li><i class="fas fa-check"></i> Herrajes de cierre lento (Blum, Hafele)</li>
+                        </ul>
+                    </div>
+
+                    <!-- CLOSETS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-door-open"></i></div>
+                            <div class="sl-service-badge">A Medida</div>
+                        </div>
+                        <h3>Clósets y Vestidores</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Organiza tu ropa con estilo. Armarios empotrados, walk-in closets y muebles de dormitorio.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Distribución interna personalizada</li>
+                            <li><i class="fas fa-check"></i> Puertas corredizas o batientes</li>
+                            <li><i class="fas fa-check"></i> Cajoneras con rieles telescópicos</li>
+                        </ul>
+                    </div>
+
+                    <!-- EBANISTERÍA -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-chair"></i></div>
+                            <div class="sl-service-badge">Artesanal</div>
+                        </div>
+                        <h3>Muebles Especiales</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Centros de entretenimiento, consolas, mesas de comedor y puertas de madera sólida.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Trabajamos con Roble, Cedro, Seike y Teca</li>
+                            <li><i class="fas fa-check"></i> Acabados en poliuretano brillante o mate</li>
+                            <li><i class="fas fa-check"></i> Restauración de muebles antiguos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: PROCESO / MATERIALES ───────────────────────────── -->
+        <section id="especialidad" class="sl-section" style="background: rgba(210, 105, 30, 0.05); border-top: 1px solid var(--sl-border); border-bottom: 1px solid var(--sl-border);">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">NUESTRA PROMESA</div>
+                    <h2>Calidad que <span class="sl-glow-text">Perdura</span></h2>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Diseño 3D</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Antes de cortar la primera tabla, te mostramos cómo quedará tu mueble en un render 3D fotorealista para que apruebes el diseño.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-tree"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Materiales Premium</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>No usamos aglomerados baratos que se inflan con el agua. Solo tableros MDP resistentes a la humedad y maderas tratadas contra polillas.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-clock"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Puntualidad Absoluta</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Sabemos lo molesto que es un carpintero impuntual. Nosotros firmamos un contrato con fechas de entrega estrictas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 05: LLAMADA A LA ACCIÓN ────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">TRANSFORMA TU HOGAR</div>
+                    <h2>No es un gasto, es una <span class="sl-glow-text">Inversión</span></h2>
+                    <p>Un buen mueble a medida aumenta el valor de tu propiedad y mejora tu calidad de vida todos los días. Escríbenos y hagamos realidad tu idea.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20enviarles%20la%20foto%20de%20un%20mueble%20para%20cotizar." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Enviar Foto para Cotizar</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--sl-purple);">MADERA & ARTE</h3>
+                        <p>Taller de ebanistería y carpintería moderna. Fabricantes directos sin intermediarios.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Nuestro Taller</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Lunes a Sábados: 08:30 - 18:00</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Los Pinos y Las Industrias</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 Madera & Arte Carpintería. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: Carpintero -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Cotiza tu Proyecto de Madera",
+    "subtitulo": "Cuéntanos qué necesitas.",
+    "boton": "Solicitar Cotización",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de trabajo",
+            "tipo": "radio",
+            "emoji": "🪵",
+            "opciones": [
+                "Muebles",
+                "Puertas/Ventanas",
+                "Closets",
+                "Reparación",
+                "Otro"
+            ]
+        },
+        {
+            "label": "Material preferido",
+            "tipo": "radio",
+            "emoji": "🌲",
+            "opciones": [
+                "Madera natural",
+                "MDF/Melamínico",
+                "No sé"
+            ]
+        },
+        {
+            "label": "Medidas o descripción",
+            "tipo": "textarea",
+            "emoji": "📝",
+            "placeholder": "Dimensiones o descripción del proyecto..."
+        }
+    ],
+    "negocio": "Carpintero"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

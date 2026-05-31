@@ -1,0 +1,30 @@
+﻿{
+  "name": "Nexus Digital",
+  "short_name": "Nexus Digital",
+  "description": "Tarjeta digital profesional de Nexus Digital",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#03050a",
+  "theme_color": "#00E5FF",
+  "icons": [
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "lang": "es",
+  "dir": "ltr"
+}

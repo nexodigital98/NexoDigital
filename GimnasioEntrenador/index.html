@@ -1,0 +1,419 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>IronFit | Entrenamiento Personal & Centro de Alto Rendimiento</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Rompe tus límites. Entrenamiento personalizado, musculación, CrossFit y planes nutricionales para transformar tu cuerpo.">
+    <meta name="keywords" content="gimnasio, entrenador personal, fitness, crossfit, musculacion, perder peso, dieta, personal trainer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#FB923C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="IronFit">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="IronFit" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>IRONFIT</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Elite Personal Training</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://tiktok.com/" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">GI</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-address-card"></i><span>Coach</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="IronFit" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; color:var(--sl-text); text-transform:uppercase;">IronFit</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#entrenamiento">Entrenamiento</a></li>
+                <li><a href="#metodo">El Método</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Estoy%20listo%20para%20empezar%20mi%20cambio%20físico." target="_blank" class="sl-nav-cta"><i class="fas fa-bolt"></i> Empieza Hoy</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-fire-alt"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">NO MÁS EXCUSAS. SOLO RESULTADOS.</span>
+                            <span class="sl-sys-desc">Programación personalizada y nutrición basada en ciencia</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Tu mejor versión no se desea, <span class="sl-glow-text">se construye</span>.</h1>
+                    <p class="sl-hero-desc">Deja de perder tiempo en rutinas genéricas. Te damos el plan exacto de entrenamiento, nutrición y acompañamiento 1 a 1 para que logres el cuerpo que siempre has querido.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20una%20evaluación%20física." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Quiero mi Evaluación</span></a>
+                        <a href="#planes" class="sl-btn-secondary clip-btn"><span>Ver Programas</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">300+</span><span class="sl-stat-label">Transformaciones</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Compromiso</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">24/7</span><span class="sl-stat-label">Soporte Online</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Entrenador IronFit" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SERVICIOS -->
+        <section id="entrenamiento" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">ÁREAS DE ENTRENAMIENTO</div>
+                    <h2>Disciplinas enfocadas en <span class="sl-glow-text">resultados reales</span></h2>
+                    <p>Ya sea que quieras perder grasa, ganar músculo o mejorar tu rendimiento atlético, tenemos un programa específico para tu biotipo.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-dumbbell"></i></div><div class="sl-service-badge">Fuerza</div></div>
+                        <h3>Hipertrofia & Musculación</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Rutinas de sobrecarga progresiva diseñadas para maximizar la ganancia muscular. Técnica perfecta y periodización científica.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Corrección de técnica (Lifts)</li>
+                            <li><i class="fas fa-check"></i> Planes de volumen y definición</li>
+                            <li><i class="fas fa-check"></i> Rutinas Push-Pull-Legs o Full Body</li>
+                            <li><i class="fas fa-check"></i> Prevención de lesiones articulares</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-running"></i></div><div class="sl-service-badge">Intenso</div></div>
+                        <h3>Pérdida de Grasa & HIIT</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Circuitos metabólicos de alta intensidad para quemar calorías incluso después de haber entrenado. Sin pasar horas en la caminadora.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Circuitos Funcionales y CrossFit</li>
+                            <li><i class="fas fa-check"></i> Acondicionamiento cardiovascular</li>
+                            <li><i class="fas fa-check"></i> Mejora de resistencia y VO2 Max</li>
+                            <li><i class="fas fa-check"></i> Entrenamientos de 45 minutos</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-apple-alt"></i></div></div>
+                        <h3>Nutrición Deportiva</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">El 70% de tus resultados están en la cocina. Te entregamos macronutrientes calculados exactos para tus objetivos, sin dietas extremas ni rebotes.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Cálculo de requerimiento calórico</li>
+                            <li><i class="fas fa-check"></i> Planes de alimentación flexibles</li>
+                            <li><i class="fas fa-check"></i> Asesoría en suplementación (Creatina/Whey)</li>
+                            <li><i class="fas fa-check"></i> Monitoreo de peso y medidas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METODOLOGÍA -->
+        <section id="metodo" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">EL MÉTODO IRONFIT</div>
+                    <h2>No adivinamos, <span class="sl-glow-text">medimos y progresamos</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-clipboard-list"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">1. Valoración Inicial</div>
+                            <p>Tomamos tu peso, % de grasa, medidas corporales y evaluamos tu movilidad antes de tocar una pesa. Así sabemos exactamente de dónde partimos.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">2. Planificación Exacta</div>
+                            <p>Recibes tu rutina a través de nuestra App (o PDF). Sabrás qué ejercicios hacer, cuántas series, repeticiones y descansos aplicar cada semana.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">3. Revisiones Semanales</div>
+                            <p>Ajustamos la dieta y el entrenamiento cada semana en base a fotos de progreso y tu pesaje. Cero estancamientos, siempre mejorando.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Necesito experiencia previa?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">En absoluto. Nuestros entrenadores adaptarán las rutinas a tu nivel, desde principiantes hasta atletas avanzados.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Ofrecen asesoría nutricional?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Sí, contamos con programas integrales que combinan entrenamiento personalizado y guía nutricional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Entrena con el mejor equipamiento en un ambiente vibrante, climatizado y diseñado para inspirarte.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Av. Principal, Zona Deportiva</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">TU MOMENTO ES AHORA</div>
+                    <h2>No lo dejes para el <span class="sl-glow-text">próximo lunes</span>.</h2>
+                    <p>El cuerpo que quieres está al otro lado de la incomodidad y la disciplina. Escríbeme y te diré exactamente qué necesitas hacer para cambiar tu físico en 12 semanas.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Estoy%20listo%20para%20empezar%20mi%20cambio." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Estoy Listo. Vamos.</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text); text-transform:uppercase;">IronFit</h3>
+                        <p>Ciencia, sudor y resultados. El centro de entrenamiento y asesoría donde los pretextos se quedan en la puerta.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Fitness #402, Zona Norte</li>
+                            <li><i class="fas fa-clock"></i> Lunes a Sábado: 6am - 10pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 IronFit Personal Training. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: GimnasioEntrenador -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Plan de Entrenamiento Personalizado",
+    "subtitulo": "Cuéntanos tu nivel y objetivos.",
+    "boton": "Agendar Evaluación Gratuita",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Objetivo",
+            "tipo": "radio",
+            "emoji": "🎯",
+            "opciones": [
+                "Bajar peso",
+                "Ganar músculo",
+                "Resistencia",
+                "Salud general"
+            ]
+        },
+        {
+            "label": "Nivel actual",
+            "tipo": "radio",
+            "emoji": "💪",
+            "opciones": [
+                "Principiante",
+                "Intermedio",
+                "Avanzado"
+            ]
+        },
+        {
+            "label": "¿Tienes alguna lesión?",
+            "tipo": "radio",
+            "emoji": "⚠️",
+            "opciones": [
+                "Sí",
+                "No"
+            ]
+        },
+        {
+            "label": "Cuéntanos más sobre tus metas",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "GimnasioEntrenador"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

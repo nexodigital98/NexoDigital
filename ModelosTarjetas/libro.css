@@ -1,0 +1,270 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #0d0d12;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.instruction {
+    color: #D4AF37;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* ─── ESTRUCTURA 3D DEL LIBRO ─── */
+.book-container {
+    perspective: 2000px;
+    width: 320px;
+    height: 480px;
+    position: relative;
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    /* Inclinamos un poco el libro en 3D para que se vea con volumen */
+    transform: rotateX(15deg) rotateY(-15deg);
+}
+
+.book.open {
+    transform: rotateX(5deg) rotateY(0deg) translateX(160px);
+}
+
+/* ─── PORTADA (Tapa Frontal) ─── */
+.book-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: 10;
+}
+
+.book.open .book-cover {
+    transform: rotateY(-170deg);
+}
+
+.cover-front, .cover-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 4px 15px 15px 4px;
+}
+
+/* Diseño Tapa Frontal (Cuero + Lomo) */
+.cover-front {
+    background: linear-gradient(135deg, #16120d 0%, #0a0805 100%);
+    box-shadow: inset 4px 0 10px rgba(0,0,0,0.8), inset -2px 0 5px rgba(255,255,255,0.1), 10px 15px 30px rgba(0,0,0,0.6);
+    border-left: 14px solid #080604; /* Lomo texturizado */
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Borde dorado de lujo */
+.cover-border {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #D4AF37;
+    border-radius: 2px 10px 10px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 15px 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Esquinas doradas */
+.cover-border::before, .cover-border::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #D4AF37;
+    z-index: 5;
+}
+.cover-border::before { top: -6px; left: -6px; border-right: none; border-bottom: none; }
+.cover-border::after { bottom: -6px; right: -6px; border-left: none; border-top: none; }
+
+
+/* ─── CONTENIDO DENTRO DE LA PORTADA DEL LIBRO ─── */
+/* Badge EC */
+.ec-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: #D4AF37;
+    color: #111;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+/* Logo pequeño */
+.cover-logo {
+    width: 35px;
+    position: absolute;
+    top: 10px; right: 10px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+    z-index: 10;
+}
+
+/* Zona del equipo en la portada */
+.team-zone {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+}
+.team-zone img {
+    height: 105%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8));
+}
+
+/* Info Textual */
+.cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: #D4AF37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    line-height: 1.1;
+}
+.cover-subtitle {
+    font-size: 10px;
+    color: #a88a29;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Divisor */
+.divider {
+    width: 70%;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.4);
+    margin: 15px 0;
+}
+
+/* Redes */
+.socials {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    z-index: 3;
+}
+.soc-item {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid #D4AF37;
+    overflow: hidden;
+    display: flex; justify-content: center; align-items: center;
+}
+.soc-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Botón en portada */
+.btn-info {
+    width: 80%;
+    background: transparent;
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+}
+.btn-info:hover {
+    background: #D4AF37;
+    color: #111;
+}
+
+
+/* ─── PÁGINAS INTERNAS (Papel + Portal de Luz al abrir) ─── */
+.cover-back {
+    transform: rotateY(180deg);
+    border-radius: 15px 4px 4px 15px;
+    background: #0d0d12;
+    box-shadow: inset -5px 0 15px rgba(0,0,0,0.2);
+}
+
+.book-inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    border-radius: 4px 15px 15px 4px;
+    background: #0d0d12;
+    z-index: 1;
+    overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+/* Efecto Portal (Destello de Luz al abrir el libro) */
+.portal-light {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0; height: 0;
+    background: #FFF;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 100px #FFF, 0 0 200px 200px #D4AF37;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.portal-text {
+    position: relative;
+    z-index: 2;
+    color: #000;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.5s 0.8s;
+}
+
+.book.open .portal-light {
+    width: 200vw; height: 200vw;
+    opacity: 1;
+}
+.book.open .portal-text { opacity: 1; }

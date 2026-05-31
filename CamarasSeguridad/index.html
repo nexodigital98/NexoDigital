@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Seguridad y Vigilancia | Instalación de Cámaras y Alarmas</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Servicios de seguridad electrónica. Instalación de cámaras CCTV, alarmas contra robos, cercos eléctricos y control de acceso.">
+    <meta name="keywords" content="camaras de seguridad, cctv, alarmas, cercos electricos, instalacion de camaras, seguridad electronica">
+    <meta name="author" content="Seguridad Electrónica">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#00FF87">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Seguridad y Vigilancia">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Logo Seguridad" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>SYS SEGURIDAD</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Sistemas de Videovigilancia y Alarmas</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">CA</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ──────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Contacto</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ─────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="Sys Seguridad Logo" class="sl-logo-img">
+                <span style="font-family: 'Teko', sans-serif; font-size: 24px; letter-spacing: 1px;">SYS SEGURIDAD</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#camaras">Cámaras CCTV</a></li>
+                <li><a href="#alarmas">Alarmas y Cercos</a></li>
+                <li><a href="#kits">Kits en Oferta</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20cotizar%20un%20sistema%20de%20seguridad." target="_blank" class="sl-nav-cta">
+                    <i class="fas fa-lock"></i> Cotizar Ahora
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ───────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-broadcast-tower"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">MONITOREO EN TIEMPO REAL 24/7</span>
+                            <span class="sl-sys-desc">Mira tus cámaras desde tu celular en cualquier parte del mundo</span>
+                        </div>
+                    </div>
+
+                    <h1 class="sl-hero-title">
+                        La Seguridad de tu Familia y Negocio no es <span class="sl-glow-text">Negociable.</span>
+                    </h1>
+
+                    <p class="sl-hero-desc">
+                        Expertos en instalación y mantenimiento de sistemas de videovigilancia HD/4K, alarmas anti-intrusión y cercos eléctricos de alto voltaje. 
+                    </p>
+
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Necesito%20una%20inspecci%C3%B3n%20para%20c%C3%A1maras." target="_blank" class="sl-btn-primary clip-btn">
+                            <span>Agendar Inspección Técnica</span>
+                        </a>
+                        <a href="#kits" class="sl-btn-secondary clip-btn">
+                            <span>Ver Kits de Cámaras</span>
+                        </a>
+                    </div>
+
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">+500</span><span class="sl-stat-label">Sistemas Instalados</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">1</span><span class="sl-stat-label">Año de Garantía</span></div>
+                    </div>
+                </div>
+
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Instalación de Cámaras" class="sl-team-img" style="border-radius: 10px; border: 2px solid var(--sl-purple); box-shadow: 0 0 40px rgba(0, 153, 255, 0.4);">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: CÁMARAS CCTV ──────────────────── -->
+        <section id="camaras" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">VIDEOVIGILANCIA HD Y 4K</div>
+                    <h2>Tus Ojos en<br><span class="sl-glow-text">Todo Momento</span></h2>
+                    <p>Sistemas de CCTV adaptados a tus necesidades. Desde cámaras WiFi para el hogar hasta sistemas robustos de 32 canales para empresas.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- CCTV ANALÓGICO / HDCVI -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-video"></i></div>
+                            <div class="sl-service-badge">Más Vendido</div>
+                        </div>
+                        <h3>Sistemas CCTV Cableados (HD/Full HD)</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">La opción más confiable. Grabación continua sin depender del internet.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> DVR (Grabador) con disco duro</li>
+                            <li><i class="fas fa-check"></i> Cámaras para interior (Domo) y exterior (Tubo)</li>
+                            <li><i class="fas fa-check"></i> Visión nocturna por infrarrojos</li>
+                            <li><i class="fas fa-check"></i> App móvil gratuita para visualizar en vivo</li>
+                        </ul>
+                    </div>
+
+                    <!-- CÁMARAS IP / WIFI -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-wifi"></i></div>
+                        </div>
+                        <h3>Cámaras IP y WiFi (Inalámbricas)</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Instalación rápida sin romper paredes. Ideal para departamentos y oficinas pequeñas.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Audio bidireccional (Escucha y habla)</li>
+                            <li><i class="fas fa-check"></i> Movimiento PTZ (Giran 360 grados)</li>
+                            <li><i class="fas fa-check"></i> Grabación en memoria MicroSD o Nube</li>
+                            <li><i class="fas fa-check"></i> Notificaciones de movimiento al celular</li>
+                        </ul>
+                    </div>
+
+                    <!-- CÁMARAS INTELIGENTES -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-brain"></i></div>
+                            <div class="sl-service-badge">Avanzado</div>
+                        </div>
+                        <h3>Cámaras con Inteligencia Artificial (IA)</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Sistemas que detectan humanos y vehículos, reduciendo falsas alarmas.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Reconocimiento facial</li>
+                            <li><i class="fas fa-check"></i> Visión nocturna a color (ColorVu / FullColor)</li>
+                            <li><i class="fas fa-check"></i> Detección de cruce de línea / Perímetro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: ALARMAS Y CERCOS ───────────────────────────── -->
+        <section id="alarmas" class="sl-section" style="background: rgba(0, 153, 255, 0.05);">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">PROTECCIÓN PERIMETRAL</div>
+                    <h2>Sistemas de<br><span class="sl-glow-text">Detección de Intrusos</span></h2>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-bell"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Alarmas contra Robos</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Sensores de movimiento, contactos magnéticos para puertas/ventanas y sirenas de alto decibel. Recibe la alerta de intrusión directo en tu teléfono.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Cercos Eléctricos</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>La primera línea de defensa. Alambrado de alto voltaje no letal pero disuasivo. Al ser cortado o tocado, activa inmediatamente la sirena general.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-id-card"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Controles de Acceso</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Cerraduras magnéticas, lectores de huella dactilar, tarjetas RFID y videoporteros. Registra y controla quién entra y quién sale de tu edificio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 05: LLAMADA A LA ACCIÓN ────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">NO ESPERES A QUE SEA TARDE</div>
+                    <h2>Más vale <span class="sl-glow-text">prevenir</span> que lamentar</h2>
+                    <p>Agenda una inspección técnica de tu domicilio o negocio. Te asesoramos sobre cuáles son los puntos vulnerables y qué equipos necesitas exactamente sin gastar de más.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20agendar%20una%20visita%20t%C3%A9cnica." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fas fa-hard-hat"></i><span>Agendar Visita Técnica</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family: 'Teko', sans-serif; font-size: 28px; letter-spacing: 1px;">SYS SEGURIDAD</h3>
+                        <p>Empresa experta en soluciones de seguridad electrónica. Proveemos e instalamos equipos de las mejores marcas: Hikvision, Dahua, ZKTeco y DSC.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Soporte Técnico</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-wrench"></i> Mantenimiento preventivo y correctivo</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Servicio técnico a domicilio</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 SYS Seguridad Electrónica. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: CamarasSeguridad -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Cotiza tu Sistema de Seguridad",
+    "subtitulo": "Cuéntanos tu necesidad.",
+    "boton": "Solicitar Cotización",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de instalación",
+            "tipo": "radio",
+            "emoji": "📹",
+            "opciones": [
+                "Hogar",
+                "Negocio",
+                "Empresa grande"
+            ]
+        },
+        {
+            "label": "Número de cámaras aproximado",
+            "tipo": "radio",
+            "emoji": "🔢",
+            "opciones": [
+                "1-4",
+                "5-10",
+                "Más de 10",
+                "No sé"
+            ]
+        },
+        {
+            "label": "¿Necesitas acceso remoto desde el celular?",
+            "tipo": "radio",
+            "emoji": "📱",
+            "opciones": [
+                "Sí",
+                "No"
+            ]
+        },
+        {
+            "label": "Descripción del área",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "CamarasSeguridad"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

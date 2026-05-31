@@ -1,0 +1,30 @@
+{
+  "name": "Taller de Motos",
+  "short_name": "Taller de",
+  "description": "Tarjeta digital profesional de Taller de Motos",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A0A0A",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "lang": "es",
+  "dir": "ltr"
+}

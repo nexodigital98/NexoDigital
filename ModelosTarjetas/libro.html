@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Libro - Abogado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="libro.css">
+</head>
+<body>
+
+    <p class="instruction">Haz clic en el botón para entrar a la web</p>
+
+    <!-- Contenedor del Libro 3D -->
+    <div class="book-container">
+        <div class="book" id="lawBook">
+            
+            <!-- PORTADA FÍSICA DEL LIBRO -->
+            <div class="book-cover">
+                <!-- Frente de la portada (Textura cuero + Lomo) -->
+                <div class="cover-front">
+                    <!-- Borde dorado del libro -->
+                    <div class="cover-border">
+                        
+                        <!-- Elementos superiores -->
+                        <div class="ec-badge">EC</div>
+                        <img src="../Abogado/img/logos/NEXUS%20DIGITAL.png" alt="Logo" class="cover-logo">
+
+                        <!-- Equipo (Estilo FUT) -->
+                        <div class="team-zone">
+                            <img src="../Abogado/img/hero/EQUIPO.png" alt="Equipo">
+                        </div>
+
+                        <!-- Textos (Nombre y Slogan) -->
+                        <h2 class="cover-title">Defensa Legal</h2>
+                        <p class="cover-subtitle">CONECTAMOS TU NEGOCIO CON EL MUNDO</p>
+                        
+                        <div class="divider"></div>
+                        
+                        <!-- Redes Sociales -->
+                        <div class="socials">
+                            <div class="soc-item"><img src="../Abogado/img/redes/WHATSAPP.png" alt="WA"></div>
+                            <div class="soc-item"><img src="../Abogado/img/redes/INSTAGRAM.png" alt="IG"></div>
+                            <div class="soc-item"><img src="../Abogado/img/redes/TIKTOK.png" alt="TT"></div>
+                            <div class="soc-item"><img src="../Abogado/img/redes/LINKEDLN.png" alt="IN"></div>
+                        </div>
+
+                        <!-- Botón de acción -->
+                        <button class="btn-info" onclick="openBookAndRedirect(event)">
+                            MÁS INFORMACIÓN ›
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERIOR DEL LIBRO (Efecto de portal de luz) -->
+            <div class="book-inside">
+                <div class="portal-light"></div>
+                <h3 class="portal-text">Ingresando a la Web...</h3>
+            </div>
+            
+            <!-- Tapa trasera invisible -->
+            <div class="cover-back"></div>
+
+        </div>
+    </div>
+
+    <script>
+        function openBookAndRedirect(event) {
+            if(event) event.stopPropagation();
+
+            const book = document.getElementById('lawBook');
+            book.classList.add('open');
+
+            // Redirige después de que la luz blanca llene la pantalla (1 segundo)
+            setTimeout(() => {
+                window.location.href = '../Abogado/index.html';
+            }, 1200); 
+        }
+
+        // Si hacen click en cualquier parte de la portada del libro
+        document.getElementById('lawBook').addEventListener('click', function(e) {
+            if(e.target.tagName !== 'BUTTON') {
+                openBookAndRedirect(null);
+            }
+        });
+    </script>
+</body>
+</html>
+

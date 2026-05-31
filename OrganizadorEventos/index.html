@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>GalaEvents | Planeación de Eventos y Bodas</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Diseñamos, coordinamos y ejecutamos eventos memorables. Bodas, eventos corporativos y celebraciones sociales sin estrés.">
+    <meta name="keywords" content="organizador de eventos, wedding planner, eventos corporativos, fiestas, planeacion de eventos, gala">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#E879F9">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GalaEvents">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="GalaEvents" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>GalaEvents</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Luxury Event Planning</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://pinterest.com/" target="_blank" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">OR</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-address-card"></i><span>Planner</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="GalaEvents" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:var(--sl-text);">GalaEvents</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#servicios">Eventos</a></li>
+                <li><a href="#proceso">Nuestro Proceso</a></li>
+                <li><a href="#planes">Coberturas</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20empezar%20a%20planear%20mi%20evento." target="_blank" class="sl-nav-cta"><i class="fas fa-magic"></i> Empezar Magia</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-star"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">DISEÑO Y PRODUCCIÓN DE EVENTOS</span>
+                            <span class="sl-sys-desc">Disfruta la fiesta. Nosotros gestionamos el estrés.</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Momentos memorables ejecutados con <span class="sl-glow-text">precisión absoluta</span>.</h1>
+                    <p class="sl-hero-desc">Desde bodas de ensueño hasta eventos corporativos de alto nivel. Diseñamos experiencias inmersivas, coordinamos a los mejores proveedores y garantizamos que todo salga perfecto.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Tengo%20un%20evento%20en%20mente%20y%20necesito%20ayuda." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Cuéntanos tu idea</span></a>
+                        <a href="#servicios" class="sl-btn-secondary clip-btn"><span>Ver Portafolio</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">200+</span><span class="sl-stat-label">Eventos de Éxito</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">50+</span><span class="sl-stat-label">Proveedores VIP</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">0</span><span class="sl-stat-label">Minutos de Estrés</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Planner de GalaEvents" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SERVICIOS -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">CATEGORÍAS DE EVENTOS</div>
+                    <h2>Cada celebración es <span class="sl-glow-text">única e irrepetible</span></h2>
+                    <p>Aplicamos metodologías de producción audiovisual y logística corporativa para asegurar que tu evento supere las expectativas.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-ring"></i></div><div class="sl-service-badge">Romance</div></div>
+                        <h3>Wedding Planning</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Tu boda debe ser el día más feliz de tu vida, no el más estresante. Diseñamos la estética, administramos el presupuesto y orquestamos el gran día.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Diseño conceptual y floral</li>
+                            <li><i class="fas fa-check"></i> Negociación con proveedores</li>
+                            <li><i class="fas fa-check"></i> Creación de Timeline minucioso</li>
+                            <li><i class="fas fa-check"></i> Asistencia integral a los novios</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-briefcase"></i></div><div class="sl-service-badge">Empresarial</div></div>
+                        <h3>Eventos Corporativos</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Lanzamientos de marca, fiestas de fin de año, congresos y activaciones. Proyectamos la identidad de tu empresa con profesionalismo y estilo.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Búsqueda de venues exclusivos</li>
+                            <li><i class="fas fa-check"></i> Gestión de tecnología AV y pantallas</li>
+                            <li><i class="fas fa-check"></i> Coordinación de catering masivo</li>
+                            <li><i class="fas fa-check"></i> Protocolo y registro de invitados</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-birthday-cake"></i></div></div>
+                        <h3>Celebraciones Sociales</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Fiestas de XV años, aniversarios de bodas, cumpleaños temáticos y graduaciones. Convertimos cualquier motivo en una fiesta épica.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Conceptualización de temas</li>
+                            <li><i class="fas fa-check"></i> Contratación de shows y DJs</li>
+                            <li><i class="fas fa-check"></i> Diseño de invitaciones digitales</li>
+                            <li><i class="fas fa-check"></i> Mesas de postres y coctelería</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESO -->
+        <section id="proceso" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">NUESTRO SECRETO</div>
+                    <h2>Cómo hacemos <span class="sl-glow-text">la magia posible</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-comments"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">1. El "Brainstorm"</div>
+                            <p>Nos sentamos contigo a escuchar tus ideas locas, tu presupuesto y tus miedos. A partir de ahí, creamos un Moodboard visual del evento.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">2. Producción Invisible</div>
+                            <p>Durante meses trabajamos en las sombras: agendamos degustaciones, firmamos contratos con proveedores y estructuramos cada segundo del cronograma.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-headset"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">3. Ejecución Impecable</div>
+                            <p>El día del evento, nuestro equipo de coordinadores con radios y cronómetros se encarga de que tú solo tengas que preocuparte por sonreír para las fotos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">COMIENZA LA FIESTA</div>
+                    <h2>No dejes tu evento al <span class="sl-glow-text">azar</span>.</h2>
+                    <p>Un evento mal organizado puede ser un desastre costoso. Confía en expertos y asegúrate de que tú y tus invitados vivan una noche espectacular.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20empezar%20a%20planear%20mi%20evento." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Hablemos de tu Evento</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text);">GalaEvents</h3>
+                        <p>Convirtiendo visiones en realidades espectaculares. Su socio de confianza para la planificación de bodas y eventos corporativos.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://pinterest.com/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-envelope"></i> eventos@galaevents.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Las Fiestas #900, Torre C</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 GalaEvents Planning Studio. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: OrganizadorEventos -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Cotiza tu Evento",
+    "subtitulo": "Cuéntanos los detalles para preparar tu propuesta.",
+    "boton": "Solicitar Cotización",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de evento",
+            "tipo": "radio",
+            "emoji": "🎉",
+            "opciones": [
+                "Boda",
+                "Corporativo",
+                "Cumpleaños",
+                "XV años",
+                "Otro"
+            ]
+        },
+        {
+            "label": "Número de invitados (aprox.)",
+            "tipo": "select",
+            "emoji": "👥",
+            "opciones": [
+                "1-30",
+                "31-100",
+                "101-300",
+                "Más de 300"
+            ]
+        },
+        {
+            "label": "Fecha aproximada",
+            "tipo": "text",
+            "emoji": "📅",
+            "placeholder": "Ej: Diciembre 2025"
+        },
+        {
+            "label": "Descripción del evento",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "OrganizadorEventos"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

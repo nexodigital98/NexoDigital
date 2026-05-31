@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>SeguroTotal | Agencia Asesora de Seguros Médicos y Vehiculares</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Proteja a su familia y su patrimonio. Seguros médicos, de vida, vehiculares y empresariales con las mejores aseguradoras del país.">
+    <meta name="keywords" content="agencia de seguros, seguro medico, seguro de vida, seguro vehicular, poliza de seguros, broker de seguros">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#2563EB">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SeguroTotal">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="SeguroTotal" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>SeguroTotal</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Agencia de Seguros & Brokers</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">AG</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-address-card"></i><span>Siniestros</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="SeguroTotal" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:var(--sl-text);">SeguroTotal</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#seguros">Seguros</a></li>
+                <li><a href="#respaldo">Respaldo</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20cotizar%20un%20seguro." target="_blank" class="sl-nav-cta"><i class="fas fa-file-signature"></i> Cotizar Online</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-user-shield"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">ASESORÍA IMPARCIAL DE BROKERS</span>
+                            <span class="sl-sys-desc">Comparamos entre las 10 mejores aseguradoras para ti</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Los imprevistos pasan. Su tranquilidad <span class="sl-glow-text">está asegurada</span>.</h1>
+                    <p class="sl-hero-desc">Protegemos su salud, su familia y su patrimonio. Le ayudamos a elegir la póliza exacta que necesita, sin letras pequeñas y con total respaldo al momento de un siniestro.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20comparar%20seguros%20médicos/vehiculares." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Comparar Seguros Gratis</span></a>
+                        <a href="#seguros" class="sl-btn-secondary clip-btn"><span>Ver Pólizas</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">5.000+</span><span class="sl-stat-label">Clientes Protegidos</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">10+</span><span class="sl-stat-label">Aseguradoras Aliadas</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">24/7</span><span class="sl-stat-label">Soporte Siniestros</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Asesor SeguroTotal" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SERVICIOS -->
+        <section id="seguros" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">COBERTURAS DISPONIBLES</div>
+                    <h2>Un seguro para cada <span class="sl-glow-text">área de su vida</span></h2>
+                    <p>No vendemos por vender. Analizamos sus riesgos reales y le sugerimos coberturas inteligentes para que pague solo lo necesario.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-heartbeat"></i></div><div class="sl-service-badge">Más Buscado</div></div>
+                        <h3>Seguros de Salud (Gastos Médicos)</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Atención en las mejores clínicas privadas a nivel nacional e internacional. Cobertura de enfermedades graves, maternidad, emergencias y medicinas.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Cobertura hospitalaria al 100%</li>
+                            <li><i class="fas fa-check"></i> Red de clínicas top a nivel nacional</li>
+                            <li><i class="fas fa-check"></i> Planes corporativos para Pymes</li>
+                            <li><i class="fas fa-check"></i> Maternidad y pediatría incluidas</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-car-crash"></i></div><div class="sl-service-badge">Esencial</div></div>
+                        <h3>Seguros Vehiculares</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Protección total contra choques, robos, pérdida total y daños a terceros. Incluye servicio de grúa, asistencia vial 24/7 y vehículo de reemplazo.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Cobertura por robo o pérdida total</li>
+                            <li><i class="fas fa-check"></i> Responsabilidad civil (Daños a terceros)</li>
+                            <li><i class="fas fa-check"></i> Grúa y asistencia mecánica 24/7</li>
+                            <li><i class="fas fa-check"></i> Auto de reemplazo por choque/robo</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-home"></i></div></div>
+                        <h3>Seguro de Vida & Hogar</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Asegure el futuro financiero de su familia en caso de fallecimiento o incapacidad. Proteja su vivienda contra incendios, robos y desastres naturales.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Seguro de vida con ahorro/capitalización</li>
+                            <li><i class="fas fa-check"></i> Indemnización por invalidez</li>
+                            <li><i class="fas fa-check"></i> Protección contra incendios y terremotos</li>
+                            <li><i class="fas fa-check"></i> Cobertura de contenidos (Robo en casa)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESPALDO -->
+        <section id="respaldo" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">¿POR QUÉ CON NOSOTROS?</div>
+                    <h2>Tener un Broker hace <span class="sl-glow-text">toda la diferencia</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-balance-scale-right"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Comparativa Real</div>
+                            <p>No somos empleados de una sola aseguradora. Cotizamos su riesgo con múltiples compañías para asegurarle siempre el precio más bajo con la mejor cobertura.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-hands-helping"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Acompañamiento en Siniestros</div>
+                            <p>Cuando ocurre un accidente, nosotros peleamos con la aseguradora por usted. Gestionamos los trámites, reembolsos y peritajes para que le paguen rápido.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Cero Costo Adicional</div>
+                            <p>Nuestra asesoría como brokers es completamente gratuita para usted. Nuestras comisiones las pagan las aseguradoras directamente, no el cliente final.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿El seguro médico cubre emergencias?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Sí, contamos con planes de cobertura total al 100% en emergencias sin necesidad de copagos al instante.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Puedo asegurar mi negocio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Ofrecemos pólizas integrales que protegen su infraestructura, inventario y responsabilidad civil.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Acérquese a nuestra agencia matriz. Lo recibiremos para diseñar juntos su plan de protección a medida.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Edificio Corporativo, Ala Norte</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">COTIZACIÓN RÁPIDA</div>
+                    <h2>No espere a que suceda un <span class="sl-glow-text">accidente</span>.</h2>
+                    <p>Un accidente médico o de tránsito puede quebrar sus finanzas en un solo día. Envíenos un mensaje y en 15 minutos le enviamos un cuadro comparativo con 3 opciones de seguros para su presupuesto.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20solicitar%20un%20cuadro%20comparativo%20de%20seguros." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Solicitar Cuadro Comparativo</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text);">SeguroTotal</h3>
+                        <p>Su agencia de seguros de confianza. Actuamos como su abogado ante las aseguradoras para garantizar que siempre le cumplan.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Atención Administrativa: Lun - Vie 09h00 a 18h00</li>
+                            <li><i class="fas fa-ambulance"></i> Siniestros y Emergencias 24/7</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 SeguroTotal Agente Asesor. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: AgenciaDeSeguros -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Cotiza tu Seguro",
+    "subtitulo": "Datos para preparar tu cotización personalizada.",
+    "boton": "Recibir Cotización",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de seguro",
+            "tipo": "radio",
+            "emoji": "🛡️",
+            "opciones": [
+                "Vida",
+                "Vehicular",
+                "Hogar",
+                "Salud",
+                "Empresarial"
+            ]
+        },
+        {
+            "label": "¿Ya tienes algún seguro?",
+            "tipo": "radio",
+            "emoji": "📋",
+            "opciones": [
+                "Sí",
+                "No"
+            ]
+        },
+        {
+            "label": "Detalles adicionales",
+            "tipo": "textarea",
+            "emoji": "📝",
+            "placeholder": "Edad, tipo de vehículo, etc."
+        }
+    ],
+    "negocio": "AgenciaDeSeguros"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

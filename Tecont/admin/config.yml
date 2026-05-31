@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (main)
+
+media_folder: "img/cms" # Folder where uploaded files will be saved
+public_folder: "img/cms" # Public path to media files
+
+# Locale settings
+locale: 'es'
+
+collections:
+  - name: "contenido"
+    label: "Contenido de la Web"
+    editor:
+      preview: false
+    files:
+      - label: "Página Principal (Inicio)"
+        name: "inicio"
+        file: "data/content.json"
+        fields:
+          - { label: "Hero - Título Principal", name: "hero_title", widget: "string", default: "Tranquilidad Contable para Crecer tu Negocio" }
+          - { label: "Hero - Descripción", name: "hero_desc", widget: "text", default: "Delega la contabilidad e impuestos en manos de expertos. Nos encargamos de mantener tus cuentas claras, cumplir con el SRI y brindarte asesoría financiera para que tú te enfoques en vender." }
+          - { label: "Hero - Años de Experiencia", name: "stat1_num", widget: "string", default: "10+" }
+          - { label: "Hero - Cantidad de Declaraciones", name: "stat2_num", widget: "string", default: "500+" }
+          - { label: "Hero - Imagen de Fondo/Equipo", name: "hero_image", widget: "image", required: false }
+          
+          - { label: "Nosotros - Título", name: "about_title", widget: "string", default: "Tu Aliado Estratégico en Contabilidad e Impuestos" }
+          - { label: "Nosotros - Párrafo", name: "about_text", widget: "text", default: "En Tecont no somos solo quienes llenan formularios. Somos asesores integrales comprometidos con la salud financiera de tu empresa, evitando multas y optimizando tus recursos." }
+          
+          - { label: "Servicio 1 - Nombre", name: "serv1_name", widget: "string", default: "Declaraciones SRI" }
+          - { label: "Servicio 1 - Descripción", name: "serv1_desc", widget: "text", default: "Elaboración y presentación de IVA, Renta Mensual/Anual, Anexos Transaccionales (ATS) y RDEP para evitar notificaciones o multas del SRI." }
+          
+          - { label: "Servicio 2 - Nombre", name: "serv2_name", widget: "string", default: "Contabilidad General" }
+          - { label: "Servicio 2 - Descripción", name: "serv2_desc", widget: "text", default: "Llevamos tus libros contables, estados financieros y balances mensuales para que tomes decisiones basadas en números reales, no en intuición." }
+          
+          - { label: "Servicio 3 - Nombre", name: "serv3_name", widget: "string", default: "Gestión de Nómina (IESS)" }
+          - { label: "Servicio 3 - Descripción", name: "serv3_desc", widget: "text", default: "Manejo completo de roles de pago, avisos de entrada/salida, fondos de reserva, décimos y liquidaciones cumpliendo la ley laboral al 100%." }
+          
+          - { label: "Servicio 4 - Nombre", name: "serv4_name", widget: "string", default: "Asesoría Financiera" }
+          - { label: "Servicio 4 - Descripción", name: "serv4_desc", widget: "text", default: "Análisis de costos, flujos de caja y proyecciones de rentabilidad. Te enseñamos a separar las finanzas personales de las de tu negocio." }

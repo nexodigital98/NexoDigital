@@ -1,0 +1,30 @@
+{
+  "name": "CuidaSalud",
+  "short_name": "CuidaSalud",
+  "description": "Tarjeta digital profesional de CuidaSalud",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050E0C",
+  "theme_color": "#4DB6AC",
+  "icons": [
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "lang": "es",
+  "dir": "ltr"
+}

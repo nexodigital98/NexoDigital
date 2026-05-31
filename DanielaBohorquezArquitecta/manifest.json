@@ -1,0 +1,30 @@
+{
+  "name": "Arq. Daniela Bohorquez",
+  "short_name": "Arq. Daniela",
+  "description": "Tarjeta digital profesional de Arq. Daniela Bohorquez",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F9F9F9",
+  "theme_color": "#C9A050",
+  "icons": [
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "lang": "es",
+  "dir": "ltr"
+}

@@ -1,0 +1,721 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <!-- Título en la pestaña del navegador y en Google -->
+    <title>Ontaneda Auditors | Auditoría Contable Profesional</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <!-- Descripción que Google muestra en los resultados de búsqueda -->
+    <meta name="description" content="Ontaneda Auditors - Firma de auditoría contable, fiscal e interna. Informes precisos, confidenciales y aceptados por el SRI. Loja, Ecuador.">
+    <meta name="keywords" content="auditoría contable, auditoría externa, auditoría interna, auditoría fiscal, estados financieros, SRI, Ecuador, Loja">
+    <meta name="author" content="Ontaneda Auditors">
+
+    <!-- Fuentes — no toques esto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos de Font Awesome — no toques -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Archivo de diseño -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#C084FC">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ontaneda Auditors">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Luces de fondo decorativas -->
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ───────────────────────────────
+       Lo primero que ve el cliente al abrir la página.
+       Gira al hacer clic en "Más Información".
+    ──────────────────────────────────────────────────────────────────── -->
+                    <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Ontaneda Auditors Logo" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>ONTANEDA AUDITORS</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Confianza · Precisión · Integridad</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                        <a href="https://linkedin.com/company/ontanedaauditors" target="_blank" class="social-btn" aria-label="LinkedIn">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="https://instagram.com/ontanedaauditors" target="_blank" class="social-btn" aria-label="Instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">OA</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ────────────────────────────
+       Todo lo que viene abajo es el sitio principal.
+    ──────────────────────────────────────────────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <!-- Botón flotante para volver a la tarjeta -->
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Tarjeta</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ───────────────────────────────────────
+             Cambia los textos entre <a> y </a> si quieres renombrar secciones.
+             El número de WhatsApp en "Consulta" está en el href más abajo.
+        ──────────────────────────────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="Ontaneda Auditors" class="sl-logo-img">
+                <span>ONTANEDA <em>AUDITORS</em></span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#paquetes">Paquetes</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <!-- Botón del menú — cambia el número de WhatsApp aquí -->
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola%20Ontaneda%20Auditors!%20Quiero%20una%20consulta." target="_blank" class="sl-nav-cta">
+                    <i class="fas fa-bolt"></i> Consulta
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ─────────────────────────────────────────────────────
+             Cambia el título, la descripción y las estadísticas de abajo.
+        ──────────────────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <!-- Notificación superior — cámbiala por tu oferta actual -->
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">ONTANEDA AUDITORS</span>
+                            <span class="sl-sys-desc">Firma registrada en la Superintendencia de Compañías del Ecuador</span>
+                        </div>
+                    </div>
+
+                    <!-- Título principal — cámbialo por el tuyo -->
+                    <h1 class="sl-hero-title">
+                        Auditoría Contable<br>con <span class="sl-glow-text">Precisión y Confianza</span>
+                    </h1>
+
+                    <!-- Párrafo de descripción -->
+                    <p class="sl-hero-desc">
+                        Realizamos auditorías externas, internas y fiscales con metodología internacional.
+                        Nuestros informes son independientes, precisos y aceptados ante el SRI y organismos reguladores.<br>
+                        <strong>Resultados en tiempo acordado.</strong> 100% confidencial · Ecuador y LATAM.
+                    </p>
+
+                    <!-- Botones — cambia el número de WhatsApp -->
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20una%20consulta%20de%20auditor%C3%ADa." target="_blank" class="sl-btn-primary clip-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Consulta Gratuita</span>
+                        </a>
+                        <a href="#servicios" class="sl-btn-secondary clip-btn">
+                            <span>Ver Servicios</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+
+                    <!-- Estadísticas — cambia los números y textos -->
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">15+</span><span class="sl-stat-label">Años de Experiencia</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">200+</span><span class="sl-stat-label">Empresas Auditadas</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Confidencial</span></div>
+                    </div>
+                </div>
+
+                <!-- Imagen del equipo o logo grande — pon tu imagen en img/hero/EQUIPO.png -->
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Equipo Ontaneda Auditors" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: NOSOTROS ──────────────────────────────────────
+             Cambia los textos del <h2> y <p> para presentar el negocio.
+        ──────────────────────────────────────────────────────────────── -->
+        <section id="nosotros" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">01 // QUIÉNES SOMOS</div>
+                    <h2>La Firma Auditora que<br><span class="sl-glow-text">Protege tu Empresa</span></h2>
+                    <p>Somos una firma independiente de auditoría contable con más de 15 años de trayectoria. Nuestra misión es entregar informes objetivos, precisos y accionables que ayuden a tus directivos a tomar las mejores decisiones.</p>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-search-dollar"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Independencia Total</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Emitimos opiniones libres de conflicto de interés, apegadas a las NIIF y NAGA internacionales.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-file-contract"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Informes Certificados</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Todos nuestros dictámenes son firmados por CPA registrado, con validez ante SRI, Supercias y banca.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-lock"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Confidencialidad Absoluta</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Toda la información de tu empresa está protegida bajo acuerdo de confidencialidad desde el primer día.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sl-achievements-grid">
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-balance-scale"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Normativa NIIF/NAGA</div>
+                            <p>Aplicamos Normas Internacionales de Información Financiera y de Auditoría en cada trabajo.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-university"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Aceptado por el SRI</div>
+                            <p>Nuestros informes tienen validez ante organismos reguladores, banca y entidades públicas.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Análisis de Riesgos</div>
+                            <p>Identificamos riesgos financieros, operativos y de cumplimiento antes de que se conviertan en problemas.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Asesoría Post-Auditoría</div>
+                            <p>No solo entregamos el informe, te acompañamos en la implementación de las recomendaciones.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-building"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">PYMES y Grandes Empresas</div>
+                            <p>Adaptamos nuestra metodología al tamaño y sector de tu empresa, sin importar la escala.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Equipo CPA Certificado</div>
+                            <p>Todos nuestros auditores son Contadores Públicos Autorizados con experiencia en campo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: SERVICIOS ──────────────────────────────────────
+             Para cambiar el precio: busca <span class="sl-price-main">
+             Para cambiar los puntos de la lista: edita el texto dentro de <li>
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">02 // SERVICIOS</div>
+                    <h2>Auditoría a la Medida<br><span class="sl-glow-text">de tu Empresa</span></h2>
+                    <p>Cada servicio está diseñado para dar respuesta a una necesidad específica. Elige el que se adapta a tu situación actual.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- AUDITORÍA EXTERNA -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-search-dollar"></i></div>
+                            <div class="sl-service-badge">Más Solicitado</div>
+                        </div>
+                        <h3>Auditoría Externa</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Examen de estados financieros</li>
+                            <li><i class="fas fa-circle-notch"></i> Dictamen independiente del auditor</li>
+                            <li><i class="fas fa-circle-notch"></i> Revisión de cumplimiento NIIF</li>
+                            <li><i class="fas fa-circle-notch"></i> Informe de observaciones y recomendaciones</li>
+                            <li><i class="fas fa-circle-notch"></i> Aceptado ante SRI y Supercias</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20la%20Auditor%C3%ADa%20Externa." target="_blank" class="sl-btn-card clip-btn"><span>Solicitar Auditoría</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- AUDITORÍA INTERNA -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-clipboard-check"></i></div>
+                        </div>
+                        <h3>Auditoría Interna</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Evaluación de controles internos</li>
+                            <li><i class="fas fa-circle-notch"></i> Detección de fraudes y errores</li>
+                            <li><i class="fas fa-circle-notch"></i> Revisión de procesos operativos</li>
+                            <li><i class="fas fa-circle-notch"></i> Plan de mejora continua</li>
+                            <li><i class="fas fa-circle-notch"></i> Informe ejecutivo para directivos</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20la%20Auditor%C3%ADa%20Interna." target="_blank" class="sl-btn-card clip-btn"><span>Solicitar Auditoría</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- AUDITORÍA FISCAL -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-receipt"></i></div>
+                        </div>
+                        <h3>Auditoría Fiscal</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Revisión de declaraciones SRI</li>
+                            <li><i class="fas fa-circle-notch"></i> Conciliación tributaria IVA/IR</li>
+                            <li><i class="fas fa-circle-notch"></i> Revisión de obligaciones patronales</li>
+                            <li><i class="fas fa-circle-notch"></i> Detección de contingencias fiscales</li>
+                            <li><i class="fas fa-circle-notch"></i> Plan de regularización tributaria</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20la%20Auditor%C3%ADa%20Fiscal." target="_blank" class="sl-btn-card clip-btn"><span>Solicitar Auditoría</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- REVISIÓN DE ESTADOS FINANCIEROS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-file-invoice-dollar"></i></div>
+                        </div>
+                        <h3>Revisión de Estados Financieros</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Balance general y estado de resultados</li>
+                            <li><i class="fas fa-circle-notch"></i> Flujo de caja y variaciones</li>
+                            <li><i class="fas fa-circle-notch"></i> Indicadores financieros clave</li>
+                            <li><i class="fas fa-circle-notch"></i> Notas a los estados financieros</li>
+                            <li><i class="fas fa-circle-notch"></i> Informe de salud financiera</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20la%20revisi%C3%B3n%20de%20Estados%20Financieros." target="_blank" class="sl-btn-card clip-btn"><span>Solicitar Revisión</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- AUDITORÍA FORENSE -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-user-secret"></i></div>
+                        </div>
+                        <h3>Auditoría Forense</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Investigación de fraude financiero</li>
+                            <li><i class="fas fa-circle-notch"></i> Análisis de desfalco o malversación</li>
+                            <li><i class="fas fa-circle-notch"></i> Peritaje contable judicial</li>
+                            <li><i class="fas fa-circle-notch"></i> Evidencia admisible en proceso legal</li>
+                            <li><i class="fas fa-circle-notch"></i> Informe forense para presentar ante juez</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20la%20Auditor%C3%ADa%20Forense." target="_blank" class="sl-btn-card clip-btn"><span>Consultar</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 04: PROCESO ───────────────────────────────────────
+             Los 5 pasos del trabajo. Edita <h3> y <p> de cada paso.
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="proceso" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">04 // METODOLOGÍA</div>
+                    <h2>Cómo Trabajamos<br><span class="sl-glow-text">Paso a Paso</span></h2>
+                    <p>Una auditoría bien ejecutada sigue una metodología clara. Aquí te explicamos cómo es nuestro proceso de principio a fin.</p>
+                </div>
+
+                <div class="sl-quest-list">
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">01</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-handshake"></i> Consulta y Propuesta</h3>
+                            <p>Nos reunimos (presencial o virtual) para entender tu empresa, tus necesidades y el alcance del trabajo. Te entregamos una propuesta técnica y económica sin compromiso.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">02</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-folder-open"></i> Recopilación de Información</h3>
+                            <p>Solicitamos la documentación contable, tributaria y operativa necesaria. Firmamos acuerdo de confidencialidad antes de recibir cualquier dato.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">03</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-magnifying-glass"></i> Trabajo de Campo</h3>
+                            <p>Aplicamos pruebas de auditoría, análisis de cuentas, validación de transacciones y revisión de controles internos según la metodología acordada.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">04</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-file-signature"></i> Informe y Dictamen</h3>
+                            <p>Emitimos el informe con nuestros hallazgos, observaciones y el dictamen del auditor. Todo firmado y con validez legal ante organismos reguladores.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">05</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-chart-pie"></i> Presentación y Seguimiento</h3>
+                            <p>Presentamos los resultados a la gerencia, explicamos las recomendaciones y te acompañamos en su implementación durante el período acordado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ─────────────────────────
+             Cambia preguntas: edita el texto dentro de <span class="faq-question">
+             Cambia respuestas: edita el texto dentro de <p class="faq-answer">
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">05 // PREGUNTAS FRECUENTES</div>
+                    <h2>Lo que Siempre<br><span class="sl-glow-text">nos Preguntan</span></h2>
+                </div>
+                <div class="faq-container">
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Cuánto tiempo tarda una auditoría?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Depende del tamaño y la complejidad de la empresa. Para una PYME, el trabajo de campo tarda entre 2 y 4 semanas. Para una empresa mediana o grande, puede extenderse entre 4 y 8 semanas. El plazo exacto se define en la propuesta inicial.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Qué documentos necesitan para empezar?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Básicamente: estados financieros del período, declaraciones de IVA e impuesto a la renta, auxiliares contables, libro mayor, comprobantes de las transacciones más relevantes, y contratos vigentes. Te enviamos una lista detallada según el tipo de auditoría.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Sus informes son aceptados por el SRI?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Sí. Nuestros auditores son Contadores Públicos Autorizados (CPA) registrados. Nuestros informes cumplen con todos los requisitos técnicos y legales para ser presentados ante el SRI, Superintendencia de Compañías, entidades financieras y juzgados.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Trabajan con empresas de todo Ecuador?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Sí, trabajamos a nivel nacional. La mayor parte del trabajo de revisión se puede realizar de forma remota. El trabajo de campo presencial lo coordinamos según la ubicación de la empresa. También atendemos clientes en Perú y Colombia.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Qué diferencia hay entre auditoría interna y externa?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">La auditoría externa la realiza un auditor independiente y produce un dictamen con validez legal para terceros. La auditoría interna evalúa los procesos y controles dentro de la organización para mejorar la gestión. Ambas son complementarias y recomendamos realizarlas juntas.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: LLAMADA A LA ACCIÓN ──────────────────────────
+             Cambia el título, párrafo y número de WhatsApp de los botones.
+        ──────────────────────────────────────────────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">VIVE LA EXPERIENCIA</div>
+                    <h2>¿Tu Empresa Necesita<br><span class="sl-glow-text">una Auditoría?</span></h2>
+                    <p>Solicita tu consulta inicial sin costo. Evaluamos tu situación y te presentamos una propuesta personalizada en 48 horas.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20iniciar%20una%20auditor%C3%ADa%20con%20ustedes." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Consulta Gratuita</span>
+                        </a>
+                        <a href="mailto:info@ontanedaauditors.com" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="far fa-envelope"></i><span>Enviar Correo</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ────────────────────────────────────────────────────
+             Cambia: nombre, descripción, links de redes, teléfono, email y ciudad.
+        ──────────────────────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3>ONTANEDA <span>AUDITORS</span></h3>
+                        <p>Firma independiente de auditoría contable, fiscal y forense. Precisión y confianza en cada informe.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://linkedin.com/company/ontanedaauditors" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://instagram.com/ontanedaauditors" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 XX XXX XXXX</li>
+                            <li><i class="far fa-envelope"></i> info@ontanedaauditors.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Loja, Ecuador</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 Ontaneda Auditors. Todos los derechos reservados.</p>
+                    <div><a href="#">Privacidad</a> &middot; <a href="#">Términos</a></div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: OntanedaAuditors -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Solicita tu Auditoría",
+    "subtitulo": "Cuéntanos sobre tu empresa para preparar la propuesta.",
+    "boton": "Solicitar Auditoría",
+    "preguntas": [
+        {
+            "label": "Nombre / Empresa",
+            "tipo": "text",
+            "emoji": "🏢",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de empresa",
+            "tipo": "radio",
+            "emoji": "🔖",
+            "opciones": [
+                "Persona Natural",
+                "Sociedad",
+                "ONG",
+                "Otro"
+            ]
+        },
+        {
+            "label": "¿Cuántos empleados tienen?",
+            "tipo": "select",
+            "emoji": "👥",
+            "opciones": [
+                "1-5",
+                "6-20",
+                "21-50",
+                "Más de 50"
+            ]
+        },
+        {
+            "label": "Tipo de auditoría requerida",
+            "tipo": "radio",
+            "emoji": "📋",
+            "opciones": [
+                "Financiera",
+                "Tributaria",
+                "Interna",
+                "No sé cuál"
+            ]
+        },
+        {
+            "label": "Detalles adicionales",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "OntanedaAuditors"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

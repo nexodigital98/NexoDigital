@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Arq. Daniela Bohorquez | Diseño y Arquitectura</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Estudio de arquitectura por Daniela Bohorquez. Diseño de interiores, planos arquitectónicos, modelado 3D y dirección de obra.">
+    <meta name="keywords" content="arquitecta, Daniela Bohorquez, diseño de interiores, planos, arquitectura, construcción, modelado 3D">
+    <meta name="author" content="Daniela Bohorquez">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#C9A050">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Arq. Daniela Bohorquez">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Logo Arquitecta" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>Daniela Bohorquez</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Arquitectura & Diseño Interior</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/arquitecta.daniela" target="_blank" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://pinterest.com/" target="_blank" class="social-btn" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">DA</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ──────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Contacto</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ─────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="DB Arquitectura" class="sl-logo-img">
+                <span style="font-family: 'Cinzel', serif; font-size: 18px; letter-spacing: 2px;">D. BOHORQUEZ</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#perfil">Estudio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#metodo">Metodología</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20una%20asesor%C3%ADa%20arquitect%C3%B3nica." target="_blank" class="sl-nav-cta">
+                    Agendar Asesoría
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ───────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-compass"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">DISEÑO CONTEMPORÁNEO</span>
+                            <span class="sl-sys-desc">Transformando espacios en experiencias de vida</span>
+                        </div>
+                    </div>
+
+                    <h1 class="sl-hero-title" style="font-family: 'Cinzel', serif;">
+                        Diseñamos el <span class="sl-glow-text">Espacio</span><br>que Mereces Habitar
+                    </h1>
+
+                    <p class="sl-hero-desc">
+                        Estudio de arquitectura especializado en diseño residencial de alta gama, remodelación de interiores y desarrollo de espacios comerciales funcionales y estéticos.
+                    </p>
+
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quisiera%20cotizar%20un%20dise%C3%B1o." target="_blank" class="sl-btn-primary clip-btn">
+                            <span>Cotizar Proyecto</span>
+                        </a>
+                        <a href="#proyectos" class="sl-btn-secondary clip-btn">
+                            <span>Ver Proyectos</span>
+                        </a>
+                    </div>
+
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">50+</span><span class="sl-stat-label">Proyectos Entregados</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">8</span><span class="sl-stat-label">Años de Experiencia</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Diseño a Medida</span></div>
+                    </div>
+                </div>
+
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <!-- Imagen principal: Render 3D de una sala o fachada elegante -->
+                        <img src="img/hero/EQUIPO.png" alt="Diseño Arquitectónico" class="sl-team-img" style="border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: EL ESTUDIO ──────────────────── -->
+        <section id="perfil" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">SOBRE EL ESTUDIO</div>
+                    <h2>Arquitectura con<br><span class="sl-glow-text">Propósito y Elegancia</span></h2>
+                    <p>Soy Daniela Bohorquez, arquitecta apasionada por los detalles. Mi filosofía se basa en crear espacios que no solo luzcan increíbles, sino que mejoren tu calidad de vida diaria.</p>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Precisión Técnica</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Planos detallados, cálculos estructurales exactos y distribución optimizada para aprovechar cada metro cuadrado.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-palette"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Estética Minimalista</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Uso inteligente de la luz natural, materiales nobles (madera, piedra, acero) y paletas de colores sobrios.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-hard-hat"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Control de Obra</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Acompañamiento en la construcción para asegurar que el diseño aprobado en papel se ejecute a la perfección en la realidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: SERVICIOS ARQUITECTÓNICOS ──────────────────── -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">ÁREAS DE EXPERIENCIA</div>
+                    <h2>Nuestros<br><span class="sl-glow-text">Servicios</span></h2>
+                    <p>Brindamos soluciones integrales desde el primer boceto hasta la entrega de llaves.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- DISEÑO ARQUITECTÓNICO -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-home"></i></div>
+                            <div class="sl-service-badge">Más Solicitado</div>
+                        </div>
+                        <h3>Diseño Arquitectónico</h3>
+                        <p style="font-size:13px; color:var(--sl-text-dim); margin-bottom: 20px;">Casas desde cero. Diseño de fachadas y distribución espacial completa.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Anteproyecto y Bocetos</li>
+                            <li><i class="fas fa-check"></i> Planos Arquitectónicos y Estructurales</li>
+                            <li><i class="fas fa-check"></i> Renders 3D fotorrealistas</li>
+                            <li><i class="fas fa-check"></i> Aprobación municipal (Trámites)</li>
+                        </ul>
+                    </div>
+
+                    <!-- DISEÑO DE INTERIORES -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-couch"></i></div>
+                        </div>
+                        <h3>Diseño de Interiores</h3>
+                        <p style="font-size:13px; color:var(--sl-text-dim); margin-bottom: 20px;">Remodelación de espacios, selección de mobiliario e iluminación.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Moodboards y concepto de estilo</li>
+                            <li><i class="fas fa-check"></i> Diseño de muebles a medida</li>
+                            <li><i class="fas fa-check"></i> Diseño de iluminación (Lighting)</li>
+                            <li><i class="fas fa-check"></i> Selección de acabados y texturas</li>
+                        </ul>
+                    </div>
+
+                    <!-- DIRECCIÓN DE OBRA -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-building"></i></div>
+                        </div>
+                        <h3>Dirección y Fiscalización</h3>
+                        <p style="font-size:13px; color:var(--sl-text-dim); margin-bottom: 20px;">Supervisión técnica y financiera de la construcción de tu proyecto.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Presupuesto detallado de obra</li>
+                            <li><i class="fas fa-check"></i> Cronograma de ejecución</li>
+                            <li><i class="fas fa-check"></i> Supervisión de maestros de obra</li>
+                            <li><i class="fas fa-check"></i> Control de calidad de materiales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 04: METODOLOGÍA ─────────────────────────────────── -->
+        <section id="metodo" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">PASO A PASO</div>
+                    <h2>Proceso de<br><span class="sl-glow-text">Diseño</span></h2>
+                </div>
+
+                <div class="sl-quest-list">
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">01</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-comments"></i> Entrevista Inicial</h3>
+                            <p>Nos reunimos para entender tus necesidades, presupuesto, gustos y estilo de vida. Levantamos medidas del espacio.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">02</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-pen-nib"></i> Anteproyecto y Concepto</h3>
+                            <p>Te presentamos los primeros bocetos, la distribución en planta y el "moodboard" con la paleta de colores y texturas.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">03</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-cubes"></i> Modelado 3D y Renders</h3>
+                            <p>Una vez aprobada la planta, creamos imágenes 3D fotorrealistas para que veas exactamente cómo quedará el resultado final.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">04</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-file-signature"></i> Planos Finales y Ejecución</h3>
+                            <p>Te entregamos el dossier completo de planos técnicos listos para construir. Si lo deseas, empezamos la obra juntos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 05: LLAMADA A LA ACCIÓN ────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">DA EL PRIMER PASO</div>
+                    <h2>¿Listo para construir el<br><span class="sl-glow-text">hogar de tus sueños?</span></h2>
+                    <p>Contáctanos hoy mismo para agendar una visita técnica o una reunión preliminar sin compromiso.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quisiera%20agendar%20una%20reuni%C3%B3n." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Agendar Reunión</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 18px; letter-spacing: 2px;">DANIELA BOHORQUEZ</h3>
+                        <p>Estudio de Arquitectura e Interiorismo dedicado a crear espacios estéticos, funcionales y atemporales.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/arquitecta.daniela" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 XX XXX XXXX</li>
+                            <li><i class="far fa-envelope"></i> info@arqdaniela.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Guayaquil, Ecuador</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 Estudio Daniela Bohorquez. Todos los derechos reservados.</p>
+                    <div><a href="#">Portafolio PDF</a> &middot; <a href="#">Términos</a></div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: DanielaBohorquezArquitecta -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Consulta de Arquitectura",
+    "subtitulo": "Cuéntanos sobre tu proyecto.",
+    "boton": "Solicitar Consulta",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de proyecto",
+            "tipo": "radio",
+            "emoji": "🏗️",
+            "opciones": [
+                "Casa nueva",
+                "Remodelación",
+                "Local comercial",
+                "Planos",
+                "Otro"
+            ]
+        },
+        {
+            "label": "Metros cuadrados aproximados",
+            "tipo": "text",
+            "emoji": "📐",
+            "placeholder": "Ej: 150m²"
+        },
+        {
+            "label": "Presupuesto estimado",
+            "tipo": "select",
+            "emoji": "💰",
+            "opciones": [
+                "Menos de A consultark",
+                "A consultark-A consultark",
+                "A consultark-A consultark",
+                "Más de A consultark"
+            ]
+        },
+        {
+            "label": "Descripción del proyecto",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "DanielaBohorquezArquitecta"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

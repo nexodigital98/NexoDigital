@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>SmilePro | Clínica Dental y Odontología Estética</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Clínica dental especializada en ortodoncia, blanqueamiento, implantes y estética dental. Tu sonrisa perfecta nos inspira.">
+    <meta name="keywords" content="dentista, clinica dental, ortodoncia, blanqueamiento dental, implantes, estetica dental, brackets, invisalign">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#00B4D8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SmilePro">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="SmilePro" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>SmilePro</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Clínica Dental de Especialidad</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">DE</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ──────────────────────────────────────────────────── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-address-card"></i><span>Cita Online</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="SmilePro" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; color:var(--sl-purple);">SmilePro</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#tratamientos">Tratamientos</a></li>
+                <li><a href="#estetica">Estética Dental</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quisiera%20agendar%20una%20cita%20dental." target="_blank" class="sl-nav-cta"><i class="fas fa-calendar-check"></i> Agendar Cita</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">CONSULTA DE VALORACIÓN GRATUITA</span>
+                            <span class="sl-sys-desc">Primera revisión y radiografía sin costo para pacientes nuevos</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Tu sonrisa perfecta está a <span class="sl-glow-text">un paso</span> de ti.</h1>
+                    <p class="sl-hero-desc">En SmilePro combinamos tecnología de vanguardia con atención personalizada para transformar tu sonrisa de forma segura, rápida y duradera. Desde limpiezas hasta implantes de última generación.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20agendar%20mi%20consulta%20de%20valoraci%C3%B3n%20gratuita." target="_blank" class="sl-btn-primary clip-btn"><span>Valoración Gratuita</span></a>
+                        <a href="#tratamientos" class="sl-btn-secondary clip-btn"><span>Nuestros Tratamientos</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">+800</span><span class="sl-stat-label">Pacientes Tratados</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">10+</span><span class="sl-stat-label">Años de Experiencia</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Clínica Dental SmilePro" class="sl-team-img" style="border-radius:20px; border:3px solid rgba(255,255,255,.5); box-shadow:0 20px 50px rgba(0,180,216,.2);">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- TRATAMIENTOS -->
+        <section id="tratamientos" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">SERVICIOS ODONTOLÓGICOS</div>
+                    <h2>Cuidado dental <span class="sl-glow-text">completo</span></h2>
+                    <p>Desde la prevención hasta la rehabilitación oral. Atendemos a toda la familia con los más altos estándares de esterilización y bioseguridad.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-tooth"></i></div></div>
+                        <h3>Odontología General</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Prevención, diagnóstico y tratamiento de problemas dentales comunes con mínima invasión y máximo confort.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Limpieza dental profunda (profilaxis)</li>
+                            <li><i class="fas fa-check"></i> Obturaciones (Resinas de composite)</li>
+                            <li><i class="fas fa-check"></i> Extracciones simples y quirúrgicas</li>
+                            <li><i class="fas fa-check"></i> Radiografías panorámicas digitales</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-smile"></i></div><div class="sl-service-badge">Especialidad</div></div>
+                        <h3>Ortodoncia</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Correctores para niños, adolescentes y adultos. Opciones fijas y removibles según tu caso clínico y presupuesto.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Brackets metálicos y estéticos (cerámica y zafiro)</li>
+                            <li><i class="fas fa-check"></i> Alineadores invisibles (tipo Invisalign)</li>
+                            <li><i class="fas fa-check"></i> Ortopedia maxilar en niños</li>
+                            <li><i class="fas fa-check"></i> Contenedores post-tratamiento</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-syringe"></i></div><div class="sl-service-badge">Sin Dolor</div></div>
+                        <h3>Endodoncia y Cirugía</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Tratamientos de conducto y cirugías orales con anestesia local avanzada para una experiencia sin molestias.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Endodoncias en una sola sesión (motor)</li>
+                            <li><i class="fas fa-check"></i> Implantes dentales (titanio de grado médico)</li>
+                            <li><i class="fas fa-check"></i> Extracción de muelas del juicio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTÉTICA -->
+        <section id="estetica" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">DISEÑO DE SONRISA</div>
+                    <h2>Belleza que <span class="sl-glow-text">enamora</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-star"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Blanqueamiento Dental</div>
+                            <p>Blanqueamiento profesional con luz LED de alta potencia. Resultados visibles desde la primera sesión. Hasta 8 tonos más blanco en 60 minutos.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-gem"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Carillas y Lentes de Contacto</div>
+                            <p>Finas capas de porcelana o resina que cambian forma, color y tamaño de los dientes. La solución definitiva para una sonrisa de revista.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-crown"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Coronas y Prótesis</div>
+                            <p>Restauraciones fijas en zirconio y porcelana. Diseño 3D personalizado para lograr el ajuste perfecto y una apariencia 100% natural e imperceptible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">PRIMERA CITA GRATIS</div>
+                    <h2>¿Cuándo fue la última vez que visitaste al <span class="sl-glow-text">dentista?</span></h2>
+                    <p>Esperar puede convertir un problema pequeño en un gasto enorme. Escríbenos hoy y recibe tu primera consulta y radiografía sin ningún costo.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20agendar%20mi%20consulta%20gratuita%20en%20SmilePro." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Reservar mi Consulta Gratis</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-purple);">SmilePro</h3>
+                        <p>Tu clínica dental de confianza. Tecnología avanzada, equipo humano excepcional y el compromiso de transformar tu sonrisa.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Consultorios</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Lun – Vie: 08:30–19:00 · Sáb: 09:00–14:00</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Edificio MedCenter, Consultorio 5</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>&copy; 2026 SmilePro Clínica Dental. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: Dentista -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Agenda tu Consulta Dental",
+    "subtitulo": "Cuéntanos cómo podemos ayudarte.",
+    "boton": "Agendar Cita Dental",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Motivo de la consulta",
+            "tipo": "radio",
+            "emoji": "🦷",
+            "opciones": [
+                "Limpieza",
+                "Dolor",
+                "Ortodoncia",
+                "Blanqueamiento",
+                "Revisión"
+            ]
+        },
+        {
+            "label": "¿Es primera vez con nosotros?",
+            "tipo": "radio",
+            "emoji": "🆕",
+            "opciones": [
+                "Sí",
+                "No, ya fui antes"
+            ]
+        },
+        {
+            "label": "¿Tienes alergias a medicamentos?",
+            "tipo": "radio",
+            "emoji": "⚠️",
+            "opciones": [
+                "Sí",
+                "No",
+                "No sé"
+            ]
+        },
+        {
+            "label": "Comentario adicional",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "Dentista"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

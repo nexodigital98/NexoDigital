@@ -1,0 +1,30 @@
+{
+  "name": "DeliFrozen",
+  "short_name": "DeliFrozen",
+  "description": "Tarjeta digital profesional de DeliFrozen",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF5F8",
+  "theme_color": "#00BFFF",
+  "icons": [
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logos/LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "lang": "es",
+  "dir": "ltr"
+}

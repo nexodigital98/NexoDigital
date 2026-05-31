@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (main)
+
+media_folder: "img/cms" # Folder where uploaded files will be saved
+public_folder: "img/cms" # Public path to media files
+
+# Locale settings
+locale: 'es'
+
+collections:
+  - name: "contenido"
+    label: "Contenido de la Web"
+    editor:
+      preview: false
+    files:
+      - label: "Página Principal (Inicio)"
+        name: "inicio"
+        file: "data/content.json"
+        fields:
+          - { label: "Hero - Título Principal", name: "hero_title", widget: "string", default: "Expertos en Restaurante Gourmet" }
+          - { label: "Hero - Descripción", name: "hero_desc", widget: "text", default: "Confía en nosotros, deleita tu paladar brindándote sabores únicos en cada plato. Nos enfocamos en ofrecer el mejor servicio para tu satisfacción." }
+          - { label: "Hero - Años de Experiencia", name: "stat1_num", widget: "string", default: "10+" }
+          - { label: "Hero - Cantidad de Declaraciones", name: "stat2_num", widget: "string", default: "500+" }
+          - { label: "Hero - Imagen de Fondo/Equipo", name: "hero_image", widget: "image", required: false }
+          
+          - { label: "Nosotros - Título", name: "about_title", widget: "string", default: "Tu Mejor Opción en Restaurante Gourmet" }
+          - { label: "Nosotros - Párrafo", name: "about_text", widget: "text", default: "No somos solo un servicio más. Somos profesionales dedicados a brindarte la mejor experiencia en restaurante gourmet, asegurando calidad y compromiso." }
+          
+          - { label: "Servicio 1 - Nombre", name: "serv1_name", widget: "string", default: "Menú a la Carta" }
+          - { label: "Servicio 1 - Descripción", name: "serv1_desc", widget: "text", default: "Servicio especializado de menú a la carta diseñado para cubrir tus necesidades con total profesionalismo." }
+          
+          - { label: "Servicio 2 - Nombre", name: "serv2_name", widget: "string", default: "Desayunos" }
+          - { label: "Servicio 2 - Descripción", name: "serv2_desc", widget: "text", default: "Brindamos desayunos con los más altos estándares de calidad y atención al detalle." }
+          
+          - { label: "Servicio 3 - Nombre", name: "serv3_name", widget: "string", default: "Cenas Especiales" }
+          - { label: "Servicio 3 - Descripción", name: "serv3_desc", widget: "text", default: "Expertos en cenas especiales, garantizando resultados eficientes y confiables." }
+          
+          - { label: "Servicio 4 - Nombre", name: "serv4_name", widget: "string", default: "Eventos Privados" }
+          - { label: "Servicio 4 - Descripción", name: "serv4_desc", widget: "text", default: "Nuestro servicio de eventos privados te ofrece seguridad y respaldo en cada etapa." }

@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>NutriBalance | Nutrición Clínica y Deportiva</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Alcanza tu peso ideal y mejora tu salud sin dietas extremas. Planes de alimentación personalizados, nutrición deportiva y clínica.">
+    <meta name="keywords" content="nutricionista, dietista, bajar de peso, nutricion deportiva, dieta saludable, planes alimenticios, salud">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#A3E635">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="NutriBalance">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="NutriBalance" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>NUTRIBALANCE</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Nutricionista Registrada</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://tiktok.com/" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">NU</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="fas fa-calendar-alt"></i><span>Consulta</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="NutriBalance" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; color:var(--sl-text); text-transform:uppercase;">NutriBalance</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#especialidades">Especialidades</a></li>
+                <li><a href="#metodo">Mi Método</a></li>
+                <li><a href="#planes">Consultas</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20agendar%20una%20cita%20nutricional." target="_blank" class="sl-nav-cta"><i class="fas fa-calendar-check"></i> Agendar Cita</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-carrot"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">ENFOQUE ANTI-DIETA</span>
+                            <span class="sl-sys-desc">Aprende a comer sin restricciones absurdas</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Transforma tu cuerpo, <span class="sl-glow-text">sanando tu relación con la comida</span>.</h1>
+                    <p class="sl-hero-desc">Baja de peso, gana masa muscular o mejora tu salud clínica con planes de alimentación 100% personalizados, flexibles y adaptados a tu estilo de vida y presupuesto.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20empezar%20mi%20cambio%20físico." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Empezar mi Cambio</span></a>
+                        <a href="#metodo" class="sl-btn-secondary clip-btn"><span>Conocer el Método</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">2k+</span><span class="sl-stat-label">Pacientes Sanos</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">95%</span><span class="sl-stat-label">Tasa de Éxito</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">Online</span><span class="sl-stat-label">& Presencial</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Nutricionista Profesional" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ESPECIALIDADES -->
+        <section id="especialidades" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">ÁREAS DE EXPERIENCIA</div>
+                    <h2>No existe una dieta <span class="sl-glow-text">para todos</span></h2>
+                    <p>La nutrición debe adaptarse a tu genética, tus objetivos y tu estado de salud actual.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-weight"></i></div><div class="sl-service-badge">Más Común</div></div>
+                        <h3>Pérdida de Grasa</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Déficit calórico calculado estratégicamente para que pierdas grasa corporal sin pasar hambre y sin efecto rebote.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Menús semanales variados</li>
+                            <li><i class="fas fa-check"></i> Snacks permitidos y balanceados</li>
+                            <li><i class="fas fa-check"></i> Recomposición corporal</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-running"></i></div><div class="sl-service-badge">Alto Rendimiento</div></div>
+                        <h3>Nutrición Deportiva</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Maximiza tu rendimiento en el gimnasio, crossfit o running. Cálculo exacto de macronutrientes para hipertrofia o resistencia.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Timing de comidas (Pre/Post entreno)</li>
+                            <li><i class="fas fa-check"></i> Suplementación con evidencia científica</li>
+                            <li><i class="fas fa-check"></i> Aumento de masa muscular limpia</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-heartbeat"></i></div></div>
+                        <h3>Nutrición Clínica</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Manejo nutricional de patologías a través de la comida. Control de diabetes, hipertensión, SOP, hipotiroidismo y colesterol alto.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Lectura e interpretación de exámenes</li>
+                            <li><i class="fas fa-check"></i> Dietas antiinflamatorias</li>
+                            <li><i class="fas fa-check"></i> Salud digestiva e intestinal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METODO -->
+        <section id="metodo" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">MI FILOSOFÍA</div>
+                    <h2>Olvídate de comer <span class="sl-glow-text">solo lechuga</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-hamburger"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Flexibilidad Total</div>
+                            <p>En mis planes hay espacio para la pizza, el chocolate o esa salida de fin de semana. La clave está en las porciones (Regla 80/20).</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Educación Nutricional</div>
+                            <p>Mi objetivo final es darte de alta. Te enseñaré a leer etiquetas, combinar alimentos y saber qué comer sin depender de un papel.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Acompañamiento</div>
+                            <p>No estás solo. Tendrás acceso a una app privada con tus recetas, lista del súper y un chat directo conmigo para resolver dudas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">TU CUERPO LO AGRADECERÁ</div>
+                    <h2>No empieces una dieta que terminará, <span class="sl-glow-text">comienza un estilo de vida que perdure</span>.</h2>
+                    <p>El mejor momento para empezar a cuidar de ti mismo fue hace 10 años. El segundo mejor momento es hoy.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Estoy%20listo%20para%20cambiar%20mis%20hábitos." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Chatear por WhatsApp</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text); text-transform:uppercase;">NutriBalance</h3>
+                        <p>Nutrición con base científica, sin restricciones absurdas. Licenciada en Nutrición y Dietética.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Consultorio</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-envelope"></i> citas@nutribalance.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Edificio Médico Vital, Piso 4, Of 402</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 NutriBalance. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: Nutricionista -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Plan de Nutrición Personalizado",
+    "subtitulo": "Cuéntanos tus objetivos para preparar tu plan.",
+    "boton": "Agendar Consulta",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Objetivo principal",
+            "tipo": "radio",
+            "emoji": "🎯",
+            "opciones": [
+                "Bajar de peso",
+                "Subir de peso",
+                "Músculo",
+                "Salud general"
+            ]
+        },
+        {
+            "label": "¿Sigues alguna dieta actualmente?",
+            "tipo": "radio",
+            "emoji": "🥗",
+            "opciones": [
+                "Sí",
+                "No"
+            ]
+        },
+        {
+            "label": "¿Tienes alguna condición médica?",
+            "tipo": "radio",
+            "emoji": "⚕️",
+            "opciones": [
+                "Diabetes",
+                "Hipertensión",
+                "Ninguna",
+                "Otra"
+            ]
+        },
+        {
+            "label": "Cuéntanos tu situación actual",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "Nutricionista"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

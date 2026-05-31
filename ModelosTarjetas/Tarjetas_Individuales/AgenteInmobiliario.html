@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta 3D - PrimeEstate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #03050A; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer; }
+        
+        .fut-top-right { position: absolute; top: 15px; right: 15px; z-index: 5; }
+        .fut-top-right img { width: 30px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        
+        .fut-team-zone { width: 100%; height: 180px; margin-top: 25px; display: flex; justify-content: center; align-items: flex-end; position: relative; z-index: 2; }
+        .fut-team-zone img { height: 110%; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8)); }
+        
+        .fut-content { flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 20px; position: relative; z-index: 3; }
+        .fut-title { font-family: 'Cinzel', serif; font-size: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); margin-bottom: 5px; text-transform: uppercase; }
+        .fut-slogan { font-size: 9px; color: #FFF; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 15px; }
+        .fut-divider { width: 70%; height: 1px; margin-bottom: 15px; opacity: 0.6; }
+        
+        .fut-socials { display: flex; gap: 10px; margin-bottom: 15px; }
+        .soc-circle { width: 30px; height: 30px; border-radius: 50%; border: 1px solid; display: flex; justify-content: center; align-items: center; overflow: hidden; background: transparent; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease; cursor: pointer; }
+        .soc-circle:hover { transform: scale(1.18); background: #68D39122; box-shadow: 0 0 10px #68D391, 0 0 20px #68D39188; border-color: #68D391 !important; }
+        .soc-circle:hover svg { filter: drop-shadow(0 0 4px #68D391); }
+        
+        .fut-btn { padding: 8px 15px; font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; text-transform: uppercase; border-radius: 4px; display: flex; align-items: center; gap: 8px; z-index: 20; position: relative; border-bottom: 3px solid rgba(0,0,0,0.4) !important; transition: box-shadow 0.2s ease, transform 0.2s ease; }
+        .fut-btn:hover { box-shadow: 0 0 15px #68D391, 0 0 30px #68D39166; transform: translateY(-1px); }
+        
+        .portal-light { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0; background: #68D391; border-radius: 50%; box-shadow: 0 0 80px 80px #68D39199, 0 0 180px 180px #68D39144; opacity: 0; transition: all 1s ease-in-out; pointer-events: none; z-index: 100; }
+        
+        
+    /* ── Contenedor general ── */
+    .folder-container {
+        perspective: 1600px;
+        width: 340px; height: 530px;
+        position: relative; margin: 0 auto;
+    }
+
+    /* Escena que se desplaza a la derecha al abrir para centrar la agenda */
+    .folder-scene {
+        width: 100%; height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-wrapper.open .folder-scene {
+        transform: translateX(85px) scale(0.95);
+        transition-delay: 0.3s;
+    }
+
+    /* ── Cuerpo de la Agenda (Derecha) ── */
+    .folder-body-right {
+        position: absolute; inset: 0;
+        background: radial-gradient(circle at 50% 50%, #1a1a1c 0%, #0d0d0f 100%);
+        border-radius: 8px;
+        box-shadow: 10px 15px 30px rgba(0,0,0,0.6);
+        transform-style: preserve-3d;
+        z-index: 1;
+    }
+
+    /* ── Tapa de la Agenda (Izquierda) ── */
+    .folder-cover-front {
+        position: absolute; inset: 0;
+        transform-origin: left center;
+        transform-style: preserve-3d;
+        transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0s;
+        z-index: 10;
+    }
+    .card-wrapper.open .folder-cover-front {
+        transform: rotateY(-150deg);
+        transition-delay: 0.3s;
+    }
+
+    /* Cara exterior de la tapa */
+    .cover-exterior {
+        position: absolute; inset: 0;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(1px);
+        background: radial-gradient(circle at 50% 50%, #1a1a1c 0%, #0d0d0f 100%);
+        border-radius: 8px;
+        box-shadow: 5px 5px 20px rgba(0,0,0,0.8);
+        display: flex;
+        overflow: hidden;
+    }
+    
+    /* Prevenir que CUALQUIER elemento hijo traspase la parte de atrás */
+    .cover-exterior * {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    /* Lomo izquierdo de cuero */
+    .portfolio-spine {
+        width: 45px; height: 100%;
+        background: linear-gradient(to right, #1a1a1a 0%, #2c2c2c 20%, #151515 80%, #0a0a0a 100%);
+        position: relative; z-index: 15;
+        box-shadow: 8px 0 20px rgba(0,0,0,0.8);
+        border-right: 1px solid #000;
+        display: flex; justify-content: center;
+        flex-shrink: 0;
+    }
+    .stitches {
+        width: 2px; height: 96%; margin-top: 8px;
+        background-image: linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.12) 50%);
+        background-size: 100% 14px;
+    }
+
+    /* Contenido de la tapa */
+    .portfolio-content {
+        position: relative; z-index: 10; flex: 1; min-width: 0; height: 100%; display: flex; flex-direction: column; padding-top: 15px;
+    }
+    .portfolio-content .fut-top-right { top: 15px; right: 25px; }
+    .portfolio-content .fut-team-zone { margin-top: 25px; height: 210px; display: flex; align-items: center; justify-content: center; }
+    .portfolio-content .fut-team-zone img { filter: drop-shadow(0 15px 30px rgba(0,0,0,0.9)); }
+    .portfolio-content .fut-content { justify-content: center; padding-bottom: 25px; margin-top: 15px; flex-grow: 0; }
+    .portfolio-content .fut-btn { width: 80%; justify-content: center; border-radius: 4px; padding: 12px; margin-top: 15px; font-size: 14px; box-shadow: 0 4px 15px #68D39140; border: 1px solid #68D391; text-transform: uppercase; font-family: 'Cinzel', serif; letter-spacing: 2px; }
+
+    /* Cara interior de la tapa */
+    .cover-interior {
+        position: absolute; inset: 0;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: rotateY(180deg) translateZ(1px);
+        background: radial-gradient(circle at 50% 50%, #1a1a1c 0%, #0d0d0f 100%);
+        border-radius: 8px;
+    }
+
+    /* Textura de cuero (se aplica a ambas caras) */
+    .leather-texture {
+        position: absolute; inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 3px 3px;
+        pointer-events: none; z-index: 1;
+    }
+
+    /* ── Broche lateral ── */
+    .portfolio-clasp {
+        position: absolute; right: -16px; top: 50%; margin-top: -45px;
+        width: 32px; height: 90px;
+        background: linear-gradient(to right, #111, #2a2a2a 50%, #111);
+        border-radius: 0 10px 10px 0;
+        z-index: 20;
+        box-shadow: 6px 6px 15px rgba(0,0,0,0.7), inset 1px 0 2px rgba(255,255,255,0.15);
+        display: flex; align-items: center; justify-content: center;
+        border: 1px solid #000; border-left: none;
+        transform-origin: left center;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0.8s; /* Al cerrar, el broche se cierra de último */
+    }
+    .clasp-button {
+        width: 16px; height: 16px;
+        background: radial-gradient(circle at 30% 30%, #e0e0e0, #888);
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+    }
+    
+    /* Al abrir: El broche rota hacia atrás primero */
+    .card-wrapper.open .portfolio-clasp {
+        transform: rotateY(160deg);
+        transition-delay: 0s; /* El broche se abre inmediatamente al hacer clic */
+    }
+
+    /* ── Páginas (Hojas en blanco) ── */
+    .page-stack {
+        position: absolute;
+        top: 10px; bottom: 10px; /* Margen de la tapa */
+        background: #fdfaf4;
+        overflow: hidden;
+        z-index: 10;
+    }
+    
+    /* Grosor de hojas derechas */
+    .right-stack {
+        left: 5px; right: 8px;
+        border-radius: 2px 5px 5px 2px;
+        box-shadow: 
+            inset -2px 0 5px rgba(0,0,0,0.05),
+            1px 1px 1px #e6e0d4, 2px 2px 1px #d9d3c5, 3px 3px 1px #ccc5b6, 4px 4px 2px rgba(0,0,0,0.2);
+    }
+    
+    /* Grosor de hojas izquierdas */
+    .left-stack {
+        left: 8px; right: 5px;
+        border-radius: 5px 2px 2px 5px;
+        box-shadow: 
+            inset 2px 0 5px rgba(0,0,0,0.05),
+            -1px 1px 1px #e6e0d4, -2px 2px 1px #d9d3c5, -3px 3px 1px #ccc5b6, -4px 4px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Sombras curvas del lomo central para dar volumen 3D al papel */
+    .spine-shadow-right {
+        position: absolute; top: 10px; bottom: 10px; left: 5px; width: 40px;
+        background: linear-gradient(to right, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 40%, transparent 100%);
+        pointer-events: none; z-index: 15;
+    }
+    .spine-shadow-left {
+        position: absolute; top: 10px; bottom: 10px; right: 5px; width: 40px;
+        background: linear-gradient(to left, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 40%, transparent 100%);
+        pointer-events: none; z-index: 10;
+    }
+
+    .page-content { padding: 40px 20px; height: 100%; }
+    
+    </style>
+</head>
+<body>
+    
+    <div class="folder-container card-wrapper" id="cardObj">
+        <div class="folder-scene">
+            
+            <!-- Cuerpo de la Agenda (Derecha / Interior) -->
+            <div class="folder-body-right">
+                <!-- Textura interior de la agenda -->
+                <div class="leather-texture"></div>
+                
+                <!-- Stack de hojas derechas -->
+                <div class="page-stack right-stack">
+                    <div class="page-content"></div>
+                </div>
+                <!-- Sombra de lomo central -->
+                <div class="spine-shadow-right"></div>
+            </div>
+
+            <!-- Tapa de la Agenda (Izquierda) -->
+            <div class="folder-cover-front">
+                <!-- Portada (Cara exterior) -->
+                <div class="cover-exterior">
+                    <div class="leather-texture"></div>
+                    <!-- Lomo izquierdo de cuero -->
+                    <div class="portfolio-spine">
+                        <div class="stitches"></div>
+                    </div>
+                    <div class="portfolio-content">
+                        
+    <div class="fut-team-zone">
+        <img src="../../AgenteInmobiliario/img/hero/EQUIPO.png" alt="Equipo" onerror="this.style.display='none'" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+    </div>
+    <div class="fut-content" style="box-sizing: border-box; background: rgba(10,10,12,0.8); padding: 15px 20px; border-radius: 12px; width: 88%; max-width: 280px; margin: 0 auto 20px auto; align-self: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h2 class="fut-title" style="color: #68D391; text-align: center; margin: 0 0 5px 0;">PrimeEstate</h2>
+        <p class="fut-slogan" style="text-align: center; margin: 0 0 10px 0; color: #ccc;">Tu hogar ideal te espera</p>
+        <div class="fut-divider" style="background: #68D391; width: 80%; height: 1px; margin: 0 auto 15px auto;"></div>
+        <div class="fut-socials" style="display: flex; justify-content: center; gap: 10px; width: 100%;">
+            <a href="https://wa.me/" target="_blank" onclick="event.stopPropagation()" class="soc-circle" style="color: #68D391; border-color: #68D391; text-decoration: none; transition: transform 0.2s ease;"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+            <a href="https://instagram.com/" target="_blank" onclick="event.stopPropagation()" class="soc-circle" style="color: #68D391; border-color: #68D391; text-decoration: none; transition: transform 0.2s ease;"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.20 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm5.838-10.535a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg></a>
+            <a href="https://tiktok.com/" target="_blank" onclick="event.stopPropagation()" class="soc-circle" style="color: #68D391; border-color: #68D391; text-decoration: none; transition: transform 0.2s ease;"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.68l.01.02a6.36 6.36 0 003.38 5.47 6.3 6.3 0 003.87.69c3.55-.4 5.95-3.52 5.95-7.1V6.52a8.03 8.03 0 003.79 1.48V4.54a4.91 4.91 0 01-2.41-.85z"/></svg></a>
+            <a href="https://linkedin.com/" target="_blank" onclick="event.stopPropagation()" class="soc-circle" style="color: #68D391; border-color: #68D391; text-decoration: none; transition: transform 0.2s ease;"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+        <button class="fut-btn" onclick="openAndRedirect(event)" style="background: linear-gradient(180deg, #68D391 0%, #111 200%); color: #000; border: 1px solid #68D391; width: 90%; padding: 12px; margin: 15px auto 5px auto; display: flex; justify-content: center; align-items: center; border-radius: 4px; font-weight: bold; text-transform: uppercase;">
+            MÁS INFORMACIÓN ›
+        </button>
+    </div>
+                    </div>
+                </div>
+                
+                <!-- Interior de la tapa (Cara interior) -->
+                <div class="cover-interior">
+                    <div class="leather-texture"></div>
+                    <!-- Stack de hojas izquierdas pegadas a la tapa -->
+                    <div class="page-stack left-stack">
+                        <div class="page-content"></div>
+                    </div>
+                    <div class="spine-shadow-left"></div>
+                </div>
+            </div>
+
+            <!-- Broche lateral (unido a la contratapa, envuelve hacia adelante) -->
+            <div class="portfolio-clasp">
+                <div class="clasp-button"></div>
+            </div>
+
+            <!-- Portal de luz para la transición (queda en el centro) -->
+            <div class="portal-light"></div>
+
+        </div>
+    </div>
+    <script>
+        function openAndRedirect(event) {
+            if(event) event.stopPropagation();
+            const card = document.getElementById('cardObj');
+            card.classList.add('open');
+            document.body.classList.add('flash-active');
+            setTimeout(() => {
+                window.location.href = '../../AgenteInmobiliario/index.html#landing-screen';
+            }, 1000); 
+        }
+
+        // ── Efecto 3D Tilt — idéntico a NexusDigital ──
+        const card   = document.getElementById('cardObj');
+        const MAX_TILT = 12; // igual que NexusDigital (máx 12 grados)
+
+        // Tilt via MOUSE — solo activo cuando el cursor está DENTRO de la tarjeta
+        card.addEventListener('mousemove', function(e) {
+            if (card.classList.contains('open')) return;
+            
+            // Eliminar el lag inicial si el cursor ya estaba dentro al cargar la página
+            if (card.style.transition !== 'none') card.style.transition = 'none';
+            
+            const rect    = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width  / 2;
+            const centerY = rect.top  + rect.height / 2;
+            const rotY    =  ((e.clientX - centerX) / (rect.width  / 2)) * MAX_TILT;
+            const rotX    = -((e.clientY - centerY) / (rect.height / 2)) * MAX_TILT;
+            card.style.transform = 'perspective(1200px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+        });
+
+        card.addEventListener('mouseenter', function() {
+            // Igual que NexusDigital: quitamos transition para que el tilt sea instantáneo
+            card.style.transition = 'none';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            if (card.classList.contains('open')) return;
+            // Rebote suave al soltar — cubic-bezier igual que NexusDigital
+            card.style.transition = 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            card.style.transform  = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+        });
+
+        // ── Franja de brillo automática (Shimmer) tipo NexusDigital ──
+        const shimmerStyle = document.createElement('style');
+        shimmerStyle.innerHTML = '@keyframes cardShimmerAnim { 0% { opacity: 0; transform: translateX(-150%) skewX(-20deg); } 20% { opacity: 0.5; } 50% { opacity: 0.8; } 80% { opacity: 0.5; } 100% { opacity: 0; transform: translateX(250%) skewX(-20deg); } } .shimmer-layer { position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: linear-gradient(90deg, transparent 0%, #68D39115 30%, #68D39155 50%, #68D39115 70%, transparent 100%); z-index: 9999; pointer-events: none; opacity: 0; animation: cardShimmerAnim 4s ease-in-out infinite 1.5s; border-radius: inherit; }';
+        document.head.appendChild(shimmerStyle);
+        const shimmerDiv = document.createElement('div');
+        shimmerDiv.className = 'shimmer-layer';
+
+        // Buscar la cara frontal exacta de la tarjeta (según el tipo de nicho) para que la luz no se salga
+        const faceSelector = '.book-cover-front, .generic-card, .acrylic-panel, .folder-cover-front, .phone-screen, .id-badge, .garage-door-frame, .luxury-mirror, .camera-lens, .tactical-shield';
+        const cardFace = card.querySelector(faceSelector);
+        
+        if (cardFace) {
+            // Aplicar el shimmer solo dentro del contenedor visual y evitar que rebase los bordes redondeados
+            cardFace.style.overflow = 'hidden'; 
+            cardFace.appendChild(shimmerDiv);
+        } else {
+            card.style.overflow = 'hidden'; 
+            card.appendChild(shimmerDiv);
+        }
+
+        // Tilt via GIROSCOPIO — móviles (Android sin permiso / iOS con permiso)
+        if (window.DeviceOrientationEvent) {
+            function applyGyroTilt(beta, gamma) {
+                if (!card || card.classList.contains('open')) return;
+                const rotX = Math.min(Math.max(-(beta  - 30) * 0.4, -MAX_TILT), MAX_TILT);
+                const rotY = Math.min(Math.max(  gamma        * 0.4, -MAX_TILT), MAX_TILT);
+                card.style.transform = 'perspective(1200px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+            }
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                card.addEventListener('click', function() {
+                    DeviceOrientationEvent.requestPermission().then(function(r) {
+                        if (r === 'granted') window.addEventListener('deviceorientation', function(e) { applyGyroTilt(e.beta, e.gamma); }, true);
+                    }).catch(console.error);
+                }, { once: true });
+            } else {
+                window.addEventListener('deviceorientation', function(e) { applyGyroTilt(e.beta, e.gamma); }, true);
+            }
+        }
+
+        // El clic en el fondo ya no activa la animación.
+        // Solo el botón "MÁS INFORMACIÓN" tiene onclick="openAndRedirect(event)"
+    </script>
+</body>
+</html>

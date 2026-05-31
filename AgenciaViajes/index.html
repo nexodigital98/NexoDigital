@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Wanderlust | Agencia de Viajes y Turismo</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Descubre el mundo con paquetes turísticos personalizados. Vuelos, hoteles, tours y cruceros al mejor precio.">
+    <meta name="keywords" content="agencia de viajes, tours, paquetes turisticos, vuelos baratos, cruceros, vacaciones, turismo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#F97316">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Wanderlust">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Wanderlust" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>WANDERLUST</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Travel & Adventures</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://tiktok.com/" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">AG</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="fas fa-passport"></i><span>Vuelos</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="Wanderlust" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; color:var(--sl-text); text-transform:uppercase;">Wanderlust</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#experiencias">Experiencias</a></li>
+                <li><a href="#paquetes">Paquetes All-Inclusive</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Busco%20cotizar%20un%20viaje." target="_blank" class="sl-nav-cta"><i class="fas fa-ticket-alt"></i> Cotizar Viaje</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-umbrella-beach"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">OFERTA DE TEMPORADA</span>
+                            <span class="sl-sys-desc">Caribe All-Inclusive con -30% OFF</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">El viaje de tus sueños, <span class="sl-glow-text">diseñado a tu medida</span>.</h1>
+                    <p class="sl-hero-desc">Nos encargamos de vuelos, traslados, hoteles y tours para que tú solo te preocupes por armar la maleta y disfrutar. Experiencias únicas en más de 40 países.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20ver%20destinos%20para%20mis%20vacaciones." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Agendar Asesoría Gratuita</span></a>
+                        <a href="#destinos" class="sl-btn-secondary clip-btn"><span>Explorar Mapa</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">10k+</span><span class="sl-stat-label">Viajeros Felices</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">40+</span><span class="sl-stat-label">Países</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">24/7</span><span class="sl-stat-label">Asistencia</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Agente de Viajes" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- DESTINOS -->
+        <section id="destinos" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">DESCUBRE EL MUNDO</div>
+                    <h2>Nuestras especialidades por <span class="sl-glow-text">Continente</span></h2>
+                    <p>Manejamos convenios exclusivos con las mejores cadenas hoteleras a nivel global.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-map-signs"></i></div><div class="sl-service-badge">Europa Clásica</div></div>
+                        <h3>EuroTours Multi-País</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Recorre Madrid, París, Roma y Londres en un solo viaje organizado con trenes de alta velocidad y guías hispanohablantes.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Tren Eurail Pass incluido</li>
+                            <li><i class="fas fa-check"></i> Hoteles céntricos (3/4 estrellas)</li>
+                            <li><i class="fas fa-check"></i> Entradas "Skip the Line" a museos</li>
+                            <li><i class="fas fa-check"></i> Asesoría de visado Schengen</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-sun"></i></div><div class="sl-service-badge">Caribe & Playa</div></div>
+                        <h3>Paraíso Tropical</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Relájate en las aguas cristalinas de Punta Cana, Cancún o Bahamas. Los mejores resorts con sistema de comida y bebida ilimitada.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Sistema Todo Incluido (24/7)</li>
+                            <li><i class="fas fa-check"></i> Traslados Aeropuerto - Hotel - Aeropuerto</li>
+                            <li><i class="fas fa-check"></i> Upgrades a habitaciones frente al mar</li>
+                            <li><i class="fas fa-check"></i> Tours en catamarán gratis</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-ship"></i></div></div>
+                        <h3>Cruceros de Lujo</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Despierta en un país diferente cada día. Navieras premium viajando por el Mediterráneo, las Islas Griegas o el Caribe.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Royal Caribbean, MSC, NCL</li>
+                            <li><i class="fas fa-check"></i> Camarotes con balcón privado</li>
+                            <li><i class="fas fa-check"></i> Entretenimiento estilo Broadway</li>
+                            <li><i class="fas fa-check"></i> Paquete de bebidas alcohólicas incluido</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCIAS -->
+        <section id="experiencias" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">VIAJA SIN ESTRÉS</div>
+                    <h2>Nosotros nos encargamos de <span class="sl-glow-text">todo</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-headset"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Soporte 24/7 en Viaje</div>
+                            <p>Si tu vuelo se retrasa o tienes una emergencia médica en otro país, nuestro equipo está a un WhatsApp de distancia para resolverlo.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Pagos Flexibles</div>
+                            <p>Reserva tu paquete con solo un 20% de anticipo y paga en cómodas cuotas sin intereses hasta 15 días antes de tu fecha de vuelo.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-route"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Itinerarios a Medida</div>
+                            <p>No te atamos a tours de rebaño. Si quieres un día libre para ir de compras, o un tour gastronómico privado, lo diseñamos para ti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Ofrecen seguro de viaje?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Sí, todos nuestros paquetes premium incluyen cobertura médica y asistencia 24/7 en el extranjero.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Pueden personalizar mi ruta?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Absolutamente. Diseñamos itinerarios a la medida basados en tus intereses y presupuesto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Ven a planear tu viaje soñado con nuestros expertos tomando un café en nuestras cómodas oficinas.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Torre de Negocios, Piso 3</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">CREA RECUERDOS INOLVIDABLES</div>
+                    <h2>Invierte en <span class="sl-glow-text">experiencias</span>.</h2>
+                    <p>El dinero se recupera, el tiempo no. Contáctanos hoy y comencemos a planear la aventura que recordarás por el resto de tu vida.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20cotizar%20un%20viaje%20a%20medida." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Diseñar mi Viaje</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text); text-transform:uppercase;">Wanderlust</h3>
+                        <p>Tu pasaporte a experiencias memorables. Operadores turísticos certificados a nivel internacional con registro vigente.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-envelope"></i> reservas@wanderlust.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Del Mundo #330, Plaza Comercial</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 Wanderlust Travel Agency. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: AgenciaViajes -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Planifica tu Viaje",
+    "subtitulo": "Cuéntanos el destino de tus sueños.",
+    "boton": "Solicitar Propuesta de Viaje",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Destino de interés",
+            "tipo": "text",
+            "emoji": "✈️",
+            "placeholder": "Ej: Cancún, Europa, Islas Galápagos"
+        },
+        {
+            "label": "Número de viajeros",
+            "tipo": "radio",
+            "emoji": "👥",
+            "opciones": [
+                "Solo/Pareja",
+                "Familia (3-4)",
+                "Grupo (+5)"
+            ]
+        },
+        {
+            "label": "Duración estimada",
+            "tipo": "radio",
+            "emoji": "📅",
+            "opciones": [
+                "1 semana",
+                "2 semanas",
+                "1 mes",
+                "Flexible"
+            ]
+        },
+        {
+            "label": "Presupuesto aproximado por persona",
+            "tipo": "select",
+            "emoji": "💰",
+            "opciones": [
+                "Menos de A consultar",
+                "A consultar-A consultar",
+                "A consultar-A consultar",
+                "Más de A consultar"
+            ]
+        },
+        {
+            "label": "¿Qué tipo de experiencia buscas?",
+            "tipo": "textarea",
+            "emoji": "📝",
+            "placeholder": "Aventura, playa, cultura, gastronomía..."
+        }
+    ],
+    "negocio": "AgenciaViajes"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

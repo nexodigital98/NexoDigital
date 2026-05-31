@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>GlobalLingo | Aprende Idiomas Rápidamente</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Domina inglés, francés o alemán con profesores nativos. Clases online y presenciales con metodología conversacional acelerada.">
+    <meta name="keywords" content="academia de idiomas, aprender ingles, curso de ingles, frances, aleman, profesores nativos, escuela de idiomas">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#60A5FA">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GlobalLingo">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="GlobalLingo" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>GlobalLingo</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Language Academy</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://linkedin.com/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">AC</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-comments"></i><span>Fluidez</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="GlobalLingo" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; color:var(--sl-text); text-transform:uppercase;">GlobalLingo</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#idiomas">Idiomas</a></li>
+                <li><a href="#metodologia">Metodología</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20tomar%20una%20clase%20de%20prueba." target="_blank" class="sl-nav-cta"><i class="fas fa-laptop-code"></i> Clase de Prueba</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">METODOLOGÍA CONVERSACIONAL</span>
+                            <span class="sl-sys-desc">Aprende a hablar desde la primera clase</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">El mundo es tuyo cuando <span class="sl-glow-text">hablas su idioma</span>.</h1>
+                    <p class="sl-hero-desc">Olvídate de memorizar reglas gramaticales aburridas. Te enseñamos a comunicarte de forma natural y fluida con profesores nativos certificados en entornos inmersivos.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20empezar%20a%20estudiar%20idiomas." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Quiero Empezar a Hablar</span></a>
+                        <a href="#idiomas" class="sl-btn-secondary clip-btn"><span>Ver Idiomas</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">3k+</span><span class="sl-stat-label">Alumnos Bilingües</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Profesores Nativos</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">5</span><span class="sl-stat-label">Idiomas Disponibles</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Profesor de GlobalLingo" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- IDIOMAS -->
+        <section id="idiomas" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">PROGRAMAS DISPONIBLES</div>
+                    <h2>Abre las puertas de <span class="sl-glow-text">tu carrera profesional</span></h2>
+                    <p>Dominar una segunda lengua aumenta tus posibilidades de contratación internacional en un 70%.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-flag-usa"></i></div><div class="sl-service-badge">Más Buscado</div></div>
+                        <h3>Inglés Corporativo</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Preparación intensiva para entrevistas de trabajo, redacción de correos profesionales y presentaciones de negocios en inglés.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Vocabulario de Negocios y Tech</li>
+                            <li><i class="fas fa-check"></i> Simulacros de entrevistas IT</li>
+                            <li><i class="fas fa-check"></i> Preparación TOEFL / IELTS</li>
+                            <li><i class="fas fa-check"></i> Reducción de acento hispano</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-globe-europe"></i></div><div class="sl-service-badge">Europeo</div></div>
+                        <h3>Francés / Alemán</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Programas estructurados bajo el Marco Común Europeo. Ideal para estudiantes buscando becas o profesionales migrando a Europa.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Preparación DELF / DALF / Goethe</li>
+                            <li><i class="fas fa-check"></i> Gramática conversacional inmersiva</li>
+                            <li><i class="fas fa-check"></i> Comprensión cultural del país</li>
+                            <li><i class="fas fa-check"></i> Niveles desde A1 hasta C1</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-child"></i></div></div>
+                        <h3>Kids & Teens</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Los niños son esponjas. Aprovechamos su neuroplasticidad enseñando a través de juegos, música y proyectos interactivos 100% en el idioma meta.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Aprendizaje por gamificación</li>
+                            <li><i class="fas fa-check"></i> Grupos reducidos (Máx 6 niños)</li>
+                            <li><i class="fas fa-check"></i> Reportes mensuales para padres</li>
+                            <li><i class="fas fa-check"></i> Club de conversación juvenil</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METODOLOGÍA -->
+        <section id="metodologia" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">NUESTRA FÓRMULA</div>
+                    <h2>No traduzcas, <span class="sl-glow-text">piensa en el idioma</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-headset"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">1. Inmersión Total</div>
+                            <p>En clase no se habla español. Te obligamos (de manera amigable) a usar las palabras que conoces para comunicarte desde el primer día.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-users"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">2. Flipped Classroom</div>
+                            <p>La gramática la estudias en casa con nuestros videos cortos. El tiempo de clase se usa 100% para hablar, debatir y corregir pronunciación.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">3. Club de Práctica</div>
+                            <p>Acceso gratuito a sesiones de "Speaking Club" los fines de semana, donde hablas de cultura, series y viajes con personas de todo el mundo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">TU FUTURO EMPIEZA HOY</div>
+                    <h2>No dejes pasar más <span class="sl-glow-text">oportunidades</span>.</h2>
+                    <p>Saber inglés ya no es un lujo, es el requisito mínimo. Toma nuestra prueba de nivel gratuita hoy mismo y descubre en cuánto tiempo serás fluido.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20tomar%20el%20examen%20de%20ubicación%20gratuito." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Realizar Prueba de Nivel Gratis</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text); text-transform:uppercase;">GlobalLingo</h3>
+                        <p>Acelerando carreras profesionales y rompiendo fronteras a través del aprendizaje inmersivo de idiomas.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-envelope"></i> admisiones@globallingo.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Académica #120, Campus Central</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 GlobalLingo Academy. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: AcademiaIdiomas -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Empieza tu Curso de Idiomas",
+    "subtitulo": "Cuéntanos tu nivel para ubicarte correctamente.",
+    "boton": "Agendar Evaluación",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Idioma de interés",
+            "tipo": "radio",
+            "emoji": "🌍",
+            "opciones": [
+                "Inglés",
+                "Francés",
+                "Portugués",
+                "Otro"
+            ]
+        },
+        {
+            "label": "Nivel actual",
+            "tipo": "radio",
+            "emoji": "📊",
+            "opciones": [
+                "Cero",
+                "Básico",
+                "Intermedio",
+                "Avanzado"
+            ]
+        },
+        {
+            "label": "Objetivo del aprendizaje",
+            "tipo": "radio",
+            "emoji": "🎯",
+            "opciones": [
+                "Trabajo",
+                "Viaje",
+                "Universidad",
+                "Personal"
+            ]
+        },
+        {
+            "label": "Comentario adicional",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "AcademiaIdiomas"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

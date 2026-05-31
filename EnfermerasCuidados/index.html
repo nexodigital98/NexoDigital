@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>CuidaSalud | Enfermería y Cuidados a Domicilio Profesionales</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Servicio profesional de enfermería y cuidados a domicilio. Cuidado de adultos mayores, pacientes postoperatorios y cuidados paliativos con calidez y experiencia.">
+    <meta name="keywords" content="enfermeria a domicilio, cuidado adultos mayores, cuidados paliativos, enfermera domiciliar, cuidados postoperatorios, cuidados de salud en casa">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#4DB6AC">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CuidaSalud">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="CuidaSalud" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>CuidaSalud</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Enfermería Profesional · Cuidamos con el Corazón</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">EN</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-address-card"></i><span>Contactar</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="CuidaSalud" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:var(--sl-violet);">CuidaSalud</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#valores">Cómo Trabajamos</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Necesito%20información%20sobre%20cuidados%20a%20domicilio." target="_blank" class="sl-nav-cta"><i class="fas fa-heart"></i> Solicitar Cuidado</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-shield-heart"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">DISPONIBLE 24 HORAS · 7 DÍAS</span>
+                            <span class="sl-sys-desc">Personal certificado · Enfermeras con experiencia hospitalaria comprobada</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Cuidados profesionales <span class="sl-glow-text">en la comodidad de tu hogar</span>.</h1>
+                    <p class="sl-hero-desc">Brindamos atención de enfermería especializada a domicilio con calidez, experiencia y total confianza. Tu familiar estará en las mejores manos, sin salir de casa.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Necesito%20cuidados%20de%20enfermería%20a%20domicilio." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Solicitar Enfermera Ahora</span></a>
+                        <a href="#servicios" class="sl-btn-secondary clip-btn"><span>Ver Servicios</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">+1.200</span><span class="sl-stat-label">Familias Atendidas</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">24/7</span><span class="sl-stat-label">Disponibilidad</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Certificadas</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Equipo CuidaSalud" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SERVICIOS -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">TIPOS DE CUIDADO</div>
+                    <h2>Atención especializada <span class="sl-glow-text">para cada necesidad</span></h2>
+                    <p>Nuestras enfermeras profesionales están capacitadas para distintos tipos de cuidados. Evaluamos cada caso y asignamos el perfil correcto para tu familiar.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-user-nurse"></i></div><div class="sl-service-badge">Más Solicitado</div></div>
+                        <h3>Cuidado de Adultos Mayores</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Acompañamiento integral para personas de la tercera edad con supervisión de medicación, higiene personal y estimulación cognitiva diaria.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Baño, higiene personal y cambio de ropa</li>
+                            <li><i class="fas fa-check"></i> Control y administración de medicamentos</li>
+                            <li><i class="fas fa-check"></i> Toma de signos vitales y registros diarios</li>
+                            <li><i class="fas fa-check"></i> Compañía, estimulación y actividades</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-procedures"></i></div><div class="sl-service-badge">Postoperatorio</div></div>
+                        <h3>Cuidados Postoperatorios</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Recuperación en casa con supervisión profesional. Curación de heridas, manejo del dolor y seguimiento médico para una recuperación segura y rápida.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Curación y cambio de apósitos estériles</li>
+                            <li><i class="fas fa-check"></i> Control de catéteres y sondas</li>
+                            <li><i class="fas fa-check"></i> Manejo de sueros y medicación IV</li>
+                            <li><i class="fas fa-check"></i> Reporte médico diario al especialista</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-hand-holding-heart"></i></div></div>
+                        <h3>Cuidados Paliativos</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Acompañamiento con amor y profesionalismo para pacientes con enfermedades crónicas o terminales. Bienestar, dignidad y calidad de vida hasta el final.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Control y alivio del dolor crónico</li>
+                            <li><i class="fas fa-check"></i> Cuidados de confort e higiene avanzada</li>
+                            <li><i class="fas fa-check"></i> Apoyo emocional al paciente y familia</li>
+                            <li><i class="fas fa-check"></i> Coordinación con médico tratante</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÓMO TRABAJAMOS -->
+        <section id="valores" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">NUESTRA FORMA DE CUIDAR</div>
+                    <h2>Confianza que se <span class="sl-glow-text">siente desde el primer día</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-id-badge"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Personal Verificado</div>
+                            <p>Todas nuestras enfermeras tienen título universitario, record policial limpio, referencias verificadas y pasan por una entrevista exhaustiva antes de ingresar al equipo.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Plan de Cuidado Personalizado</div>
+                            <p>Antes de iniciar, una coordinadora clínica visita el hogar, evalúa las necesidades específicas del paciente y diseña un plan detallado junto a la familia y el médico.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-comments"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Reporte Diario a la Familia</div>
+                            <p>Enviamos un informe diario por WhatsApp con el estado del paciente, medicación administrada, signos vitales y cualquier novedad relevante de la jornada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">EVALUACIÓN GRATUITA</div>
+                    <h2>Tu familiar merece el mejor <span class="sl-glow-text">cuidado posible</span>.</h2>
+                    <p>Escríbenos hoy y recibe una evaluación gratuita de las necesidades de tu paciente. Te ayudamos a elegir el plan ideal sin compromiso alguno.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20una%20evaluación%20gratuita%20para%20cuidados%20a%20domicilio." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Solicitar Evaluación Gratuita</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-violet);">CuidaSalud</h3>
+                        <p>Enfermería profesional a domicilio con calidez humana y rigor clínico. Porque el mejor lugar para sanar siempre es en casa, rodeado de los tuyos.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Disponibles las 24 horas · 7 días</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Servicio a domicilio en toda la ciudad</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 CuidaSalud Enfermería Profesional. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: EnfermerasCuidados -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Solicita Cuidado de Enfermería",
+    "subtitulo": "Cuéntanos las necesidades del paciente.",
+    "boton": "Solicitar Servicio",
+    "preguntas": [
+        {
+            "label": "Nombre del solicitante",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de cuidado",
+            "tipo": "radio",
+            "emoji": "🏥",
+            "opciones": [
+                "Adulto mayor",
+                "Post-operatorio",
+                "Enfermedad crónica",
+                "Otro"
+            ]
+        },
+        {
+            "label": "¿Es cuidado diurno o nocturno?",
+            "tipo": "radio",
+            "emoji": "🕐",
+            "opciones": [
+                "Diurno",
+                "Nocturno",
+                "24 horas"
+            ]
+        },
+        {
+            "label": "Descripción de necesidades",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "EnfermerasCuidados"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

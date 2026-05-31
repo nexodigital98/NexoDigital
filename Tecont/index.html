@@ -1,0 +1,658 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <!-- Título en la pestaña del navegador y en Google -->
+    <title>Tecont | Servicios Contables y Tributarios</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <!-- Descripción que Google muestra en los resultados de búsqueda -->
+    <meta name="description" content="Tecont - Estudio contable integral. Llevamos la contabilidad, impuestos y finanzas de tu negocio de forma ordenada y al día.">
+    <meta name="keywords" content="contabilidad, contador, impuestos, SRI, declaraciones, finanzas, nómina, asesoría tributaria, contable">
+    <meta name="author" content="Tecont">
+
+    <!-- Fuentes — no toques esto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos de Font Awesome — no toques -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Archivo de diseño -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#29B6F6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tecont">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Luces de fondo decorativas -->
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ───────────────────────────────
+       Lo primero que ve el cliente al abrir la página.
+       Gira al hacer clic en "Más Información".
+    ──────────────────────────────────────────────────────────────────── -->
+                        <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Tecont Logo" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>TECONT</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Tu Contabilidad en Orden</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                        <a href="https://facebook.com/tecont" target="_blank" class="social-btn" aria-label="Facebook">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://instagram.com/tecont" target="_blank" class="social-btn" aria-label="Instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">TC</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ────────────────────────────
+       Todo lo que viene abajo es el sitio principal.
+    ──────────────────────────────────────────────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <!-- Botón flotante para volver a la tarjeta -->
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Tarjeta</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ───────────────────────────────────────
+             Cambia los textos entre <a> y </a> si quieres renombrar secciones.
+             El número de WhatsApp en "Consulta" está en el href más abajo.
+        ──────────────────────────────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="Tecont" class="sl-logo-img">
+                <span>TECONT <em>CONTADORES</em></span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <!-- Botón del menú — cambia el número de WhatsApp aquí -->
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola%20Tecont!%20Deseo%20informaci%C3%B3n." target="_blank" class="sl-nav-cta">
+                    <i class="fas fa-bolt"></i> Consulta
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ─────────────────────────────────────────────────────
+             Cambia el título, la descripción y las estadísticas de abajo.
+        ──────────────────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <!-- Notificación superior — cámbiala por tu oferta actual -->
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-calculator"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">TECONT CONTADORES</span>
+                            <span class="sl-sys-desc">Gestión contable, tributaria y financiera para tu tranquilidad</span>
+                        </div>
+                    </div>
+
+                    <!-- Título principal — cámbialo por el tuyo -->
+                    <h1 class="sl-hero-title">
+                        Tranquilidad Contable<br>para <span class="sl-glow-text">Crecer tu Negocio</span>
+                    </h1>
+
+                    <!-- Párrafo de descripción -->
+                    <p class="sl-hero-desc">
+                        Delega la contabilidad e impuestos en manos de expertos. Nos encargamos de mantener tus cuentas claras, cumplir con el SRI y brindarte asesoría financiera para que tú te enfoques en vender.
+                    </p>
+
+                    <!-- Botones — cambia el número de WhatsApp -->
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20una%20revisi%C3%B3n%20de%20mis%20impuestos." target="_blank" class="sl-btn-primary clip-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Revisión Gratuita</span>
+                        </a>
+                        <a href="#servicios" class="sl-btn-secondary clip-btn">
+                            <span>Ver Servicios</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+
+                    <!-- Estadísticas — cambia los números y textos -->
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">10+</span><span class="sl-stat-label">Años de Experiencia</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">500+</span><span class="sl-stat-label">Declaraciones</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Al Día</span></div>
+                    </div>
+                </div>
+
+                <!-- Imagen del equipo o logo grande — pon tu imagen en img/hero/EQUIPO.png -->
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Equipo Tecont" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: NOSOTROS ──────────────────────────────────────
+             Cambia los textos del <h2> y <p> para presentar el negocio.
+        ──────────────────────────────────────────────────────────────── -->
+        <section id="nosotros" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">01 // QUIÉNES SOMOS</div>
+                    <h2>Tu Aliado Estratégico en<br><span class="sl-glow-text">Contabilidad e Impuestos</span></h2>
+                    <p>En Tecont no somos solo "quienes llenan formularios". Somos asesores integrales comprometidos con la salud financiera de tu empresa, evitando multas y optimizando tus recursos.</p>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-clock"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Puntualidad Extrema</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Tus declaraciones siempre a tiempo. Nunca más pagarás multas ni intereses por retrasos.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-piggy-bank"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Optimización Fiscal</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Aprovechamos todos los beneficios tributarios legales para que pagues lo justo y necesario.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Seguridad y Respaldo</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Tus comprobantes y libros contables organizados y respaldados en la nube de forma segura.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sl-achievements-grid">
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-file-invoice"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Facturación Electrónica</div>
+                            <p>Te implementamos y asesoramos en el sistema de facturación electrónica sin complicaciones.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Asesoría Permanente</div>
+                            <p>Resolvemos tus dudas tributarias diarias vía WhatsApp o llamada en horario laboral.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-building"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Creación de Empresas</div>
+                            <p>Te guiamos desde cero para constituir tu SAS, Cía. Ltda o SA de manera ágil.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-users"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Nómina y RRHH</div>
+                            <p>Manejo de IESS, contratos, roles de pago y liquidaciones cumpliendo la ley laboral.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Reportes Financieros</div>
+                            <p>Te entregamos reportes claros para que sepas si estás ganando o perdiendo dinero.</p>
+                        </div>
+                    </div>
+                    <div class="sl-achievement-item glass-panel">
+                        <div class="sl-ach-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="sl-ach-info">
+                            <div class="sl-ach-title">Contadores Colegiados</div>
+                            <p>Todo el equipo cuenta con formación académica y actualización tributaria constante.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: SERVICIOS ──────────────────────────────────────
+             Para cambiar el precio: busca <span class="sl-price-main">
+             Para cambiar los puntos de la lista: edita el texto dentro de <li>
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="servicios" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">02 // SERVICIOS</div>
+                    <h2>Soluciones Contables<br><span class="sl-glow-text">para cada necesidad</span></h2>
+                    <p>Desde la declaración mensual básica hasta el manejo completo de empresas. Todo al día y en orden.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- CONTABILIDAD MENSUAL -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-calculator"></i></div>
+                            <div class="sl-service-badge">Popular</div>
+                        </div>
+                        <h3>Contabilidad Mensual</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Registro de compras y ventas</li>
+                            <li><i class="fas fa-circle-notch"></i> Elaboración de libros contables</li>
+                            <li><i class="fas fa-circle-notch"></i> Conciliación bancaria</li>
+                            <li><i class="fas fa-circle-notch"></i> Emisión de balances mensuales</li>
+                            <li><i class="fas fa-circle-notch"></i> Asesoría contable continua</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20la%20Contabilidad%20Mensual." target="_blank" class="sl-btn-card clip-btn"><span>CONSULTAR</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- DECLARACIÓN DE IMPUESTOS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-file-invoice-dollar"></i></div>
+                        </div>
+                        <h3>Declaraciones SRI</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Declaración mensual/semestral IVA</li>
+                            <li><i class="fas fa-circle-notch"></i> Retenciones en la fuente</li>
+                            <li><i class="fas fa-circle-notch"></i> Anexos transaccionales (ATS)</li>
+                            <li><i class="fas fa-circle-notch"></i> Declaración Impuesto a la Renta</li>
+                            <li><i class="fas fa-circle-notch"></i> Devolución de impuestos</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Necesito%20ayuda%20con%20mis%20declaraciones." target="_blank" class="sl-btn-card clip-btn"><span>CONSULTAR</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- NÓMINA Y RRHH -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-users-cog"></i></div>
+                        </div>
+                        <h3>Nómina e IESS</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Elaboración de roles de pago</li>
+                            <li><i class="fas fa-circle-notch"></i> Avisos de entrada y salida IESS</li>
+                            <li><i class="fas fa-circle-notch"></i> Planillas, fondos de reserva, décimos</li>
+                            <li><i class="fas fa-circle-notch"></i> Contratos en el SUT (MinTrabajo)</li>
+                            <li><i class="fas fa-circle-notch"></i> Actas de finiquito y liquidaciones</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Me%20interesa%20el%20manejo%20de%20N%C3%B3mina." target="_blank" class="sl-btn-card clip-btn"><span>CONSULTAR</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- CREACIÓN DE EMPRESAS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-building"></i></div>
+                        </div>
+                        <h3>Constitución de Empresas</h3>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-circle-notch"></i> Creación de SAS en la SuperCías</li>
+                            <li><i class="fas fa-circle-notch"></i> Obtención del RUC sociedad</li>
+                            <li><i class="fas fa-circle-notch"></i> Patente municipal</li>
+                            <li><i class="fas fa-circle-notch"></i> Firma electrónica</li>
+                            <li><i class="fas fa-circle-notch"></i> Asesoría societaria integral</li>
+                        </ul>
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20crear%20mi%20empresa." target="_blank" class="sl-btn-card clip-btn"><span>CONSULTAR</span> <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 04: PROCESO ───────────────────────────────────────
+             Los 5 pasos del trabajo. Edita <h3> y <p> de cada paso.
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="proceso" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">04 // FLUJO DE TRABAJO</div>
+                    <h2>Cómo Funciona el<br><span class="sl-glow-text">Servicio Mensual</span></h2>
+                    <p>Hemos diseñado un proceso sin fricciones para que la contabilidad de tu negocio fluya de forma eficiente.</p>
+                </div>
+
+                <div class="sl-quest-list">
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">01</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-cloud-upload-alt"></i> Envío de Documentación</h3>
+                            <p>Recopilamos tus facturas físicas y electrónicas durante los primeros 5 días del mes. Lo puedes hacer digitalmente o en físico.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">02</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-keyboard"></i> Procesamiento Contable</h3>
+                            <p>Ingresamos y cuadramos toda tu información en nuestro sistema contable, clasificando correctamente los gastos y ventas.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">03</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-laptop-house"></i> Preparación de Impuestos</h3>
+                            <p>Calculamos los impuestos a pagar, elaboramos los anexos correspondientes y los subimos a los portales (SRI, IESS).</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">04</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-check-double"></i> Revisión y Aprobación</h3>
+                            <p>Te enviamos el borrador de los impuestos a pagar para tu revisión y conocimiento, antes de la fecha límite.</p>
+                        </div>
+                    </div>
+                    <div class="sl-quest-connector"></div>
+                    <div class="sl-quest-item glass-panel clip-corner">
+                        <div class="sl-quest-num">05</div>
+                        <div class="sl-quest-content">
+                            <h3><i class="fas fa-chart-bar"></i> Reportes y Asesoría</h3>
+                            <p>Te entregamos tus reportes financieros mensuales y te asesoramos para mejorar la rentabilidad de tu negocio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ─────────────────────────
+             Cambia preguntas: edita el texto dentro de <span class="faq-question">
+             Cambia respuestas: edita el texto dentro de <p class="faq-answer">
+        ──────────────────────────────────────────────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">05 // PREGUNTAS FRECUENTES</div>
+                    <h2>Dudas<br><span class="sl-glow-text">Comunes</span></h2>
+                </div>
+                <div class="faq-container">
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Me cobran por asesorías fuera de la contabilidad mensual?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Si eres cliente de plan mensual, las consultas tributarias, laborales o societarias rutinarias están incluidas sin costo extra. Trámites específicos (como devoluciones o creación de empresas nuevas) tienen un valor preferencial.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">Tengo atrasos con el SRI, ¿me pueden ayudar?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Sí. Ofrecemos el servicio de regularización contable y tributaria. Hacemos un diagnóstico gratuito de tu situación en el SRI o IESS, calculamos multas e intereses, y te presentamos un plan para poner todo al día.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿Me incluyen el sistema de facturación electrónica?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Asesoramos y configuramos el sistema facturador gratuito del SRI. Si requieres un sistema de facturación privado y más robusto, podemos proveerlo con un costo adicional preferencial.</p></div>
+                    </div>
+                    <div class="sl-faq-item glass-panel clip-corner">
+                        <div class="sl-faq-header">
+                            <span class="faq-question">¿La contabilidad se lleva en la oficina o virtual?</span>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body"><p class="faq-answer">Trabajamos bajo el modelo de "Outsourcing Contable" (Virtual/Remoto). Todo se maneja a través de medios digitales y nube, lo que nos permite ser más rápidos y atender clientes en cualquier parte del Ecuador. Podemos reunirnos presencialmente si estás en nuestra ciudad.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: LLAMADA A LA ACCIÓN ──────────────────────────
+             Cambia el título, párrafo y número de WhatsApp de los botones.
+        ──────────────────────────────────────────────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">VIVE LA EXPERIENCIA</div>
+                    <h2>¿Listo para poner<br><span class="sl-glow-text">orden en tus cuentas?</span></h2>
+                    <p>Escríbenos y agenda una revisión gratuita del estado tributario de tu negocio en el portal del SRI.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20poner%20mi%20contabilidad%20en%20orden." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Agenda un Análisis Gratis</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3>TECONT <span>CONTADORES</span></h3>
+                        <p>Soluciones contables, tributarias y financieras para emprendedores y empresas en todo el Ecuador.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/tecont" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/tecont" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 XX XXX XXXX</li>
+                            <li><i class="far fa-envelope"></i> info@tecont.com.ec</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Ecuador</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 Tecont Contadores. Todos los derechos reservados.</p>
+                    <div><a href="#">Privacidad</a> &middot; <a href="#">Términos</a></div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- MOTOR DEL CMS (DECAP) -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('data/content.json')
+            .then(response => {
+                if (!response.ok) throw new Error("No content.json");
+                return response.json();
+            })
+            .then(data => {
+                const heroTitle = document.querySelector('.sl-hero-title');
+                if(heroTitle && data.hero_title) heroTitle.innerHTML = data.hero_title;
+                const heroDesc = document.querySelector('.sl-hero-desc');
+                if(heroDesc && data.hero_desc) heroDesc.innerHTML = data.hero_desc;
+                const stats = document.querySelectorAll('.sl-stat-num');
+                if(stats.length >= 2) {
+                    if(data.stat1_num) stats[0].innerText = data.stat1_num;
+                    if(data.stat2_num) stats[1].innerText = data.stat2_num;
+                }
+                const heroImg = document.querySelector('.sl-team-img');
+                if(heroImg && data.hero_image) heroImg.src = data.hero_image;
+                const aboutTitle = document.querySelector('#nosotros h2');
+                if(aboutTitle && data.about_title) aboutTitle.innerHTML = data.about_title;
+                const aboutText = document.querySelector('#nosotros .sl-section-header p');
+                if(aboutText && data.about_text) aboutText.innerHTML = data.about_text;
+                const serviceCards = document.querySelectorAll('.sl-service-card');
+                if(serviceCards.length >= 4) {
+                    if(data.serv1_name) serviceCards[0].querySelector('h3').innerText = data.serv1_name;
+                    if(data.serv1_desc) serviceCards[0].querySelector('p')?.innerText = data.serv1_desc;
+                    if(data.serv2_name) serviceCards[1].querySelector('h3').innerText = data.serv2_name;
+                    if(data.serv2_desc) serviceCards[1].querySelector('p')?.innerText = data.serv2_desc;
+                    if(data.serv3_name) serviceCards[2].querySelector('h3').innerText = data.serv3_name;
+                    if(data.serv3_desc) serviceCards[2].querySelector('p')?.innerText = data.serv3_desc;
+                    if(data.serv4_name) serviceCards[3].querySelector('h3').innerText = data.serv4_name;
+                    if(data.serv4_desc) serviceCards[3].querySelector('p')?.innerText = data.serv4_desc;
+                }
+            })
+            .catch(err => console.log("CMS no cargado: ", err));
+    });
+    </script>
+    
+    <!-- NEXUS FORM CONFIG: Tecont -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Agenda tu Consulta Contable",
+    "subtitulo": "Necesitamos algunos datos para preparar tu asesoría.",
+    "boton": "Agendar Consulta",
+    "preguntas": [
+        { "label": "Nombre completo", "tipo": "text", "emoji": "👤", "required": true },
+        { "label": "Teléfono", "tipo": "tel", "emoji": "📞", "required": true },
+        { "label": "¿Tienes RUC activo?", "tipo": "radio", "emoji": "🏢", "opciones": ["Sí tengo RUC", "No tengo RUC", "Lo quiero sacar"] },
+        { "label": "Tu situación actual", "tipo": "textarea", "emoji": "📝", "placeholder": "Cuéntanos qué necesitas..." }
+    ],
+    "negocio": "Tecont"
+    };
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; 
+    window.NEXUS_FORM_CONFIG.calendly = ""; 
+    window.NEXUS_FORM_CONFIG.webhook = ""; 
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

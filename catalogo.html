@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Plantillas Nexus Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #060D1A;
+            --bg-card: #0A1628;
+            --text: #E8F4FD;
+            --text-dim: #7A9EB5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00B4D8, #0077B6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p { color: var(--text-dim); font-size: 16px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .template-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-left: 4px solid var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .template-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.1);
+        }
+        .template-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 100px; height: 100px;
+            background: var(--card-color);
+            filter: blur(50px);
+            opacity: 0.15;
+            transition: opacity 0.3s;
+        }
+        .template-card:hover::before { opacity: 0.3; }
+        .card-icon {
+            font-size: 20px;
+            color: var(--card-color);
+            margin-bottom: 15px;
+            align-self: flex-start;
+            background: rgba(255,255,255,0.05);
+            width: 40px; height: 40px;
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 8px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .card-path {
+            font-size: 12px;
+            color: var(--text-dim);
+            font-family: monospace;
+        }
+        .main-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0077B6, #00B4D8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .main-link:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plantillas Nexus Digital</h1>
+        <p>Selecciona una plantilla para ver la versión en vivo (PWA y Responsive).</p>
+        <a href="./index.html" class="main-link"><i class="fas fa-home"></i> Ver NexusDigital Principal</a>
+    </header>
+
+    <div class="grid">
+        
+            <a href="./Abogado/index.html" class="template-card" target="_blank" style="--card-color: #E2C775;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Abogado</div>
+                <div class="card-path">/Abogado</div>
+            </a>
+            <a href="./AcademiaIdiomas/index.html" class="template-card" target="_blank" style="--card-color: #3B82F6;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Academia Idiomas</div>
+                <div class="card-path">/AcademiaIdiomas</div>
+            </a>
+            <a href="./AgenciaDeSeguros/index.html" class="template-card" target="_blank" style="--card-color: #D1D5DB;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Agencia De Seguros</div>
+                <div class="card-path">/AgenciaDeSeguros</div>
+            </a>
+            <a href="./AgenciaMarketing/index.html" class="template-card" target="_blank" style="--card-color: #8A2BE2;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Agencia Marketing</div>
+                <div class="card-path">/AgenciaMarketing</div>
+            </a>
+            <a href="./AgenciaViajes/index.html" class="template-card" target="_blank" style="--card-color: #14B8A6;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Agencia Viajes</div>
+                <div class="card-path">/AgenciaViajes</div>
+            </a>
+            <a href="./AgenteInmobiliario/index.html" class="template-card" target="_blank" style="--card-color: #E5E7EB;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Agente Inmobiliario</div>
+                <div class="card-path">/AgenteInmobiliario</div>
+            </a>
+            <a href="./AiresAcondicionados/index.html" class="template-card" target="_blank" style="--card-color: #00BFFF;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Aires Acondicionados</div>
+                <div class="card-path">/AiresAcondicionados</div>
+            </a>
+            <a href="./AsesorFinanciero/index.html" class="template-card" target="_blank" style="--card-color: #00BFA5;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Asesor Financiero</div>
+                <div class="card-path">/AsesorFinanciero</div>
+            </a>
+            <a href="./AutoraSordociega/index.html" class="template-card" target="_blank" style="--card-color: #9B72CF;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Autora Sordociega</div>
+                <div class="card-path">/AutoraSordociega</div>
+            </a>
+            <a href="./CamarasSeguridad/index.html" class="template-card" target="_blank" style="--card-color: #00A8E8;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Camaras Seguridad</div>
+                <div class="card-path">/CamarasSeguridad</div>
+            </a>
+            <a href="./Carpintero/index.html" class="template-card" target="_blank" style="--card-color: #D28932;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Carpintero</div>
+                <div class="card-path">/Carpintero</div>
+            </a>
+            <a href="./ConsultorEmpresarial/index.html" class="template-card" target="_blank" style="--card-color: #E11D48;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Consultor Empresarial</div>
+                <div class="card-path">/ConsultorEmpresarial</div>
+            </a>
+            <a href="./DELIFROZEN/index.html" class="template-card" target="_blank" style="--card-color: #FF69B4;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">D E L I F R O Z E N</div>
+                <div class="card-path">/DELIFROZEN</div>
+            </a>
+            <a href="./DanielaBohorquezArquitecta/index.html" class="template-card" target="_blank" style="--card-color: #1E1E1E;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Daniela Bohorquez Arquitecta</div>
+                <div class="card-path">/DanielaBohorquezArquitecta</div>
+            </a>
+            <a href="./Dentista/index.html" class="template-card" target="_blank" style="--card-color: #0077B6;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Dentista</div>
+                <div class="card-path">/Dentista</div>
+            </a>
+            <a href="./DoctoresEspecialistas/index.html" class="template-card" target="_blank" style="--card-color: #1565C0;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Doctores Especialistas</div>
+                <div class="card-path">/DoctoresEspecialistas</div>
+            </a>
+            <a href="./Economista/index.html" class="template-card" target="_blank" style="--card-color: #D4AF37;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Economista</div>
+                <div class="card-path">/Economista</div>
+            </a>
+            <a href="./EnfermerasCuidados/index.html" class="template-card" target="_blank" style="--card-color: #00897B;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Enfermeras Cuidados</div>
+                <div class="card-path">/EnfermerasCuidados</div>
+            </a>
+            <a href="./EscuelaManejo/index.html" class="template-card" target="_blank" style="--card-color: #FACC15;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Escuela Manejo</div>
+                <div class="card-path">/EscuelaManejo</div>
+            </a>
+            <a href="./EstudioYoga/index.html" class="template-card" target="_blank" style="--card-color: #F472B6;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Estudio Yoga</div>
+                <div class="card-path">/EstudioYoga</div>
+            </a>
+            <a href="./FotografoBodas/index.html" class="template-card" target="_blank" style="--card-color: #D4AF37;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Fotografo Bodas</div>
+                <div class="card-path">/FotografoBodas</div>
+            </a>
+            <a href="./FrigorificoBuffet/index.html" class="template-card" target="_blank" style="--card-color: #D32F2F;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Frigorifico Buffet</div>
+                <div class="card-path">/FrigorificoBuffet</div>
+            </a>
+            <a href="./GimnasioEntrenador/index.html" class="template-card" target="_blank" style="--card-color: #F97316;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Gimnasio Entrenador</div>
+                <div class="card-path">/GimnasioEntrenador</div>
+            </a>
+            <a href="./Influencer/index.html" class="template-card" target="_blank" style="--card-color: #FF2D78;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Influencer</div>
+                <div class="card-path">/Influencer</div>
+            </a>
+            <a href="./LimpiezaHogar/index.html" class="template-card" target="_blank" style="--card-color: #06B6D4;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Limpieza Hogar</div>
+                <div class="card-path">/LimpiezaHogar</div>
+            </a>
+            <a href="./MecanicaAutomotriz/index.html" class="template-card" target="_blank" style="--card-color: #FFCC00;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Mecanica Automotriz</div>
+                <div class="card-path">/MecanicaAutomotriz</div>
+            </a>
+            <a href="./Nineras/index.html" class="template-card" target="_blank" style="--card-color: #4BAED9;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Nineras</div>
+                <div class="card-path">/Nineras</div>
+            </a>
+            <a href="./Nutricionista/index.html" class="template-card" target="_blank" style="--card-color: #84CC16;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Nutricionista</div>
+                <div class="card-path">/Nutricionista</div>
+            </a>
+            <a href="./OntanedaAuditors/index.html" class="template-card" target="_blank" style="--card-color: #7C3AED;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Ontaneda Auditors</div>
+                <div class="card-path">/OntanedaAuditors</div>
+            </a>
+            <a href="./OrganizadorEventos/index.html" class="template-card" target="_blank" style="--card-color: #D946EF;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Organizador Eventos</div>
+                <div class="card-path">/OrganizadorEventos</div>
+            </a>
+            <a href="./PeluqueriaSalonBelleza/index.html" class="template-card" target="_blank" style="--card-color: #D49B8E;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Peluqueria Salon Belleza</div>
+                <div class="card-path">/PeluqueriaSalonBelleza</div>
+            </a>
+            <a href="./PsicologoTerapeuta/index.html" class="template-card" target="_blank" style="--card-color: #34D399;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Psicologo Terapeuta</div>
+                <div class="card-path">/PsicologoTerapeuta</div>
+            </a>
+            <a href="./Quiropractico/index.html" class="template-card" target="_blank" style="--card-color: #2E7D32;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Quiropractico</div>
+                <div class="card-path">/Quiropractico</div>
+            </a>
+            <a href="./ReparacionCelulares/index.html" class="template-card" target="_blank" style="--card-color: #0066FF;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Reparacion Celulares</div>
+                <div class="card-path">/ReparacionCelulares</div>
+            </a>
+            <a href="./Restaurante/index.html" class="template-card" target="_blank" style="--card-color: #C8892A;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Restaurante</div>
+                <div class="card-path">/Restaurante</div>
+            </a>
+            <a href="./SpaDermocosmiatra/index.html" class="template-card" target="_blank" style="--card-color: #00796B;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Spa Dermocosmiatra</div>
+                <div class="card-path">/SpaDermocosmiatra</div>
+            </a>
+            <a href="./TallerMotos/index.html" class="template-card" target="_blank" style="--card-color: #E60000;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Taller Motos</div>
+                <div class="card-path">/TallerMotos</div>
+            </a>
+            <a href="./TecnicoComputadoras/index.html" class="template-card" target="_blank" style="--card-color: #00FF00;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Tecnico Computadoras</div>
+                <div class="card-path">/TecnicoComputadoras</div>
+            </a>
+            <a href="./Tecont/index.html" class="template-card" target="_blank" style="--card-color: #0D47A1;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Tecont</div>
+                <div class="card-path">/Tecont</div>
+            </a>
+            <a href="./Veterinaria/index.html" class="template-card" target="_blank" style="--card-color: #388E3C;">
+                <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
+                <div class="card-title">Veterinaria</div>
+                <div class="card-path">/Veterinaria</div>
+            </a>
+    </div>
+</body>
+</html>

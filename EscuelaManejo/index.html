@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>SafeDrive | Escuela de Manejo Profesional</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Aprende a conducir con seguridad y confianza. Cursos de manejo para principiantes, defensivos y obtención de licencias con instructores certificados.">
+    <meta name="keywords" content="escuela de manejo, academia de conduccion, curso de manejo, licencia de conducir, aprender a manejar, instructores de manejo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#FEF08A">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SafeDrive">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── TARJETA DIGITAL ─── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="SafeDrive" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>SAFEDRIVE</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Academia de Conducción</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">ES</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SITIO WEB ─── -->
+    <main id="landing-screen">
+        <div class="sl-particles" id="sl-particles"></div>
+        <button id="btn-floating-card" class="btn-floating-card"><i class="far fa-id-card"></i><span>Licencia</span></button>
+
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="SafeDrive" class="sl-logo-img">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; color:var(--sl-text); text-transform:uppercase;">SafeDrive</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#ventajas">¿Por qué nosotros?</a></li>
+                <li><a href="#planes">Precios</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20inscribirme%20en%20un%20curso%20de%20manejo." target="_blank" class="sl-nav-cta"><i class="fas fa-steering-wheel"></i> Inscribirse</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <header class="sl-hero" id="hero">
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">INSTRUCTORES CERTIFICADOS</span>
+                            <span class="sl-sys-desc">Autos modernos con doble comando de seguridad</span>
+                        </div>
+                    </div>
+                    <h1 class="sl-hero-title">Pierde el miedo y toma el <span class="sl-glow-text">control del volante</span>.</h1>
+                    <p class="sl-hero-desc">Te enseñamos a conducir desde cero con paciencia y profesionalismo. Obtén tu licencia de conducir rápidamente y aprende técnicas de manejo defensivo para estar seguro en cualquier vía.</p>
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20información%20sobre%20los%20cursos%20de%20manejo." target="_blank" class="sl-btn-primary clip-btn"><i class="fab fa-whatsapp"></i><span>Quiero Aprender</span></a>
+                        <a href="#cursos" class="sl-btn-secondary clip-btn"><span>Ver Opciones</span></a>
+                    </div>
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">5k+</span><span class="sl-stat-label">Alumnos Graduados</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">98%</span><span class="sl-stat-label">Aprobación en Test</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Autos Seguros</span></div>
+                    </div>
+                </div>
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Instructor de SafeDrive" class="sl-team-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CURSOS -->
+        <section id="cursos" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">PROGRAMAS DE ESTUDIO</div>
+                    <h2>Cursos diseñados para <span class="sl-glow-text">tu nivel</span></h2>
+                    <p>No importa si nunca has tocado un volante o si solo necesitas perfeccionar tus habilidades para sacar la licencia.</p>
+                </div>
+                <div class="sl-services-grid">
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-car-side"></i></div><div class="sl-service-badge">Principiantes</div></div>
+                        <h3>Manejo desde Cero</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Ideal para quienes sufren de nervios al volante. Empezamos en circuitos cerrados y avanzamos gradualmente hacia avenidas con tráfico.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Conocimiento del vehículo</li>
+                            <li><i class="fas fa-check"></i> Arranque, freno y marchas</li>
+                            <li><i class="fas fa-check"></i> Técnicas para perder el miedo</li>
+                            <li><i class="fas fa-check"></i> Prácticas en zonas de bajo tránsito</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-parking"></i></div><div class="sl-service-badge">Avanzado</div></div>
+                        <h3>Parqueo y Ciudad</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Perfeccionamiento de habilidades en situaciones reales de tráfico pesado. Domina el parqueo paralelo y en reversa sin estrés.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Parqueo paralelo y aculatado</li>
+                            <li><i class="fas fa-check"></i> Conducción en tráfico denso</li>
+                            <li><i class="fas fa-check"></i> Ingreso y salida de rotondas</li>
+                            <li><i class="fas fa-check"></i> Arranque en pendientes pronunciadas</li>
+                        </ul>
+                    </div>
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header"><div class="sl-service-icon-audit"><i class="fas fa-id-card"></i></div></div>
+                        <h3>Trámite de Licencia</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom:20px;">Te preparamos con exámenes teóricos de simulación y un repaso práctico estricto para que apruebes tu examen oficial al primer intento.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Simulador de examen teórico (Reglamento)</li>
+                            <li><i class="fas fa-check"></i> Tips para la prueba práctica</li>
+                            <li><i class="fas fa-check"></i> Asesoría en la documentación legal</li>
+                            <li><i class="fas fa-check"></i> Curso validado por la entidad de tránsito</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VENTAJAS -->
+        <section id="ventajas" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">POR QUÉ SAFEDRIVE</div>
+                    <h2>Tu seguridad es nuestra <span class="sl-glow-text">prioridad</span></h2>
+                </div>
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Doble Comando</div>
+                            <p>Todos nuestros vehículos están equipados con pedales dobles para el instructor. Nunca perderás el control absoluto del auto.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Instructores Pacientes</div>
+                            <p>Entendemos que aprender a manejar puede dar nervios. Nuestro equipo está capacitado en psicología vial para enseñarte con calma.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-clock"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Horarios Flexibles</div>
+                            <p>Trabajamos de lunes a domingo. Puedes programar tus prácticas en la mañana, tarde o noche, ajustándonos a tu rutina laboral.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">LIBERTAD DE MOVIMIENTO</div>
+                    <h2>No dependas de <span class="sl-glow-text">nadie más</span>.</h2>
+                    <p>Saber manejar es una habilidad esencial para tu vida diaria y profesional. Da el primer paso hoy con la academia más segura de la ciudad.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20empezar%20mi%20curso%20de%20manejo." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg"><i class="fab fa-whatsapp"></i><span>Hablar con un Asesor</span></a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--sl-text); text-transform:uppercase;">SafeDrive</h3>
+                        <p>Academia de conducción autorizada. Formamos conductores responsables, seguros y listos para cualquier vía.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-envelope"></i> info@safedrive.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Del Volante #500, Sector Centro</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom"><p>© 2026 SafeDrive Academy. Todos los derechos reservados.</p></div>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: EscuelaManejo -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Matrícula Escuela de Manejo",
+    "subtitulo": "Cuéntanos para iniciar tu proceso.",
+    "boton": "Solicitar Información",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "¿Tienes cédula vigente?",
+            "tipo": "radio",
+            "emoji": "🪪",
+            "opciones": [
+                "Sí",
+                "No"
+            ]
+        },
+        {
+            "label": "Tipo de licencia",
+            "tipo": "radio",
+            "emoji": "🚗",
+            "opciones": [
+                "Tipo B (carro)",
+                "Tipo A (moto)",
+                "Otro"
+            ]
+        },
+        {
+            "label": "¿Has manejado antes?",
+            "tipo": "radio",
+            "emoji": "🛞",
+            "opciones": [
+                "Nunca",
+                "Un poco",
+                "Sí pero sin licencia"
+            ]
+        },
+        {
+            "label": "Horario preferido",
+            "tipo": "radio",
+            "emoji": "🕐",
+            "opciones": [
+                "Mañana",
+                "Tarde",
+                "Noche",
+                "Fines de semana"
+            ]
+        }
+    ],
+    "negocio": "EscuelaManejo"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

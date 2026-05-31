@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Frigorífico y Buffet | Carnes y Comida Tradicional</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Los mejores cortes de carne, pollo fresco y comida caliente (Buffet, Humitas, Tamales). Calidad y frescura todos los días.">
+    <meta name="keywords" content="frigorifico, carnes, pollo, buffet, almuerzos, humitas, tamales, chicharron, cortes de carne">
+    <meta name="author" content="Frigorífico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#F57C00">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Frigorífico y Buffet">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Logo Frigorífico" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>EL GRAN FRIGORÍFICO</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Carnes Frescas & Buffet</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://facebook.com/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">FR</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ──────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Tarjeta</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ─────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="El Gran Frigorífico" class="sl-logo-img">
+                <span style="font-family: 'Rye', cursive; font-size: 18px;">EL GRAN FRIGORÍFICO</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#pollo">Pollos</a></li>
+                <li><a href="#carnes">Cortes de Carne</a></li>
+                <li><a href="#comida">Buffet y Listos</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20hacer%20un%20pedido." target="_blank" class="sl-nav-cta">
+                    <i class="fab fa-whatsapp"></i> Pedidos
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ───────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-star"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">CALIDAD PREMIUM</span>
+                            <span class="sl-sys-desc">Llevamos del campo a tu mesa todos los días</span>
+                        </div>
+                    </div>
+
+                    <h1 class="sl-hero-title">
+                        Frescura, Sabor y <span class="sl-glow-text">Tradición</span>
+                    </h1>
+
+                    <p class="sl-hero-desc">
+                        Encuentra los mejores y más frescos cortes de res, cerdo y pollo. Y si no quieres cocinar, disfruta de nuestra sección de Buffet Caliente: almuerzos, humitas, tamales y el mejor chicharrón de la ciudad.
+                    </p>
+
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Quiero%20el%20men%C3%BA%20del%20buffet%20de%20hoy." target="_blank" class="sl-btn-primary clip-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Menú del Día</span>
+                        </a>
+                        <a href="#carnes" class="sl-btn-secondary clip-btn">
+                            <span>Ver Cortes Frescos</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Fresco Día a Día</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">20+</span><span class="sl-stat-label">Cortes</span></div>
+                    </div>
+                </div>
+
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <img src="img/hero/EQUIPO.png" alt="Frigorífico" class="sl-team-img" style="border-radius: 20px; border: 4px solid var(--sl-violet); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: SECCIÓN DE POLLO ──────────────────── -->
+        <section id="pollo" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">AVES FRESCAS</div>
+                    <h2>Pollo al por<br><span class="sl-glow-text">Mayor y Menor</span></h2>
+                    <p>Pollos pelados el mismo día, garantizando el mejor sabor y textura para tus comidas y caldos.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- POLLO ENTERO -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-drumstick-bite"></i></div>
+                        </div>
+                        <h3>Pollo Entero (Pelado)</h3>
+                        <p style="font-size:13px; color:var(--sl-text-dim); margin-bottom: 20px;">Pollo fresco de granja, limpio y listo para hornear o trocear.</p>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Criado en granja seleccionada</li>
+                            <li><i class="fas fa-check"></i> Cero inyecciones de agua</li>
+                            <li><i class="fas fa-check"></i> Incluye menudencias (opcional)</li>
+                        </ul>
+                    </div>
+
+                    <!-- COMBOS DE PRESAS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-layer-group"></i></div>
+                            <div class="sl-service-badge">Más Pedido</div>
+                        </div>
+                        <h3>Combos de Presas</h3>
+                        <p style="font-size:13px; color:var(--sl-text-dim); margin-bottom: 20px;">Solo llevas lo que necesitas. Armamos combos a tu gusto.</p>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Bandejas full Pechuga (sin hueso)</li>
+                            <li><i class="fas fa-check"></i> Bandejas de Piernas y Pos-Piernas</li>
+                            <li><i class="fas fa-check"></i> Combo Alitas para asar</li>
+                        </ul>
+                    </div>
+
+                    <!-- MENUDENCIAS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-bone"></i></div>
+                        </div>
+                        <h3>Menudencias</h3>
+                        <p style="font-size:13px; color:var(--sl-text-dim); margin-bottom: 20px;">Ideales para unos buenos caldos nutritivos y reconfortantes.</p>
+                        
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-check"></i> Patas limpias</li>
+                            <li><i class="fas fa-check"></i> Hígados y mollejas</li>
+                            <li><i class="fas fa-check"></i> Cuellos y hueso carnudo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: CORTES DE CARNE Y CERDO ───────────────────────────── -->
+        <section id="carnes" class="sl-section" style="background: rgba(0,0,0,0.02);">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">ESPECIALIDAD PARRILLERA</div>
+                    <h2>Res y<br><span class="sl-glow-text">Cerdo Premium</span></h2>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-hamburger"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Cortes de Res (Primera)</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Lomo de falda, lomo de asado, pajarilla, pulpa prieta. Cortes suaves ideales para freír o asar a la parrilla.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-bacon"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Cerdo Fresco</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Costillas carnosas, chuletas gruesas, fritada picada lista para la paila, y cuero tierno. Todo limpio y sin exceso de grasa.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-fire"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Embutidos Parrilleros</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Chorizos artesanales, morcillas y longaniza. El complemento perfecto para cualquier asado de fin de semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Cómo agendo un servicio?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Puede contactarnos directamente por WhatsApp o llenar el formulario para recibir atención prioritaria.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Brindan asesoría personalizada?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Por supuesto. Evaluamos cada caso de manera individual para ofrecer soluciones a medida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Visite nuestras modernas instalaciones, diseñadas pensando en su confort y exclusividad.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Zona Comercial, Edificio Principal</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+
+        <!-- ─── SECCIÓN 05: LLAMADA A LA ACCIÓN ────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">VEN Y COMPRUEBA LA CALIDAD</div>
+                    <h2>¿Ya sabes qué cocinar<br><span class="sl-glow-text">hoy?</span></h2>
+                    <p>Visítanos en nuestro local, donde la higiene y el buen servicio son nuestra prioridad. O escríbenos para preparar tu pedido y que solo pases a retirarlo.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20hacer%20un%20pedido%20para%20retirar." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Hacer Pedido Rápido</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family: 'Rye', cursive; font-size: 20px;">EL GRAN FRIGORÍFICO</h3>
+                        <p>Tu carnicería de confianza. Carnes, pollos y comida buffet elaborados con los más altos estándares de higiene y sabor casero.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Atención</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Lunes a Domingo: 07:00 AM - 15:00 PM</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Principal y Secundaria</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 El Gran Frigorífico. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: FrigorificoBuffet -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Reserva tu Buffet",
+    "subtitulo": "Cuéntanos los detalles del evento.",
+    "boton": "Solicitar Cotización",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Tipo de evento",
+            "tipo": "radio",
+            "emoji": "🎉",
+            "opciones": [
+                "Boda",
+                "Corporativo",
+                "Cumpleaños",
+                "Graduación",
+                "Otro"
+            ]
+        },
+        {
+            "label": "Número de personas",
+            "tipo": "select",
+            "emoji": "👥",
+            "opciones": [
+                "Menos de 30",
+                "30-100",
+                "100-300",
+                "Más de 300"
+            ]
+        },
+        {
+            "label": "Fecha del evento",
+            "tipo": "text",
+            "emoji": "📅",
+            "placeholder": "Ej: 20 de Julio 2025"
+        },
+        {
+            "label": "Comentarios",
+            "tipo": "textarea",
+            "emoji": "📝"
+        }
+    ],
+    "negocio": "FrigorificoBuffet"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ─────────────────────────────────────────────────────────────────
+       index.html — Todo el contenido de la página está aquí.
+       Usa Ctrl+F para buscar cualquier texto y editarlo directamente.
+    ───────────────────────────────────────────────────────────────── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Glow Studio | Peluquería y Salón de Belleza</title>
+    <link rel="icon" type="image/png" href="img/logos/LOGO.png">
+    <meta name="description" content="Salón de belleza especializado en colorimetría, balayage, cortes en tendencia, maquillaje profesional y uñas. Luce espectacular hoy.">
+    <meta name="keywords" content="salon de belleza, peluqueria, balayage, maquillaje, uñas acrilicas, keratina">
+    <meta name="author" content="Glow Studio">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#FFB6C1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Glow Studio">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!-- ANTI-FLICKER: Salto directo desde tarjeta animada -->
+    <script>
+        if (window.location.hash === '#landing-screen') {
+            document.documentElement.classList.add('direct-landing');
+        }
+    </script>
+    <style>
+        html.direct-landing #card-screen { display: none !important; }
+        html.direct-landing #landing-screen { opacity: 1 !important; pointer-events: all !important; transform: translateY(0) !important; }
+        html.direct-landing body { overflow: auto !important; }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <!-- ─── PANTALLA 1: LA TARJETA DIGITAL ─────────────────────────────── -->
+                <section id="card-screen">
+        <div class="perspective-container">
+            <div class="business-card" id="my-card">
+                
+                <div class="card-face card-front">
+                    <div class="fut-card-body">
+                        <div class="shimmer-layer"></div>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+
+                        <div class="fut-card-inner">
+                            <div class="card-logo-container">
+                                <img src="img/logos/LOGO.png" alt="Logo Peluquería" class="card-logo">
+                            </div>
+
+                            <div class="fut-bottom-zone">
+                                <div class="fut-name-banner">
+                                    <h2>Glow Studio</h2>
+                                </div>
+
+                                <div class="fut-stats-group">
+                                    <p class="card-slogan">Hair & Beauty Salon</p>
+                                    <div class="fut-divider"></div>
+                                    <div class="card-socials">
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://instagram.com/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://tiktok.com/" target="_blank" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                                    </div>
+                                    <button class="btn-flip" id="btn-flip-info">
+                                        <span>Más Información</span>
+                                        <i class="fas fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-rating-circle">PE</div>
+                </div>
+                
+                <div class="card-face card-back">
+                    <div class="fut-card-body">
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner tr"></div>
+                        <div class="card-corner bl"></div>
+                        <div class="card-corner br"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ──────────────────────────── -->
+    <main id="landing-screen">
+
+        <div class="sl-particles" id="sl-particles"></div>
+
+        <button id="btn-floating-card" class="btn-floating-card" aria-label="Volver a la tarjeta" title="Ver Tarjeta Digital">
+            <i class="far fa-address-card"></i>
+            <span>Reservar</span>
+        </button>
+
+        <!-- ─── MENÚ DE NAVEGACIÓN ─────────────────────────────────────── -->
+        <nav class="sl-navbar" id="sl-navbar">
+            <div class="sl-nav-logo">
+                <img src="img/logos/LOGO.png" alt="Glow Studio Logo" class="sl-logo-img">
+                <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--sl-purple);">Glow Studio</span>
+            </div>
+            <ul class="sl-nav-links" id="nav-links">
+                <li><a href="#cabello">Cabello</a></li>
+                <li><a href="#maquillaje">Makeup & Uñas</a></li>
+                <li><a href="#combos">Promociones</a></li>
+                <li><a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20agendar%20una%20cita." target="_blank" class="sl-nav-cta">
+                    <i class="fas fa-calendar-alt"></i> Agendar Cita
+                </a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- ─── HERO ───────────────────────────────────────────────────── -->
+        <header class="sl-hero" id="hero">
+            <div class="sl-hero-bg-overlay"></div>
+            <div class="sl-container sl-hero-container">
+                <div class="sl-hero-content">
+
+                    <div class="sl-system-notification">
+                        <div class="sl-sys-icon"><i class="fas fa-star"></i></div>
+                        <div class="sl-sys-text">
+                            <span class="sl-sys-title">TU MOMENTO DE RELAX</span>
+                            <span class="sl-sys-desc">Disfruta de una copa de espumante gratis con tu servicio</span>
+                        </div>
+                    </div>
+
+                    <h1 class="sl-hero-title">
+                        Resalta tu <span class="sl-glow-text">Belleza Natural.</span>
+                    </h1>
+
+                    <p class="sl-hero-desc">
+                        Déjate consentir por nuestros estilistas profesionales. Expertos en diseño de color, cortes en tendencia, maquillaje social y spa de uñas.
+                    </p>
+
+                    <div class="sl-hero-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20asesor%C3%ADa%20para%20un%20cambio%20de%20look." target="_blank" class="sl-btn-primary clip-btn">
+                            <span>Asesoría de Imagen Gratuita</span>
+                        </a>
+                        <a href="#cabello" class="sl-btn-secondary clip-btn">
+                            <span>Nuestros Servicios</span>
+                        </a>
+                    </div>
+
+                    <div class="sl-hero-stats glass-panel">
+                        <div class="sl-stat"><span class="sl-stat-num">500+</span><span class="sl-stat-label">Balayages</span></div>
+                        <div class="sl-stat-sep"></div>
+                        <div class="sl-stat"><span class="sl-stat-num">100%</span><span class="sl-stat-label">Glamour</span></div>
+                    </div>
+                </div>
+
+                <div class="sl-hero-visual">
+                    <div class="sl-team-visual">
+                        <div class="sl-team-glow"></div>
+                        <!-- Imagen de una modelo con cabello hermoso o el salón por dentro -->
+                        <img src="img/hero/EQUIPO.png" alt="Salón de Belleza" class="sl-team-img" style="border-radius: 200px 200px 10px 10px; border: 2px solid var(--sl-purple2); box-shadow: 0 15px 40px rgba(255, 153, 153, 0.2);">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── SECCIÓN 01: CABELLO Y COLOR ──────────────────── -->
+        <section id="cabello" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">HAIR STUDIO</div>
+                    <h2>Transformación y <span class="sl-glow-text">Cuidado</span></h2>
+                    <p>Usamos productos de alta gama (L'Oréal, Olaplex, Kérastase) para proteger la salud de tu fibra capilar.</p>
+                </div>
+
+                <div class="sl-services-grid">
+                    <!-- COLORIMETRÍA -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-paint-brush"></i></div>
+                        </div>
+                        <h3>Diseño de Color</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Técnicas modernas de iluminación para darle dimensión y movimiento a tu cabello sin maltratarlo.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-heart"></i> Balayage y Babylights</li>
+                            <li><i class="fas fa-heart"></i> Mechas universales y Contouring</li>
+                            <li><i class="fas fa-heart"></i> Cubrimiento de canas y tonos globales</li>
+                            <li><i class="fas fa-heart"></i> Corrección de color</li>
+                        </ul>
+                    </div>
+
+                    <!-- ALISADOS Y TRATAMIENTOS -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-spa"></i></div>
+                            <div class="sl-service-badge">Sin Frizz</div>
+                        </div>
+                        <h3>Alisados y Nutrición</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Cabello liso, brillante y manejable todos los días sin necesidad de usar plancha diariamente.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-heart"></i> Keratina Orgánica (Sin formol)</li>
+                            <li><i class="fas fa-heart"></i> Bótox capilar y Cirugía plástica capilar</li>
+                            <li><i class="fas fa-heart"></i> Tratamientos de reconstrucción Olaplex</li>
+                        </ul>
+                    </div>
+
+                    <!-- CORTE Y STYLING -->
+                    <div class="sl-service-card glass-panel clip-corner">
+                        <div class="sl-service-header">
+                            <div class="sl-service-icon-audit"><i class="fas fa-cut"></i></div>
+                            <div class="sl-service-badge">Tendencia</div>
+                        </div>
+                        <h3>Cortes y Peinados</h3>
+                        <p style="font-size:14px; color:var(--sl-text-dim); margin-bottom: 20px;">Desde un despunte sano hasta cortes en tendencia (Butterfly, Bob, Pixie) adaptados a tu rostro.</p>
+                        <ul class="sl-service-skills">
+                            <li><i class="fas fa-heart"></i> Corte diseño con asesoría de visagismo</li>
+                            <li><i class="fas fa-heart"></i> Cepillado y planchado exprés</li>
+                            <li><i class="fas fa-heart"></i> Peinados para novias y quinceañeras</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 02: MAQUILLAJE Y UÑAS ───────────────────────────── -->
+        <section id="maquillaje" class="sl-section" style="background: rgba(255, 153, 153, 0.05);">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">BELLEZA INTEGRAL</div>
+                    <h2>Detalles que<br><span class="sl-glow-text">Marcan la Diferencia</span></h2>
+                </div>
+
+                <div class="sl-about-grid">
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-eye"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Makeup Profesional</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Maquillaje de larga duración para eventos especiales, fotografía y novias. Piel perfecta, contornos suaves y ojos que resaltan tu mirada.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-hand-sparkles"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Nail Bar</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Manicura y pedicura spa. Sistemas en acrílico, polygel, esmaltado semipermanente y nail art personalizado con pedrería y diseños a mano alzada.</p>
+                        </div>
+                    </div>
+                    <div class="sl-skill-card glass-panel clip-corner">
+                        <div class="sl-skill-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="sl-skill-info">
+                            <div class="sl-skill-name">Depilación y Cejas</div>
+                            <div class="sl-skill-bar"><div class="sl-skill-fill" style="width:100%"></div></div>
+                            <p>Enmarca tu mirada con diseño de cejas en henna o laminado. Depilación facial con hilo y cera corporal de bajas temperaturas para pieles sensibles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
+        <section id="faq" class="sl-section">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
+                    <h2>Preguntas <span class="sl-glow-text">Frecuentes</span></h2>
+                </div>
+                
+                <div class="sl-faq-grid" style="display: grid; gap: 15px; max-width: 800px; margin: 0 auto;">
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Qué productos utilizan?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Trabajamos exclusivamente con líneas premium y orgánicas que protegen y nutren tu cabello a profundidad.</p>
+                        </div>
+                    </div>
+                    <div class="sl-faq-item glass-panel">
+                        <div class="sl-faq-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 16px;">¿Es necesario agendar cita?</h4>
+                            <i class="fas fa-chevron-down" style="color: var(--sl-gold);"></i>
+                        </div>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding: 0 15px 15px 15px; color: var(--sl-text-dim); margin: 0;">Recomendamos agendar previamente para asegurar que tengas todo el tiempo y la atención que mereces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
+        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+            <div class="sl-container" style="position: relative; max-width: 1000px;">
+                <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
+                    <p style="color: var(--sl-text-dim); margin-bottom: 20px;">Un oasis de belleza en medio de la ciudad. Disfruta de un café mientras nos encargamos de ti.</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--sl-gold); width: 25px;"></i> Plaza Central, Local 5</li>
+                        <li><i class="fas fa-clock" style="color: var(--sl-gold); width: 25px;"></i> Atención previa cita</li>
+                    </ul>
+                    <a href="https://wa.me/593999999999" target="_blank" class="sl-btn-primary clip-btn" style="width: 100%; justify-content: center; padding: 12px;">
+                        <i class="fab fa-whatsapp"></i><span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <!-- Mapa Genérico oscuro -->
+                <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; opacity: 0.85;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.8465625785!2d-79.98006845!3d-2.1465261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c6a46fb33b%3A0x868c2225c52c0022!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2s!4v1716768393521!5m2!1ses!2s" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    .loc-panel { position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
+                }
+            </style>
+        </section>
+
+
+        <!-- ─── SECCIÓN 05: LLAMADA A LA ACCIÓN ────────────────────────── -->
+        <section class="sl-section">
+            <div class="sl-container">
+                <div class="sl-cta-box glass-panel">
+                    <div class="sl-system-tag">NO DEJES PASAR MÁS TIEMPO</div>
+                    <h2>Es tiempo de <span class="sl-glow-text">brillar</span></h2>
+                    <p>El amor propio comienza dedicándote tiempo a ti misma. Déjanos engreírte en un ambiente cálido, seguro y con resultados que te encantarán.</p>
+                    <div class="sl-cta-actions">
+                        <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20agendar%20una%20cita%20con%20ustedes." target="_blank" class="sl-btn-primary clip-btn sl-btn-lg">
+                            <i class="fab fa-whatsapp"></i><span>Chatear con Recepción</span>
+                        </a>
+                        <a href="catalogo.html" class="sl-btn-secondary clip-btn sl-btn-lg">
+                            <i class="fas fa-book-open"></i><span>Ver Catálogo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+        <footer class="sl-footer">
+            <div class="sl-container">
+                <div class="sl-footer-grid">
+                    <div class="sl-footer-brand">
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--sl-purple);">Glow Studio</h3>
+                        <p>Tu refugio de belleza en la ciudad. Experiencia, calidad y un trato que te hará sentir como en casa.</p>
+                        <div class="sl-footer-socials">
+                            <a href="https://wa.me/593XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="sl-footer-contact">
+                        <h4>Contacto y Horarios</h4>
+                        <ul>
+                            <li><i class="fas fa-phone-alt"></i> +593 XX XXX XXXX</li>
+                            <li><i class="fas fa-clock"></i> Martes a Sábados: 09:30 - 19:30</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Plaza Comercial Beauty, Local 4</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-footer-bottom">
+                    <p>&copy; 2026 Glow Studio Salón de Belleza. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
+    <script src="../simulador.js"></script>
+
+    <!-- NEXUS FORM CONFIG: PeluqueriaSalonBelleza -->
+    <script>
+    window.NEXUS_FORM_CONFIG = {
+    "titulo": "Reserva tu Turno",
+    "subtitulo": "Cuéntanos qué servicio deseas.",
+    "boton": "Reservar Turno",
+    "preguntas": [
+        {
+            "label": "Nombre completo",
+            "tipo": "text",
+            "emoji": "👤",
+            "required": true
+        },
+        {
+            "label": "Teléfono",
+            "tipo": "tel",
+            "emoji": "📞",
+            "required": true
+        },
+        {
+            "label": "Servicio deseado",
+            "tipo": "radio",
+            "emoji": "💇",
+            "opciones": [
+                "Corte",
+                "Tinte/Color",
+                "Tratamiento",
+                "Peinado",
+                "Manicure"
+            ]
+        },
+        {
+            "label": "¿Es tu primera visita?",
+            "tipo": "radio",
+            "emoji": "🆕",
+            "opciones": [
+                "Sí",
+                "No, ya fui antes"
+            ]
+        },
+        {
+            "label": "¿Tienes alguna alergia a productos?",
+            "tipo": "radio",
+            "emoji": "⚠️",
+            "opciones": [
+                "Sí",
+                "No"
+            ]
+        },
+        {
+            "label": "Comentario o referencia de estilo",
+            "tipo": "textarea",
+            "emoji": "📝",
+            "placeholder": "Describe o menciona el estilo que buscas..."
+        }
+    ],
+    "negocio": "PeluqueriaSalonBelleza"
+};
+    window.NEXUS_FORM_CONFIG.whatsapp = "593000000000"; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.calendly = ""; // Placeholder: NexusBuilder reemplazará esto
+    window.NEXUS_FORM_CONFIG.webhook = ""; // Placeholder: Make.com webhook del cliente
+    </script>
+    <script src="../formulario.js"></script>
+</body>
+</html>
+
+
+
+
+
+

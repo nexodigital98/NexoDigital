@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <!-- ─────────────────────────────────────────────────────────────────
@@ -7,16 +7,16 @@
        que quieres cambiar con Ctrl+F y la editas directamente.
     ───────────────────────────────────────────────────────────────── -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
     <!-- Aquí cambias el título que aparece en la pestaña del navegador y en Google -->
-    <title>Nexo Digital | Conectamos tu negocio con el mundo</title>
-    <link rel="icon" type="image/png" href="img/logos/NEXO%20DIGITAL.png">
+    <title>Nexus Digital | Conectamos tu negocio con el mundo</title>
+    <link rel="icon" type="image/png" href="img/logos/NEXUS%20DIGITAL.png">
     <!-- Aquí va el texto que Google muestra debajo del título en los resultados de búsqueda -->
     <meta name="description" content="Configuramos y optimizamos tu WhatsApp Business, Instagram, TikTok, LinkedIn y Facebook de forma profesional y 100% remota. Entrega en 24-72 horas.">
     <!-- Palabras clave para Google, puedes añadir más separadas por comas -->
     <meta name="keywords" content="marketing digital, whatsapp business, optimizacion redes sociales, ecuador, loja, meta verified, landing page">
-    <meta name="author" content="Nexo Digital">
+    <meta name="author" content="Nexus Digital">
     
     <!-- Fuentes de letra — no toques esto, son las que le dan el estilo futurista a la página -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +28,16 @@
     
     <!-- Aquí se conecta el archivo style.css que tiene todos los colores y diseño -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- ─── PWA / MOBILE ──────────────────────────────────────────────── -->
+    <meta name="theme-color" content="#00E5FF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Nexus Digital">
+    <link rel="apple-touch-icon" href="img/logos/LOGO.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- ─────────────────────────────────────────────────────────────── -->
 </head>
 <body>
 
@@ -62,16 +72,16 @@
                         <div class="fut-card-inner">
 
                             <!-- El logo que aparece arriba en la tarjeta
-                                 Para cambiarlo: pon tu logo en img/logos/ con el nombre NEXO DIGITAL.png -->
+                                 Para cambiarlo: pon tu logo en img/logos/ con el nombre NEXUS DIGITAL.png -->
                             <div class="card-logo-container">
-                                <img src="img/logos/NEXO%20DIGITAL.png" alt="Nexo Digital Logo" class="card-logo">
+                                <img src="img/logos/NEXUS%20DIGITAL.png" alt="Nexus Digital Logo" class="card-logo">
                             </div>
 
                             <div class="fut-bottom-zone">
 
                                 <!-- Nombre principal de la tarjeta — cámbialo por el nombre de tu negocio -->
                                 <div class="fut-name-banner">
-                                    <h2>NEXO DIGITAL</h2>
+                                    <h2>NEXUS DIGITAL</h2>
                                 </div>
 
                                 <div class="fut-stats-group">
@@ -85,10 +95,10 @@
                                         <a href="https://wa.me/593986777289" target="_blank" class="social-btn" aria-label="WhatsApp">
                                             <i class="fab fa-whatsapp"></i>
                                         </a>
-                                        <a href="https://instagram.com/nexodigital.ec" target="_blank" class="social-btn" aria-label="Instagram">
+                                        <a href="https://instagram.com/nexusdigital.ec" target="_blank" class="social-btn" aria-label="Instagram">
                                             <i class="fab fa-instagram"></i>
                                         </a>
-                                        <a href="https://tiktok.com/@nexodigital.ec" target="_blank" class="social-btn" aria-label="TikTok">
+                                        <a href="https://tiktok.com/@nexusdigital.ec" target="_blank" class="social-btn" aria-label="TikTok">
                                             <i class="fab fa-tiktok"></i>
                                         </a>
                                         <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
@@ -119,15 +129,12 @@
                         <div class="card-corner br"></div>
                     </div>
                 </div>
-                
+                                
             </div>
         </div>
     </section>
 
-    <!-- ─── PANTALLA 2: EL SITIO WEB COMPLETO ────────────────────────────
-       Todo lo que viene de aquí hacia abajo es el sitio web principal.
-       Aparece después de que el cliente hace clic en la tarjeta.
-    ──────────────────────────────────────────────────────────────────── -->
+    <!-- PANTALLA 2: EL SITIO WEB COMPLETO -->
     <main id="landing-screen">
 
         <!-- Partículas y fondo animado -->
@@ -138,31 +145,26 @@
             <span>Tarjeta</span>
         </button>
 
-        <!-- ─── BARRA DE NAVEGACIÓN (menú arriba) ───────────────────────────
-             Para cambiar el nombre del menú, edita los textos entre <a> y </a>
-             Para cambiar el número de WhatsApp del botón "Iniciar", busca 593986777289
-        ──────────────────────────────────────────────────────────────────── -->
+        <!-- BARRA DE NAVEGACIÓN -->
         <nav class="sl-navbar" id="sl-navbar">
             <div class="sl-nav-logo">
-                <!-- Logo y nombre en el menú izquierdo -->
-                <img src="img/logos/NEXO%20DIGITAL.png" alt="Nexo Digital" class="sl-logo-img">
-                <span>NEXO <em>DIGITAL</em></span>
+                <img src="img/logos/NEXUS%20DIGITAL.png" alt="Nexus Digital" class="sl-logo-img">
+                <span>NEXUS <em>DIGITAL</em></span>
             </div>
-            <!-- Links del menú — cámbia los textos si quieres renombrar secciones -->
             <ul class="sl-nav-links" id="nav-links">
                 <li><a href="#sobre-nosotros">¿Qué Hacemos?</a></li>
+                <li><a href="#plantillas" style="color: var(--sl-cyan); font-weight: 700;">Plantillas</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#combos">Combos</a></li>
                 <li><a href="#mantenimiento">Mantenimiento</a></li>
                 <li><a href="#proceso">Proceso</a></li>
-                <!-- Botón verde del menú — cambia el número de WhatsApp aquí -->
                 <li><a href="https://wa.me/593986777289?text=Hola%20Nexo%20Digital!%20Quiero%20comenzar." target="_blank" class="sl-nav-cta">
                     <i class="fas fa-bolt"></i> Iniciar
                 </a></li>
             </ul>
-            <!-- Ícono de menú hamburguesa para celulares — no toques -->
             <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
         </nav>
+
 
         <!-- ─── SECCIÓN HERO (lo primero que ves al entrar al sitio) ──────── -->
         <header class="sl-hero" id="hero">
@@ -176,7 +178,7 @@
                     <div class="sl-system-notification">
                         <div class="sl-sys-icon"><i class="fas fa-exclamation-circle"></i></div>
                         <div class="sl-sys-text">
-                            <span class="sl-sys-title">SISTEMA NEXO DIGITAL</span>
+                            <span class="sl-sys-title">SISTEMA NEXUS DIGITAL</span>
                             <span class="sl-sys-desc">Promo de Lanzamiento Activa - Primeros 10 clientes</span>
                         </div>
                     </div>
@@ -309,6 +311,92 @@
                             <p>Sesión en vivo donde te enseñamos a usar y editar todos tus perfiles profesionalmente.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SECCIÓN: CATÁLOGO DE PLANTILLAS ──────────────────────────── -->
+        <section id="plantillas" class="sl-section" style="background: rgba(0, 229, 255, 0.03); border-top: 1px solid rgba(0,229,255,0.1); border-bottom: 1px solid rgba(0,229,255,0.1);">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">CATÁLOGO INTERACTIVO</div>
+                    <h2>Diseños Premium<br><span class="sl-glow-text">Listos para Vender</span></h2>
+                    <p>Explora nuestras plantillas web interactivas. Haz clic en "Probar Diseño", sube tu logo, cambia los colores y vive la experiencia antes de comprar.</p>
+                </div>
+
+                <div class="sl-services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <!-- Plantilla 1 -->
+                    <div class="sl-service-card glass-panel clip-corner" style="padding: 0; overflow: hidden; text-align: center;">
+                        <div style="background: linear-gradient(45deg, #1A1A1A, #2A2A2A); height: 150px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-balance-scale" style="font-size: 50px; color: #D4AF37;"></i>
+                        </div>
+                        <div style="padding: 25px;">
+                            <h3 style="margin-bottom: 10px;">Estudio Jurídico</h3>
+                            <p style="font-size: 14px; color: var(--sl-text-dim); margin-bottom: 20px;">Diseño serio, elegante y corporativo ideal para abogados y firmas legales.</p>
+                            <a href="Abogado/index.html?edit=true" class="sl-btn-card clip-btn" style="width: 100%; justify-content: center;"><span>Probar Diseño</span> <i class="fas fa-magic"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Plantilla 2 -->
+                    <div class="sl-service-card glass-panel clip-corner" style="padding: 0; overflow: hidden; text-align: center;">
+                        <div style="background: linear-gradient(45deg, #1A1A1A, #2A2A2A); height: 150px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-dumbbell" style="font-size: 50px; color: #FF4500;"></i>
+                        </div>
+                        <div style="padding: 25px;">
+                            <h3 style="margin-bottom: 10px;">Fitness & Gimnasio</h3>
+                            <p style="font-size: 14px; color: var(--sl-text-dim); margin-bottom: 20px;">Estilo dinámico y enérgico diseñado para entrenadores y centros fitness.</p>
+                            <a href="GimnasioEntrenador/index.html?edit=true" class="sl-btn-card clip-btn" style="width: 100%; justify-content: center;"><span>Probar Diseño</span> <i class="fas fa-magic"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Plantilla 3 -->
+                    <div class="sl-service-card glass-panel clip-corner" style="padding: 0; overflow: hidden; text-align: center;">
+                        <div style="background: linear-gradient(45deg, #1A1A1A, #2A2A2A); height: 150px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-shield-alt" style="font-size: 50px; color: #4169E1;"></i>
+                        </div>
+                        <div style="padding: 25px;">
+                            <h3 style="margin-bottom: 10px;">Agencia de Seguros</h3>
+                            <p style="font-size: 14px; color: var(--sl-text-dim); margin-bottom: 20px;">Diseño limpio y confiable para brokers de seguros y agentes financieros.</p>
+                            <a href="AgenciaDeSeguros/index.html?edit=true" class="sl-btn-card clip-btn" style="width: 100%; justify-content: center;"><span>Probar Diseño</span> <i class="fas fa-magic"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Plantilla 4 -->
+                    <div class="sl-service-card glass-panel clip-corner" style="padding: 0; overflow: hidden; text-align: center;">
+                        <div style="background: linear-gradient(45deg, #1A1A1A, #2A2A2A); height: 150px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-utensils" style="font-size: 50px; color: #FFA500;"></i>
+                        </div>
+                        <div style="padding: 25px;">
+                            <h3 style="margin-bottom: 10px;">Restaurante Premium</h3>
+                            <p style="font-size: 14px; color: var(--sl-text-dim); margin-bottom: 20px;">Vende la experiencia gastronómica con un diseño cálido y apetitoso.</p>
+                            <a href="Restaurante/index.html?edit=true" class="sl-btn-card clip-btn" style="width: 100%; justify-content: center;"><span>Probar Diseño</span> <i class="fas fa-magic"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Plantilla 5 -->
+                    <div class="sl-service-card glass-panel clip-corner" style="padding: 0; overflow: hidden; text-align: center;">
+                        <div style="background: linear-gradient(45deg, #1A1A1A, #2A2A2A); height: 150px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-spa" style="font-size: 50px; color: #FF69B4;"></i>
+                        </div>
+                        <div style="padding: 25px;">
+                            <h3 style="margin-bottom: 10px;">Salón de Belleza & Spa</h3>
+                            <p style="font-size: 14px; color: var(--sl-text-dim); margin-bottom: 20px;">Estética pura y relajante para centros dermatológicos y estilistas.</p>
+                            <a href="PeluqueriaSalonBelleza/index.html?edit=true" class="sl-btn-card clip-btn" style="width: 100%; justify-content: center;"><span>Probar Diseño</span> <i class="fas fa-magic"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Plantilla 6 -->
+                    <div class="sl-service-card glass-panel clip-corner" style="padding: 0; overflow: hidden; text-align: center; border: 1px dashed var(--sl-cyan);">
+                        <div style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-layer-group" style="font-size: 50px; color: var(--sl-cyan); opacity: 0.5;"></i>
+                        </div>
+                        <div style="padding: 25px;">
+                            <h3 style="margin-bottom: 10px;">+35 Nichos Adicionales</h3>
+                            <p style="font-size: 14px; color: var(--sl-text-dim); margin-bottom: 20px;">Contamos con plantillas diseñadas para arquitectos, mecánicos, fotógrafos y más.</p>
+                            <a href="https://wa.me/593986777289?text=Hola!%20Deseo%20ver%20las%20otras%20plantillas%20disponibles." target="_blank" class="sl-btn-secondary clip-btn" style="width: 100%; justify-content: center;"><span>Consultar Nichos</span> <i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -676,12 +764,12 @@
             <div class="sl-container">
                 <div class="sl-footer-grid">
                     <div class="sl-footer-brand">
-                        <h3>NEXO <span>DIGITAL</span></h3>
+                        <h3>NEXUS <span>DIGITAL</span></h3>
                         <p>Conectamos tu negocio con el mundo. Dejamos tus perfiles profesionales e integrados para que trabajen por ti.</p>
                         <div class="sl-footer-socials">
                             <a href="https://wa.me/593986777289" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                            <a href="https://instagram.com/nexodigital.ec" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://tiktok.com/@nexodigital.ec" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://instagram.com/nexusdigital.ec" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@nexusdigital.ec" target="_blank"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
 
@@ -689,13 +777,13 @@
                         <h4>Contacto</h4>
                         <ul>
                             <li><i class="fab fa-whatsapp"></i> +593 98 677 7289</li>
-                            <li><i class="far fa-envelope"></i> nexodigital@gmail.com</li>
+                            <li><i class="far fa-envelope"></i> nexusdigital@gmail.com</li>
                             <li><i class="fas fa-map-marker-alt"></i> Loja, Ecuador</li>
                         </ul>
                     </div>
                 </div>
                 <div class="sl-footer-bottom">
-                    <p>&copy; 2026 Nexo Digital. Todos los derechos reservados.</p>
+                    <p>&copy; 2026 Nexus Digital. Todos los derechos reservados.</p>
                     <div><a href="#">Privacidad</a> &middot; <a href="#">Términos de Servicio</a></div>
                 </div>
             </div>
@@ -706,5 +794,16 @@
 
     <!-- Enlace al archivo JS principal -->
     <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log('✅ SW registrado'))
+                    .catch(e => console.warn('SW error:', e));
+            });
+        }
+    </script>
 </body>
 </html>
+
