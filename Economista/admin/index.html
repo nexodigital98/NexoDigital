@@ -1,16 +1,15 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Panel de Administración | NexusDigital</title>
-    <!-- Incluye el widget de identidad de Netlify para el inicio de sesión -->
+    <title>Panel de Administración | NexoDigital</title>
+    <!-- Widget de autenticación de Netlify Identity - DEBE ir antes de Decap CMS -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <link rel="preload" as="image" href="img/bg/fondo_tarjeta_digital_web.png" fetchpriority="high">
-</head>
+  </head>
   <body>
-    <!-- Script principal de Decap CMS -->
+    <!-- Decap CMS - el motor del panel de control -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
       // Redirige al usuario al panel después de hacer login exitosamente
@@ -18,7 +17,7 @@
         window.netlifyIdentity.on("init", user => {
           if (!user) {
             window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
+              document.location.href = "./";
             });
           }
         });
@@ -26,5 +25,3 @@
     </script>
   </body>
 </html>
-
-
