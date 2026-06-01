@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     // Check if we are in Edit Mode
     const urlParams = new URLSearchParams(window.location.search);
     if (!urlParams.has('edit')) return;
@@ -11,6 +11,7 @@
             top: 20px;
             right: 20px;
             width: 320px;
+            max-width: calc(100vw - 40px);
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(15px);
             border: 1px solid var(--sl-cyan);
@@ -23,7 +24,7 @@
             transition: transform 0.3s ease;
         }
         #nexus-simulator.collapsed {
-            transform: translateX(350px);
+            transform: translateX(calc(100% + 40px));
         }
         #nexus-sim-toggle {
             position: absolute;
@@ -191,6 +192,12 @@
     
     // Toggle Panel
     const panel = document.getElementById('nexus-simulator');
+    
+    // Auto-colapsar en móviles al cargar
+    if (window.innerWidth <= 768) {
+        panel.classList.add('collapsed');
+    }
+
     document.getElementById('nexus-sim-toggle').addEventListener('click', () => {
         panel.classList.toggle('collapsed');
     });
