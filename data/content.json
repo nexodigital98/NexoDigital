@@ -1,0 +1,22 @@
+{
+  "tema": {
+    "color_primario": "#36ad40"
+  },
+  "imagenes": {
+    "logo": "img/cms/chatgpt-image-1-jun-2026-01_25_36-p.m..png",
+    "hero_image": "img/cms/chatgpt-image-24-may-2026-10_24_11-p.m.-1-.png"
+  },
+  "textos": {
+    "card_name": "Daniel Pineda",
+    "hero_title": "Maki",
+    "hero_desc": "Maki una empresa digital  de abogados para  darles asistencias ",
+    "card_slogan": "Teorida del todo "
+  },
+  "secciones": [
+    "sec-servicios",
+    "sec-ubicacion",
+    "sec-faq",
+    "sec-cta",
+    "sec-perfil"
+  ]
+}
