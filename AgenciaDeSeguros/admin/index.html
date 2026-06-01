@@ -23,7 +23,7 @@
         /* ── LOGIN ── */
         #login-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
             background:radial-gradient(ellipse at 30% 50%,rgba(0,229,255,.08) 0%,transparent 60%),
-                        radial-gradient(ellipse at 70% 50%,rgba(157,0,255,.06) 0%,transparent 60%),#050c1a;z-index:9999}
+                        radial-gradient(ellipse at 70% 50%,rgba(157,0,255,.06) 0%,transparent 60%),#050c1a;z-index:50}
         #login-screen.hidden{display:none}
         .login-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,229,255,.2);border-radius:20px;
             padding:48px 40px;text-align:center;max-width:420px;width:90%;
@@ -187,7 +187,7 @@
 
         /* ── LOADING ── */
         .loading{position:fixed;inset:0;background:rgba(5,12,26,.92);display:flex;
-            flex-direction:column;align-items:center;justify-content:center;z-index:9998;gap:14px}
+            flex-direction:column;align-items:center;justify-content:center;z-index:60;gap:14px}
         .loading.hidden{display:none}
         .spinner{width:38px;height:38px;border:3px solid rgba(0,229,255,.1);border-top-color:var(--cyan);
             border-radius:50%;animation:spin .8s linear infinite}
@@ -479,7 +479,13 @@ document.addEventListener('DOMContentLoaded', () => {
         netlifyIdentity.init();
     } else { hide('loading'); }
 
-    document.getElementById('btn-login').onclick = () => netlifyIdentity.open('login');
+    document.getElementById('btn-login').onclick = () => {
+        if (typeof netlifyIdentity === 'undefined' || !window.netlifyIdentity) {
+            alert('Error: El sistema de inicio de sesión no cargó.\n\n1. Asegúrate de tener conexión a internet.\n2. Desactiva tu bloqueador de anuncios (Brave Shields, uBlock, etc) para esta página.\n3. Confirma que Netlify Identity está activado en tu panel de Netlify.');
+            return;
+        }
+        netlifyIdentity.open('login');
+    };
     document.getElementById('btn-logout').onclick = () => netlifyIdentity.logout();
     document.getElementById('btn-publish').onclick = publishChanges;
 });
