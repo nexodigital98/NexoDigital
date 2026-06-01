@@ -1,40 +1,69 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (main)
+  branch: main
 
-media_folder: "img/cms" # Folder where uploaded files will be saved
-public_folder: "img/cms" # Public path to media files
+media_folder: "img/cms"
+public_folder: "img/cms"
 
-# Locale settings
 locale: 'es'
 
 collections:
   - name: "contenido"
-    label: "Contenido de la Web"
+    label: "Panel de Control"
     editor:
       preview: false
     files:
-      - label: "Página Principal (Inicio)"
+      - label: "Personalización de Plantilla"
         name: "inicio"
         file: "data/content.json"
         fields:
-          - { label: "Hero - Título Principal", name: "hero_title", widget: "string", default: "Expertos en Arquitectura y Diseño" }
-          - { label: "Hero - Descripción", name: "hero_desc", widget: "text", default: "Confía en nosotros, diseñamos espacios innovadores brindándote proyectos arquitectónicos modernos. Nos enfocamos en ofrecer el mejor servicio para tu satisfacción." }
-          - { label: "Hero - Años de Experiencia", name: "stat1_num", widget: "string", default: "10+" }
-          - { label: "Hero - Cantidad de Declaraciones", name: "stat2_num", widget: "string", default: "500+" }
-          - { label: "Hero - Imagen de Fondo/Equipo", name: "hero_image", widget: "image", required: false }
-          
-          - { label: "Nosotros - Título", name: "about_title", widget: "string", default: "Tu Mejor Opción en Arquitectura y Diseño" }
-          - { label: "Nosotros - Párrafo", name: "about_text", widget: "text", default: "No somos solo un servicio más. Somos profesionales dedicados a brindarte la mejor experiencia en arquitectura y diseño, asegurando calidad y compromiso." }
-          
-          - { label: "Servicio 1 - Nombre", name: "serv1_name", widget: "string", default: "Diseño de Interiores" }
-          - { label: "Servicio 1 - Descripción", name: "serv1_desc", widget: "text", default: "Servicio especializado de diseño de interiores diseñado para cubrir tus necesidades con total profesionalismo." }
-          
-          - { label: "Servicio 2 - Nombre", name: "serv2_name", widget: "string", default: "Planos Arquitectónicos" }
-          - { label: "Servicio 2 - Descripción", name: "serv2_desc", widget: "text", default: "Brindamos planos arquitectónicos con los más altos estándares de calidad y atención al detalle." }
-          
-          - { label: "Servicio 3 - Nombre", name: "serv3_name", widget: "string", default: "Remodelaciones" }
-          - { label: "Servicio 3 - Descripción", name: "serv3_desc", widget: "text", default: "Expertos en remodelaciones, garantizando resultados eficientes y confiables." }
-          
-          - { label: "Servicio 4 - Nombre", name: "serv4_name", widget: "string", default: "Supervisión de Obra" }
-          - { label: "Servicio 4 - Descripción", name: "serv4_desc", widget: "text", default: "Nuestro servicio de supervisión de obra te ofrece seguridad y respaldo en cada etapa." }
+          # --- COLORES ---
+          - label: "Color Principal de la Marca"
+            name: "tema"
+            widget: "object"
+            fields:
+              - { label: "Color Hexadecimal", name: "color_primario", widget: "color", default: "#E2C775", hint: "El color principal para botones y resaltados." }
+
+          # --- TEXTOS E IMÁGENES ---
+          - label: "Imágenes y Logo"
+            name: "imagenes"
+            widget: "object"
+            fields:
+              - { label: "Logo Principal", name: "logo", widget: "image", required: false }
+              - { label: "Imagen de Perfil/Fondo", name: "hero_image", widget: "image", required: false }
+
+          - label: "Textos Principales"
+            name: "textos"
+            widget: "object"
+            fields:
+              - { label: "Nombre en Tarjeta Digital", name: "card_name", widget: "string", default: "Tu Nombre" }
+              - { label: "Slogan en Tarjeta Digital", name: "card_slogan", widget: "string", default: "Tu Profesión" }
+              - { label: "Título Principal (Hero)", name: "hero_title", widget: "string", default: "Escribe tu título aquí" }
+              - { label: "Descripción (Hero)", name: "hero_desc", widget: "text", default: "Escribe una descripción corta aquí." }
+
+          # --- REDES SOCIALES ---
+          - label: "Redes Sociales"
+            name: "redes"
+            widget: "object"
+            hint: "Deja en blanco la red social que NO uses para que su botón desaparezca."
+            fields:
+              - { label: "WhatsApp (Solo números con código de país)", name: "whatsapp", widget: "string", required: false, default: "593999999999" }
+              - { label: "Enlace de Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Enlace de Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "Enlace de TikTok", name: "tiktok", widget: "string", required: false }
+              - { label: "Enlace de LinkedIn", name: "linkedin", widget: "string", required: false }
+
+          # --- CONSTRUCTOR DE PÁGINA ---
+          - label: "Secciones Visibles y Orden"
+            name: "secciones"
+            widget: "select"
+            multiple: true
+            hint: "Selecciona y arrastra para reordenar las secciones que quieres mostrar en tu web."
+            options:
+              - { label: "Servicios / Especialidades", value: "sec-servicios" }
+              - { label: "Perfil / Quienes Somos", value: "sec-perfil" }
+              - { label: "Precios y Paquetes", value: "sec-precios" }
+              - { label: "Ubicación", value: "sec-ubicacion" }
+              - { label: "Preguntas Frecuentes", value: "sec-faq" }
+              - { label: "Llamada a la Acción (CTA final)", value: "sec-cta" }
+            default: ["sec-servicios", "sec-perfil", "sec-ubicacion", "sec-faq", "sec-cta"]

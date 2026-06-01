@@ -1,17 +1,23 @@
 {
-  "hero_title": "Expertos en Servicios Legales",
-  "hero_desc": "Confía en nosotros, protegemos tus derechos brindándote asesoría jurídica experta. Nos enfocamos en ofrecer el mejor servicio para tu satisfacción.",
-  "stat1_num": "10+",
-  "stat2_num": "500+",
-  "hero_image": "",
-  "about_title": "Tu Mejor Opción en Servicios Legales",
-  "about_text": "No somos solo un servicio más. Somos profesionales dedicados a brindarte la mejor experiencia en servicios legales, asegurando calidad y compromiso.",
-  "serv1_name": "Asesoría Civil",
-  "serv1_desc": "Servicio especializado de asesoría civil diseñado para cubrir tus necesidades con total profesionalismo.",
-  "serv2_name": "Defensa Penal",
-  "serv2_desc": "Brindamos defensa penal con los más altos estándares de calidad y atención al detalle.",
-  "serv3_name": "Derecho Corporativo",
-  "serv3_desc": "Expertos en derecho corporativo, garantizando resultados eficientes y confiables.",
-  "serv4_name": "Trámites Legales",
-  "serv4_desc": "Nuestro servicio de trámites legales te ofrece seguridad y respaldo en cada etapa."
+  "tema": {
+    "color_primario": "#FF3366"
+  },
+  "textos": {
+    "card_name": "Dr. Fernando Modificado",
+    "card_slogan": "Abogado Penalista (Desde JSON)",
+    "hero_title": "Defensa Legal (Desde JSON)",
+    "hero_desc": "Descripción modificada dinámicamente."
+  },
+  "redes": {
+    "whatsapp": "593999999999",
+    "facebook": "https://facebook.com",
+    "instagram": "",
+    "tiktok": "https://tiktok.com",
+    "linkedin": ""
+  },
+  "secciones": [
+    "sec-faq",
+    "sec-precios",
+    "sec-servicios"
+  ]
 }

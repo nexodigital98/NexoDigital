@@ -56,21 +56,23 @@
 
                         <div class="fut-card-inner">
                             <div class="card-logo-container">
-                                <img src="img/logos/LOGO.png" alt="SmilePro" class="card-logo">
+                                <img src="img/logos/LOGO.png" alt="SmilePro" class="card-logo" data-cms-img="logo">
                             </div>
 
                             <div class="fut-bottom-zone">
                                 <div class="fut-name-banner">
-                                    <h2>SmilePro</h2>
+                                    <h2 data-cms-text="card_name">SmilePro</h2>
                                 </div>
 
                                 <div class="fut-stats-group">
-                                    <p class="card-slogan">Clínica Dental de Especialidad</p>
+                                    <p class="card-slogan" data-cms-text="card_slogan">Clínica Dental de Especialidad</p>
                                     <div class="fut-divider"></div>
                                     <div class="card-socials">
-                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
-                                        <a href="https://instagram.com/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
-                                        <a href="https://facebook.com/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="social-btn" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="#" target="_blank" class="social-btn" aria-label="facebook" style="display:none;"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#" target="_blank" class="social-btn" aria-label="instagram" style="display:none;"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" target="_blank" class="social-btn" aria-label="tiktok" style="display:none;"><i class="fab fa-tiktok"></i></a>
+                                        <a href="https://linkedin.com/" target="_blank" class="social-btn" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
                                     </div>
                                     <button class="btn-flip" id="btn-flip-info">
                                         <span>Más Información</span>
@@ -103,7 +105,7 @@
 
         <nav class="sl-navbar" id="sl-navbar">
             <div class="sl-nav-logo">
-                <img src="img/logos/LOGO.png" alt="SmilePro" class="sl-logo-img">
+                <img src="img/logos/LOGO.png" alt="SmilePro" class="sl-logo-img" data-cms-img="logo">
                 <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; color:var(--sl-purple);">SmilePro</span>
             </div>
             <ul class="sl-nav-links" id="nav-links">
@@ -125,8 +127,8 @@
                             <span class="sl-sys-desc">Primera revisión y radiografía sin costo para pacientes nuevos</span>
                         </div>
                     </div>
-                    <h1 class="sl-hero-title">Tu sonrisa perfecta está a <span class="sl-glow-text">un paso</span> de ti.</h1>
-                    <p class="sl-hero-desc">En SmilePro combinamos tecnología de vanguardia con atención personalizada para transformar tu sonrisa de forma segura, rápida y duradera. Desde limpiezas hasta implantes de última generación.</p>
+                    <h1 class="sl-hero-title" data-cms-text="hero_title">Tu sonrisa perfecta está a <span class="sl-glow-text">un paso</span> de ti.</h1>
+                    <p class="sl-hero-desc" data-cms-text="hero_desc">En SmilePro combinamos tecnología de vanguardia con atención personalizada para transformar tu sonrisa de forma segura, rápida y duradera. Desde limpiezas hasta implantes de última generación.</p>
                     <div class="sl-hero-actions">
                         <a href="https://wa.me/593XXXXXXXXX?text=Hola!%20Deseo%20agendar%20mi%20consulta%20de%20valoraci%C3%B3n%20gratuita." target="_blank" class="sl-btn-primary clip-btn"><span>Valoración Gratuita</span></a>
                         <a href="#tratamientos" class="sl-btn-secondary clip-btn"><span>Nuestros Tratamientos</span></a>
@@ -229,8 +231,27 @@
 
         
 
+                <!-- ─── SECCIÓN PREDISEÑADA: PRECIOS (Oculta por defecto) ─── -->
+        <section id="sec-precios" class="sl-section" style="display: none;">
+            <div class="sl-container">
+                <div class="sl-section-header">
+                    <div class="sl-system-tag">NUESTROS PLANES</div>
+                    <h2>Paquetes y <span class="sl-glow-text">Precios</span></h2>
+                </div>
+                <div class="sl-combos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div class="sl-combo-card glass-panel clip-corner">
+                        <h3>Básico</h3>
+                        <div class="sl-combo-price"><span class="sl-price-main">$50</span></div>
+                        <ul class="sl-combo-perks">
+                            <li><i class="fas fa-check"></i> Servicio 1</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ─── SECCIÓN 05: PREGUNTAS FRECUENTES ────────────────────────── -->
-        <section id="faq" class="sl-section">
+        <section id="sec-faq" class="sl-section">
             <div class="sl-container">
                 <div class="sl-section-header">
                     <div class="sl-system-tag">RESOLVEMOS TUS DUDAS</div>
@@ -261,7 +282,7 @@
         </section>
 
         <!-- ─── SECCIÓN 06: UBICACIÓN Y ESPACIO ────────────────────────── -->
-        <section id="ubicacion" class="sl-section" style="padding-bottom: 0;">
+        <section id="sec-ubicacion" class="sl-section" style="padding-bottom: 0;">
             <div class="sl-container" style="position: relative; max-width: 1000px;">
                 <div class="glass-panel loc-panel" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%); z-index: 10; padding: 25px; max-width: 350px; border-left: 4px solid var(--sl-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
                     <h3 style="font-size: 28px; margin-bottom: 15px;">Nuestra <span class="sl-glow-text">Ubicación</span></h3>
@@ -333,6 +354,7 @@
         </footer>
     </main>
     <script src="script.js"></script>
+    <script src="../nexus-cms.js"></script>
 
     <script>
         if ('serviceWorker' in navigator) {
@@ -410,6 +432,7 @@
     <script src="../formulario.js"></script>
 </body>
 </html>
+
 
 
 
