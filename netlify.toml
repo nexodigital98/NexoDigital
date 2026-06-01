@@ -1,0 +1,10 @@
+[build]
+  publish = "."
+
+# Headers para que Decap CMS funcione correctamente en subcarpetas
+[[headers]]
+  for = "*/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Cache-Control = "no-cache, no-store, must-revalidate"
