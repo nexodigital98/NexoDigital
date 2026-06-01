@@ -314,6 +314,16 @@
                         </div>
                         <div class="form-hint">Se aplica a botones, brillos y detalles de todo el sitio</div>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label">Color de Fondo de la Tarjeta (Opcional)</label>
+                        <div class="color-row">
+                            <div class="color-box" id="bg-color-box">
+                                <input type="color" id="bg-color-native" value="#162238">
+                            </div>
+                            <input type="text" id="bg-color-hex" class="form-input" placeholder="Ej. #162238">
+                        </div>
+                        <div class="form-hint">Si usas una imagen de fondo, esto se ignorará. Déjalo vacío para usar el predeterminado.</div>
+                    </div>
                 </div>
 
                 <!-- IMÁGENES -->
@@ -340,6 +350,15 @@
                         </div>
                         <div class="form-hint">Aparece en la sección principal del sitio web</div>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label">Fondo de la Tarjeta</label>
+                        <div class="img-drop" id="bg-drop">
+                            <img id="bg-prev" style="display:none">
+                            <div id="bg-ph"><div class="img-drop-lbl"><i class="fas fa-image"></i>Subir fondo de tarjeta</div></div>
+                            <input type="file" id="bg-file" accept="image/*">
+                        </div>
+                        <div class="form-hint">Imagen de fondo para la tarjeta digital (Recomendado 1080x1920)</div>
+                    </div>
                 </div>
 
                 <!-- REDES SOCIALES -->
@@ -365,6 +384,10 @@
                     <div class="sec-head">
                         <div class="sec-head-icon"><i class="fas fa-pen"></i></div>
                         <div><div class="sec-head-title">Textos del Sitio</div><div class="sec-head-sub">Hero y descripción principal</div></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nombre de la Empresa</label>
+                        <input type="text" id="f-empresa" class="form-input" placeholder="Ej. NexoDigital">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Título Principal (Hero)</label>
@@ -417,9 +440,9 @@ const SECTIONS_DEF = [
 
 let currentUser = null, contentSha = null, tplPath = '', hasChanges = false, debounce = null;
 let formData = {
-    tema:{ color_primario:'#00E5FF' },
-    textos:{ card_name:'', card_slogan:'', card_initials:'', hero_title:'', hero_desc:'' },
-    imagenes:{ logo:'', hero_image:'' },
+    tema:{ color_primario:'#00E5FF', card_bg_color:'' },
+    textos:{ card_name:'', card_slogan:'', card_initials:'', hero_title:'', hero_desc:'', empresa_nombre:'' },
+    imagenes:{ logo:'', hero_image:'', card_bg:'' },
     redes:{},
     secciones: SECTIONS_DEF.filter(s => s.id !== 'sec-precios').map(s => s.id)
 };
@@ -517,6 +540,7 @@ function populateForm() {
     setVal('f-initials', t.card_initials);
     setVal('f-hero-title', t.hero_title);
     setVal('f-hero-desc', t.hero_desc);
+    setVal('f-empresa', t.empresa_nombre);
     setVal('f-wa-main', r.whatsapp);
 
     const color = tema.color_primario || '#00E5FF';
@@ -524,6 +548,12 @@ function populateForm() {
     document.getElementById('color-hex').value = color;
     document.getElementById('color-box').style.background = color;
     syncColorSwatches(color);
+
+    if (tema.card_bg_color) {
+        document.getElementById('bg-color-native').value = tema.card_bg_color;
+        document.getElementById('bg-color-hex').value = tema.card_bg_color;
+        document.getElementById('bg-color-box').style.background = tema.card_bg_color;
+    }
 
     SOCIALS.forEach(net => {
         const tog = document.getElementById(`tog-${net.id}`);
@@ -544,6 +574,7 @@ function populateForm() {
 
     if (formData.imagenes?.logo) showImg('logo', formData.imagenes.logo);
     if (formData.imagenes?.hero_image) showImg('hero', formData.imagenes.hero_image);
+    if (formData.imagenes?.card_bg) showImg('bg', formData.imagenes.card_bg);
 
     sendPreview();
 }
@@ -552,7 +583,7 @@ function setVal(id, val) { const el = document.getElementById(id); if(el) el.val
 
 // ── FORM LISTENERS ────────────────────────────────────
 function setupFormListeners() {
-    ['f-name','f-slogan','f-initials','f-hero-title','f-hero-desc','f-wa-main','color-hex'].forEach(id => {
+    ['f-name','f-slogan','f-initials','f-hero-title','f-hero-desc','f-empresa','f-wa-main','color-hex','bg-color-hex'].forEach(id => {
         document.getElementById(id)?.addEventListener('input', () => { liveUpdate(); markDirty(); });
     });
 }
@@ -566,6 +597,7 @@ function liveUpdate() {
 
 function collectData() {
     const color = document.getElementById('color-hex').value || '#00E5FF';
+    const bgColor = document.getElementById('bg-color-hex').value || '';
     const redes = {};
     SOCIALS.forEach(net => {
         const tog = document.getElementById(`tog-${net.id}`);
@@ -579,13 +611,14 @@ function collectData() {
         if (cb?.checked) secciones.push(item.dataset.sid);
     });
     return {
-        tema: { color_primario: color },
+        tema: { color_primario: color, card_bg_color: bgColor },
         textos: {
             card_name: document.getElementById('f-name')?.value||'',
             card_slogan: document.getElementById('f-slogan')?.value||'',
             card_initials: document.getElementById('f-initials')?.value||'',
             hero_title: document.getElementById('f-hero-title')?.value||'',
             hero_desc: document.getElementById('f-hero-desc')?.value||'',
+            empresa_nombre: document.getElementById('f-empresa')?.value||'',
         },
         imagenes: formData.imagenes || {},
         redes,
@@ -658,6 +691,15 @@ function setupColorPicker() {
     native.addEventListener('input', () => apply(native.value));
     hex.addEventListener('input', () => { if(/^#[0-9A-Fa-f]{6}$/.test(hex.value)) apply(hex.value); });
     document.querySelectorAll('.color-swatch').forEach(s => s.addEventListener('click', () => apply(s.dataset.c)));
+
+    // Background color picker
+    const bgNative = document.getElementById('bg-color-native');
+    const bgHex = document.getElementById('bg-color-hex');
+    const bgBox = document.getElementById('bg-color-box');
+
+    const bgApply = c => { bgNative.value=c; bgHex.value=c; bgBox.style.background=c; liveUpdate(); markDirty(); };
+    bgNative?.addEventListener('input', () => bgApply(bgNative.value));
+    bgHex?.addEventListener('input', () => { if(/^#[0-9A-Fa-f]{6}$/.test(bgHex.value)) bgApply(bgHex.value); });
 }
 
 function syncColorSwatches(c) {
@@ -742,6 +784,7 @@ function setupDnD() {
 function setupImages() {
     setupImgInput('logo-file', 'logo-prev', 'logo-ph', 'logo');
     setupImgInput('hero-file', 'hero-prev', 'hero-ph', 'hero_image');
+    setupImgInput('bg-file', 'bg-prev', 'bg-ph', 'card_bg');
 }
 function setupImgInput(fileId, prevId, phId, key) {
     document.getElementById(fileId)?.addEventListener('change', function() {
