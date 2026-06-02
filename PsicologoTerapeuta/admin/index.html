@@ -563,8 +563,8 @@ async function onLogin(user) {
     document.getElementById('editor-screen').classList.add('visible');
     show('loading');
     document.querySelector('.loading-lbl').textContent = 'Cargando tu configuración...';
-    await loadContent();
-    hide('loading');
+    try { await loadContent(); } catch(e) { console.warn('loadContent error:', e); }
+    finally { hide('loading'); }
 }
 
 // ── LOAD FROM GITHUB ──────────────────────────────────
@@ -586,7 +586,7 @@ async function loadContent() {
             toast('Archivo nuevo — configura y publica cuando estés listo', 'info');
         }
     } catch(e) { toast('Usando valores por defecto', 'info'); }
-    populateForm();
+    try { populateForm(); } catch(e2) { console.warn('populateForm error:', e2); sendPreview(); }
 }
 
 function deepMerge(base, override) {
@@ -611,18 +611,25 @@ function populateForm() {
     setVal('f-slogan', t.card_slogan);
     setVal('f-initials', t.card_initials);
     setVal('f-hero-title', t.hero_title);
+    setVal('f-hero-highlight', t.hero_title_highlight);
+    setVal('f-hero-end', t.hero_title_end);
     setVal('f-hero-desc', t.hero_desc);
+    setVal('f-btn-cta', t.btn_cta);
     setVal('f-empresa', t.empresa_nombre);
+    setVal('f-stat1-num', t.stat1_num);
+    setVal('f-stat1-label', t.stat1_label);
+    setVal('f-stat2-num', t.stat2_num);
+    setVal('f-stat2-label', t.stat2_label);
     setVal('f-wa-main', r.whatsapp);
 
-    const color = tema.color_primario || '#00E5FF';
-    document.getElementById('color-native').value = color;
-    document.getElementById('color-hex').value = color;
-    document.getElementById('color-box').style.background = color;
-    syncColorSwatches(color);
+    const cCard = tema.color_card || '#00E5FF';
+    const cWeb  = tema.color_web  || '#00E5FF';
+    document.getElementById('card-color-hex').value = cCard;
+    document.getElementById('card-color-box').style.background = cCard;
+    document.getElementById('web-color-hex').value = cWeb;
+    document.getElementById('web-color-box').style.background = cWeb;
 
     if (tema.card_bg_color) {
-        document.getElementById('bg-color-native').value = tema.card_bg_color;
         document.getElementById('bg-color-hex').value = tema.card_bg_color;
         document.getElementById('bg-color-box').style.background = tema.card_bg_color;
     }
