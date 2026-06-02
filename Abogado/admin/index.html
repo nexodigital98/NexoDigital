@@ -292,37 +292,59 @@
                 <div class="sidebar-panel" data-panel="colors">
                     <div class="sec-head">
                         <div class="sec-head-icon"><i class="fas fa-palette"></i></div>
-                        <div><div class="sec-head-title">Color de Marca</div><div class="sec-head-sub">Cambia el acento de todo el sitio</div></div>
+                        <div><div class="sec-head-title">Colores</div><div class="sec-head-sub">Tarjeta digital y sitio web por separado</div></div>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Color Principal</label>
-                        <div class="color-row">
-                            <div class="color-box" id="color-box">
-                                <input type="color" id="color-native" value="#00E5FF">
+
+                    <!-- Color TARJETA -->
+                    <div style="background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.12);border-radius:10px;padding:14px;margin-bottom:14px">
+                        <div style="font-size:11px;font-weight:700;color:#00E5FF;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px"><i class="fas fa-id-card" style="margin-right:6px"></i>Color Tarjeta Digital</div>
+                        <div class="form-group" style="margin-bottom:8px">
+                            <div class="color-row">
+                                <div class="color-box" id="card-color-box"><input type="color" id="card-color-native" value="#00E5FF"></div>
+                                <input type="text" id="card-color-hex" class="form-input" value="#00E5FF" placeholder="#00E5FF">
                             </div>
-                            <input type="text" id="color-hex" class="form-input" value="#00E5FF" placeholder="#00E5FF">
+                            <div class="color-presets">
+                                <div class="color-swatch" style="background:#00E5FF" data-target="card" data-c="#00E5FF"></div>
+                                <div class="color-swatch" style="background:#E2C775" data-target="card" data-c="#E2C775"></div>
+                                <div class="color-swatch" style="background:#FF3366" data-target="card" data-c="#FF3366"></div>
+                                <div class="color-swatch" style="background:#9D00FF" data-target="card" data-c="#9D00FF"></div>
+                                <div class="color-swatch" style="background:#00FF88" data-target="card" data-c="#00FF88"></div>
+                                <div class="color-swatch" style="background:#FF6B00" data-target="card" data-c="#FF6B00"></div>
+                                <div class="color-swatch" style="background:#F72585" data-target="card" data-c="#F72585"></div>
+                                <div class="color-swatch" style="background:#FFD700" data-target="card" data-c="#FFD700"></div>
+                            </div>
+                            <div class="form-hint">Esquinas, bordes y botones de la tarjeta</div>
                         </div>
-                        <div class="color-presets">
-                            <div class="color-swatch" style="background:#00E5FF" data-c="#00E5FF"></div>
-                            <div class="color-swatch" style="background:#E2C775" data-c="#E2C775"></div>
-                            <div class="color-swatch" style="background:#FF3366" data-c="#FF3366"></div>
-                            <div class="color-swatch" style="background:#9D00FF" data-c="#9D00FF"></div>
-                            <div class="color-swatch" style="background:#00FF88" data-c="#00FF88"></div>
-                            <div class="color-swatch" style="background:#FF6B00" data-c="#FF6B00"></div>
-                            <div class="color-swatch" style="background:#F72585" data-c="#F72585"></div>
-                            <div class="color-swatch" style="background:#00B4D8" data-c="#00B4D8"></div>
+                        <div class="form-group">
+                            <label class="form-label">Fondo de la Tarjeta (color sólido)</label>
+                            <div class="color-row">
+                                <div class="color-box" id="bg-color-box"><input type="color" id="bg-color-native" value="#162238"></div>
+                                <input type="text" id="bg-color-hex" class="form-input" placeholder="Ej. #162238">
+                            </div>
+                            <div class="form-hint">Déjalo vacío para usar el fondo predeterminado</div>
                         </div>
-                        <div class="form-hint">Se aplica a botones, brillos y detalles de todo el sitio</div>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Color de Fondo de la Tarjeta (Opcional)</label>
-                        <div class="color-row">
-                            <div class="color-box" id="bg-color-box">
-                                <input type="color" id="bg-color-native" value="#162238">
+
+                    <!-- Color WEB -->
+                    <div style="background:rgba(157,0,255,.04);border:1px solid rgba(157,0,255,.15);border-radius:10px;padding:14px">
+                        <div style="font-size:11px;font-weight:700;color:#9D00FF;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px"><i class="fas fa-globe" style="margin-right:6px"></i>Color Sitio Web</div>
+                        <div class="form-group">
+                            <div class="color-row">
+                                <div class="color-box" id="web-color-box"><input type="color" id="web-color-native" value="#00E5FF"></div>
+                                <input type="text" id="web-color-hex" class="form-input" value="#00E5FF" placeholder="#00E5FF">
                             </div>
-                            <input type="text" id="bg-color-hex" class="form-input" placeholder="Ej. #162238">
+                            <div class="color-presets">
+                                <div class="color-swatch" style="background:#00E5FF" data-target="web" data-c="#00E5FF"></div>
+                                <div class="color-swatch" style="background:#E2C775" data-target="web" data-c="#E2C775"></div>
+                                <div class="color-swatch" style="background:#FF3366" data-target="web" data-c="#FF3366"></div>
+                                <div class="color-swatch" style="background:#9D00FF" data-target="web" data-c="#9D00FF"></div>
+                                <div class="color-swatch" style="background:#00FF88" data-target="web" data-c="#00FF88"></div>
+                                <div class="color-swatch" style="background:#FF6B00" data-target="web" data-c="#FF6B00"></div>
+                                <div class="color-swatch" style="background:#F72585" data-target="web" data-c="#F72585"></div>
+                                <div class="color-swatch" style="background:#00B4D8" data-target="web" data-c="#00B4D8"></div>
+                            </div>
+                            <div class="form-hint">Botones, links, textos resaltados del sitio</div>
                         </div>
-                        <div class="form-hint">Si usas una imagen de fondo, esto se ignorará. Déjalo vacío para usar el predeterminado.</div>
                     </div>
                 </div>
 
@@ -383,20 +405,64 @@
                 <div class="sidebar-panel" data-panel="texts">
                     <div class="sec-head">
                         <div class="sec-head-icon"><i class="fas fa-pen"></i></div>
-                        <div><div class="sec-head-title">Textos del Sitio</div><div class="sec-head-sub">Hero y descripción principal</div></div>
+                        <div><div class="sec-head-title">Textos del Sitio</div><div class="sec-head-sub">Edita todos los textos de la página web</div></div>
+                    </div>
+
+                    <!-- Empresa -->
+                    <div style="font-size:10px;font-weight:700;color:#9D00FF;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(157,0,255,.15)">Empresa</div>
+                    <div class="form-group">
+                        <label class="form-label">Nombre de la Empresa (Navbar + Footer)</label>
+                        <input type="text" id="f-empresa" class="form-input" placeholder="Ej. S &amp; Asociados">
+                    </div>
+
+                    <!-- Hero -->
+                    <div style="font-size:10px;font-weight:700;color:#9D00FF;letter-spacing:1px;text-transform:uppercase;margin:14px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(157,0,255,.15)">Sección Principal (Hero)</div>
+                    <div class="form-group">
+                        <label class="form-label">Título — Parte 1 (texto normal)</label>
+                        <input type="text" id="f-hero-title" class="form-input" placeholder="Ej. Defendemos sus ">
+                        <div class="form-hint">Primera parte del título, antes de la palabra resaltada</div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Nombre de la Empresa</label>
-                        <input type="text" id="f-empresa" class="form-input" placeholder="Ej. NexoDigital">
+                        <label class="form-label">Título — Palabra Resaltada (color de marca)</label>
+                        <input type="text" id="f-hero-highlight" class="form-input" placeholder="Ej. Derechos">
+                        <div class="form-hint">Esta palabra aparece con el color de la web</div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Título Principal (Hero)</label>
-                        <input type="text" id="f-hero-title" class="form-input" placeholder="Ej. Expertos en Derecho Penal">
+                        <label class="form-label">Título — Parte 3 (cierre del título)</label>
+                        <input type="text" id="f-hero-end" class="form-input" placeholder="Ej.  con firmeza y estrategia.">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Descripción del Hero</label>
-                        <textarea id="f-hero-desc" class="form-input" placeholder="Breve descripción de tu negocio..."></textarea>
+                        <textarea id="f-hero-desc" class="form-input" rows="3" placeholder="Breve descripción de tu negocio..."></textarea>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label">Texto del Botón Principal (CTA)</label>
+                        <input type="text" id="f-btn-cta" class="form-input" placeholder="Ej. Consulta Inmediata">
+                    </div>
+
+                    <!-- Stats -->
+                    <div style="font-size:10px;font-weight:700;color:#9D00FF;letter-spacing:1px;text-transform:uppercase;margin:14px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(157,0,255,.15)">Estadísticas</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                        <div class="form-group">
+                            <label class="form-label">Número 1</label>
+                            <input type="text" id="f-stat1-num" class="form-input" placeholder="Ej. 95%">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Etiqueta 1</label>
+                            <input type="text" id="f-stat1-label" class="form-input" placeholder="Ej. Casos de Éxito">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Número 2</label>
+                            <input type="text" id="f-stat2-num" class="form-input" placeholder="Ej. 1k+">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Etiqueta 2</label>
+                            <input type="text" id="f-stat2-label" class="form-input" placeholder="Ej. Clientes Satisfechos">
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div style="font-size:10px;font-weight:700;color:#9D00FF;letter-spacing:1px;text-transform:uppercase;margin:14px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(157,0,255,.15)">Contacto</div>
                     <div class="form-group">
                         <label class="form-label">WhatsApp Principal (solo números)</label>
                         <input type="text" id="f-wa-main" class="form-input" placeholder="Ej. 593999999999">
@@ -589,7 +655,12 @@ function setVal(id, val) { const el = document.getElementById(id); if(el) el.val
 
 // ── FORM LISTENERS ────────────────────────────────────
 function setupFormListeners() {
-    ['f-name','f-slogan','f-initials','f-hero-title','f-hero-desc','f-empresa','f-wa-main','color-hex','bg-color-hex'].forEach(id => {
+    ['f-name','f-slogan','f-initials',
+     'f-hero-title','f-hero-highlight','f-hero-end','f-hero-desc',
+     'f-btn-cta','f-empresa','f-wa-main',
+     'f-stat1-num','f-stat1-label','f-stat2-num','f-stat2-label',
+     'card-color-hex','web-color-hex','bg-color-hex'
+    ].forEach(id => {
         document.getElementById(id)?.addEventListener('input', () => { liveUpdate(); markDirty(); });
     });
 }
@@ -602,8 +673,9 @@ function liveUpdate() {
 }
 
 function collectData() {
-    const color = document.getElementById('color-hex').value || '#00E5FF';
-    const bgColor = document.getElementById('bg-color-hex').value || '';
+    const colorCard = document.getElementById('card-color-hex')?.value || '#00E5FF';
+    const colorWeb  = document.getElementById('web-color-hex')?.value  || '#00E5FF';
+    const bgColor   = document.getElementById('bg-color-hex')?.value   || '';
     const redes = {};
     SOCIALS.forEach(net => {
         const tog = document.getElementById(`tog-${net.id}`);
@@ -617,14 +689,21 @@ function collectData() {
         if (cb?.checked) secciones.push(item.dataset.sid);
     });
     return {
-        tema: { color_primario: color, card_bg_color: bgColor },
+        tema: { color_card: colorCard, color_web: colorWeb, card_bg_color: bgColor },
         textos: {
-            card_name: document.getElementById('f-name')?.value||'',
-            card_slogan: document.getElementById('f-slogan')?.value||'',
-            card_initials: document.getElementById('f-initials')?.value||'',
-            hero_title: document.getElementById('f-hero-title')?.value||'',
-            hero_desc: document.getElementById('f-hero-desc')?.value||'',
-            empresa_nombre: document.getElementById('f-empresa')?.value||'',
+            card_name:            document.getElementById('f-name')?.value||'',
+            card_slogan:          document.getElementById('f-slogan')?.value||'',
+            card_initials:        document.getElementById('f-initials')?.value||'',
+            empresa_nombre:       document.getElementById('f-empresa')?.value||'',
+            hero_title:           document.getElementById('f-hero-title')?.value||'',
+            hero_title_highlight: document.getElementById('f-hero-highlight')?.value||'',
+            hero_title_end:       document.getElementById('f-hero-end')?.value||'',
+            hero_desc:            document.getElementById('f-hero-desc')?.value||'',
+            btn_cta:              document.getElementById('f-btn-cta')?.value||'',
+            stat1_num:            document.getElementById('f-stat1-num')?.value||'',
+            stat1_label:          document.getElementById('f-stat1-label')?.value||'',
+            stat2_num:            document.getElementById('f-stat2-num')?.value||'',
+            stat2_label:          document.getElementById('f-stat2-label')?.value||'',
         },
         imagenes: formData.imagenes || {},
         redes,
@@ -689,27 +768,42 @@ function setStatus(type, text) {
 
 // ── COLOR PICKER ──────────────────────────────────────
 function setupColorPicker() {
-    const native = document.getElementById('color-native');
-    const hex = document.getElementById('color-hex');
-    const box = document.getElementById('color-box');
+    // TARJETA
+    const cardNative = document.getElementById('card-color-native');
+    const cardHex    = document.getElementById('card-color-hex');
+    const cardBox    = document.getElementById('card-color-box');
+    const applyCard  = c => { cardNative.value=c; cardHex.value=c; cardBox.style.background=c; liveUpdate(); markDirty(); };
+    cardNative?.addEventListener('input', () => applyCard(cardNative.value));
+    cardHex?.addEventListener('input',   () => { if(/^#[0-9A-Fa-f]{6}$/.test(cardHex.value)) applyCard(cardHex.value); });
 
-    const apply = c => { native.value=c; hex.value=c; box.style.background=c; syncColorSwatches(c); liveUpdate(); markDirty(); };
-    native.addEventListener('input', () => apply(native.value));
-    hex.addEventListener('input', () => { if(/^#[0-9A-Fa-f]{6}$/.test(hex.value)) apply(hex.value); });
-    document.querySelectorAll('.color-swatch').forEach(s => s.addEventListener('click', () => apply(s.dataset.c)));
+    // WEB
+    const webNative = document.getElementById('web-color-native');
+    const webHex    = document.getElementById('web-color-hex');
+    const webBox    = document.getElementById('web-color-box');
+    const applyWeb  = c => { webNative.value=c; webHex.value=c; webBox.style.background=c; liveUpdate(); markDirty(); };
+    webNative?.addEventListener('input', () => applyWeb(webNative.value));
+    webHex?.addEventListener('input',   () => { if(/^#[0-9A-Fa-f]{6}$/.test(webHex.value)) applyWeb(webHex.value); });
 
-    // Background color picker
+    // FONDO TARJETA
     const bgNative = document.getElementById('bg-color-native');
-    const bgHex = document.getElementById('bg-color-hex');
-    const bgBox = document.getElementById('bg-color-box');
+    const bgHex    = document.getElementById('bg-color-hex');
+    const bgBox    = document.getElementById('bg-color-box');
+    const applyBg  = c => { bgNative.value=c; bgHex.value=c; bgBox.style.background=c; liveUpdate(); markDirty(); };
+    bgNative?.addEventListener('input', () => applyBg(bgNative.value));
+    bgHex?.addEventListener('input',   () => { if(/^#[0-9A-Fa-f]{6}$/.test(bgHex.value)) applyBg(bgHex.value); });
 
-    const bgApply = c => { bgNative.value=c; bgHex.value=c; bgBox.style.background=c; liveUpdate(); markDirty(); };
-    bgNative?.addEventListener('input', () => bgApply(bgNative.value));
-    bgHex?.addEventListener('input', () => { if(/^#[0-9A-Fa-f]{6}$/.test(bgHex.value)) bgApply(bgHex.value); });
+    // Swatches — cada uno tiene data-target="card" o data-target="web"
+    document.querySelectorAll('.color-swatch').forEach(s => {
+        s.addEventListener('click', () => {
+            const t = s.dataset.target;
+            if (t === 'card') applyCard(s.dataset.c);
+            else if (t === 'web') applyWeb(s.dataset.c);
+        });
+    });
 }
 
-function syncColorSwatches(c) {
-    document.querySelectorAll('.color-swatch').forEach(s => s.classList.toggle('active', s.dataset.c.toLowerCase()===c.toLowerCase()));
+function syncColorSwatches(target, c) {
+    document.querySelectorAll(`.color-swatch[data-target="${target}"]`).forEach(s => s.classList.toggle('active', s.dataset.c.toLowerCase()===c.toLowerCase()));
 }
 
 // ── SOCIAL NETWORKS ───────────────────────────────────

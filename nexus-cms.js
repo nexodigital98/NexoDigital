@@ -1,6 +1,7 @@
 /**
  * NEXUS CMS - Motor Dinámico para Plantillas NexoDigital
  * Soporta: live preview via postMessage + carga desde content.json
+ * v3.0 — Colores separados tarjeta/web + textos completos
  */
 
 // ── LIVE PREVIEW desde el panel Admin ────────────────────────────────────
@@ -32,60 +33,62 @@ function applyData(data) {
 
 // ── 1. COLORES ────────────────────────────────────────────────────────────
 function applyTema(tema) {
-    const hex = tema.color_primario || '#00E5FF';
-    const rgb = hexToRgb(hex);
+    const hexWeb  = tema.color_web  || tema.color_primario || '#00E5FF';
+    const hexCard = tema.color_card || tema.color_primario || '#00E5FF';
+    const rgbWeb  = hexToRgb(hexWeb);
+    const rgbCard = hexToRgb(hexCard);
 
-    // Eliminar estilos previos
     document.getElementById('nexus-color-override')?.remove();
 
     const s = document.createElement('style');
     s.id = 'nexus-color-override';
     s.innerHTML = `
+        /* ── COLOR WEB (navbar, botones, landing) ── */
         :root {
-            --sl-gold:      ${hex} !important;
-            --sl-gold-dim:  ${darken(hex, 20)} !important;
-            --sl-gold-glow: rgba(${rgb}, 0.4) !important;
-            --sl-cyan:      ${hex} !important;
-            --sl-purple:    ${hex} !important;
-            --sl-purple2:   ${darken(hex, 20)} !important;
-            --sl-violet:    ${hex} !important;
-            --sl-violet-glow: rgba(${rgb}, 0.35) !important;
-            --card-gold2:   ${hex} !important;
+            --sl-gold:        ${hexWeb} !important;
+            --sl-gold-dim:    ${darken(hexWeb, 20)} !important;
+            --sl-gold-glow:   rgba(${rgbWeb}, 0.4) !important;
+            --sl-cyan:        ${hexWeb} !important;
+            --sl-purple:      ${hexWeb} !important;
+            --sl-purple2:     ${darken(hexWeb, 20)} !important;
+            --sl-violet:      ${hexWeb} !important;
+            --sl-violet-glow: rgba(${rgbWeb}, 0.35) !important;
         }
-        /* Botones y bordes */
-        .btn-floating-card { border-color: ${hex} !important; color: ${hex} !important; }
-        .btn-floating-card:hover { background: ${hex} !important; color: #000 !important; }
-        .sl-nav-cta { color: ${hex} !important; border-color: ${hex} !important; }
-        .sl-nav-cta:hover { background: ${hex} !important; color: #000 !important; }
-        /* Esquinas de la tarjeta */
-        .card-corner::before, .card-corner::after { background: linear-gradient(135deg, ${hex}, ${darken(hex,20)}) !important; }
-        /* Banner y divisor del nombre */
-        .fut-name-banner { border-top-color: rgba(${rgb},0.8) !important; border-bottom-color: rgba(${rgb},0.8) !important; }
-        .fut-divider { background: linear-gradient(90deg, transparent, rgba(${rgb},0.9), transparent) !important; }
-        /* Social buttons */
-        .social-btn { border-color: rgba(${rgb},0.35) !important; }
-        .social-btn:hover { background: rgba(${rgb},0.25) !important; border-color: rgba(${rgb},0.7) !important; box-shadow: 0 5px 15px rgba(${rgb},0.3) !important; }
-        /* Botón circle rating */
-        .bottom-rating-circle { background: linear-gradient(135deg, rgba(${rgb},0.25) 0%, rgba(13,71,161,0.4) 100%) !important; border-color: rgba(${rgb},0.5) !important; }
-        /* Shimmer y glow */
-        .shimmer-layer { background: linear-gradient(90deg, transparent 0%, rgba(${rgb},0.15) 50%, transparent 100%) !important; }
-        /* Nav links */
-        .sl-nav-links a:hover { color: ${hex} !important; }
-        /* FAQs, íconos de sección */
-        [style*="var(--sl-gold)"] { color: ${hex} !important; }
-        [style*="sl-gold"] { color: ${hex} !important; }
-        /* Texto glowing */
-        .sl-glow-text { color: ${hex} !important; text-shadow: 0 0 20px rgba(${rgb}, 0.6) !important; }
-        /* Panel de ubicación */
-        [style*="border-left: 4px solid var(--sl-gold)"] { border-left-color: ${hex} !important; }
+        .sl-nav-cta           { color: ${hexWeb} !important; border-color: ${hexWeb} !important; }
+        .sl-nav-cta:hover     { background: ${hexWeb} !important; color: #000 !important; }
+        .sl-nav-links a:hover { color: ${hexWeb} !important; }
+        .sl-glow-text         { color: ${hexWeb} !important; text-shadow: 0 0 20px rgba(${rgbWeb}, 0.6) !important; }
+        [style*="var(--sl-gold)"] { color: ${hexWeb} !important; }
+        [style*="sl-gold"]        { color: ${hexWeb} !important; }
+        [style*="border-left: 4px solid var(--sl-gold)"] { border-left-color: ${hexWeb} !important; }
+
+        /* ── COLOR TARJETA (card, corners, social buttons) ── */
+        .card-corner::before, .card-corner::after {
+            background: linear-gradient(135deg, ${hexCard}, ${darken(hexCard,20)}) !important;
+        }
+        .btn-floating-card       { border-color: ${hexCard} !important; color: ${hexCard} !important; }
+        .btn-floating-card:hover { background: ${hexCard} !important; color: #000 !important; }
+        .fut-name-banner {
+            border-top-color:    rgba(${rgbCard},0.8) !important;
+            border-bottom-color: rgba(${rgbCard},0.8) !important;
+        }
+        .fut-divider {
+            background: linear-gradient(90deg, transparent, rgba(${rgbCard},0.9), transparent) !important;
+        }
+        .social-btn              { border-color: rgba(${rgbCard},0.35) !important; }
+        .social-btn:hover        { background: rgba(${rgbCard},0.25) !important; border-color: rgba(${rgbCard},0.7) !important; box-shadow: 0 5px 15px rgba(${rgbCard},0.3) !important; }
+        .bottom-rating-circle    { background: linear-gradient(135deg, rgba(${rgbCard},0.25) 0%, rgba(13,71,161,0.4) 100%) !important; border-color: rgba(${rgbCard},0.5) !important; }
+        .shimmer-layer           { background: linear-gradient(90deg, transparent 0%, rgba(${rgbCard},0.15) 50%, transparent 100%) !important; }
+        .card-gold2              { background: ${hexCard} !important; }
     `;
     document.head.appendChild(s);
 
-    // Fondo de pantalla de la tarjeta (color sólido o imagen)
+    // Fondo de la tarjeta (color sólido)
     if (tema.card_bg_color) {
         const cardScreen = document.getElementById('card-screen');
         if (cardScreen) cardScreen.style.background = tema.card_bg_color;
     }
+    // Fondo de la tarjeta (imagen)
     if (tema.card_bg_image) {
         const cardScreen = document.getElementById('card-screen');
         if (cardScreen) {
@@ -98,58 +101,82 @@ function applyTema(tema) {
 
 // ── 2. TEXTOS ─────────────────────────────────────────────────────────────
 function applyTextos(textos) {
+    // Aplicar todos los elementos con data-cms-text
     for (const [key, value] of Object.entries(textos)) {
-        if (!value) continue;
-        // Elementos con data-cms-text
+        if (!value && value !== 0) continue;
         document.querySelectorAll(`[data-cms-text="${key}"]`).forEach(el => {
             el.textContent = value;
         });
     }
 
-    // Nombre de la empresa en el navbar
+    // Empresa: navbar span + footer h3
     if (textos.empresa_nombre) {
-        document.querySelectorAll('.sl-nav-logo-text, .sl-brand-name, [data-cms-text="empresa_nombre"]').forEach(el => {
+        document.querySelectorAll('[data-cms-text="empresa_nombre"]').forEach(el => {
             el.textContent = textos.empresa_nombre;
         });
     }
 
-    // Iniciales del círculo
+    // Iniciales del círculo (solo si no tiene hijos)
     if (textos.card_initials) {
-        document.querySelectorAll('.bottom-rating-circle, [data-cms-text="card_initials"]').forEach(el => {
+        document.querySelectorAll('[data-cms-text="card_initials"], .bottom-rating-circle').forEach(el => {
             if (el.children.length === 0) el.textContent = textos.card_initials;
         });
     }
 
-    // Título del hero en la landing
+    // Hero title — si existe el campo completo lo ponemos en el primer span
     if (textos.hero_title) {
-        document.querySelectorAll('[data-cms-text="hero_title"], .sl-hero-title, .sl-hero h1').forEach(el => {
+        document.querySelectorAll('[data-cms-text="hero_title"]').forEach(el => {
             el.textContent = textos.hero_title;
+        });
+    }
+
+    // Texto resaltado del hero (la palabra dorada)
+    if (textos.hero_title_highlight) {
+        document.querySelectorAll('[data-cms-text="hero_title_highlight"]').forEach(el => {
+            el.textContent = textos.hero_title_highlight;
+        });
+    }
+
+    // Final del título
+    if (textos.hero_title_end) {
+        document.querySelectorAll('[data-cms-text="hero_title_end"]').forEach(el => {
+            el.textContent = textos.hero_title_end;
         });
     }
 
     // Descripción hero
     if (textos.hero_desc) {
-        document.querySelectorAll('[data-cms-text="hero_desc"], .sl-hero-desc, .sl-hero p').forEach(el => {
+        document.querySelectorAll('[data-cms-text="hero_desc"]').forEach(el => {
             el.textContent = textos.hero_desc;
         });
     }
+
+    // Botón CTA principal
+    if (textos.btn_cta) {
+        document.querySelectorAll('[data-cms-text="btn_cta"]').forEach(el => {
+            el.textContent = textos.btn_cta;
+        });
+    }
+
+    // Estadísticas
+    if (textos.stat1_num)   document.querySelectorAll('[data-cms-text="stat1_num"]').forEach(el => el.textContent = textos.stat1_num);
+    if (textos.stat1_label) document.querySelectorAll('[data-cms-text="stat1_label"]').forEach(el => el.textContent = textos.stat1_label);
+    if (textos.stat2_num)   document.querySelectorAll('[data-cms-text="stat2_num"]').forEach(el => el.textContent = textos.stat2_num);
+    if (textos.stat2_label) document.querySelectorAll('[data-cms-text="stat2_label"]').forEach(el => el.textContent = textos.stat2_label);
 }
 
 // ── 3. IMÁGENES ───────────────────────────────────────────────────────────
 function applyImagenes(imagenes) {
-    // Logo
     if (imagenes.logo) {
-        document.querySelectorAll('[data-cms-img="logo"], .card-logo').forEach(el => {
+        document.querySelectorAll('[data-cms-img="logo"], .card-logo, .sl-logo-img').forEach(el => {
             el.src = imagenes.logo;
         });
     }
-    // Foto del equipo / hero (en la tarjeta Y en la landing)
     if (imagenes.hero_image) {
         document.querySelectorAll('[data-cms-img="hero_image"], .sl-team-img').forEach(el => {
             el.src = imagenes.hero_image;
         });
     }
-    // Fondo de la tarjeta (imagen)
     if (imagenes.card_bg) {
         const cardScreen = document.getElementById('card-screen');
         if (cardScreen) {
@@ -163,7 +190,7 @@ function applyImagenes(imagenes) {
 // ── 4. REDES SOCIALES ─────────────────────────────────────────────────────
 function applyRedes(redes) {
     const REDES_CFG = [
-        { id:'whatsapp', icon:'fa-whatsapp', buildUrl: v => v.startsWith('http') ? v : `https://wa.me/${v.replace(/\D/g,'')}` },
+        { id:'whatsapp',  icon:'fa-whatsapp',    buildUrl: v => v.startsWith('http') ? v : `https://wa.me/${v.replace(/\D/g,'')}` },
         { id:'facebook',  icon:'fa-facebook-f',  buildUrl: v => v },
         { id:'instagram', icon:'fa-instagram',   buildUrl: v => v },
         { id:'tiktok',    icon:'fa-tiktok',      buildUrl: v => v },
@@ -172,7 +199,6 @@ function applyRedes(redes) {
 
     const active = REDES_CFG.filter(r => redes[r.id]);
 
-    // Tarjeta digital
     const cardSocials = document.querySelector('.card-socials');
     if (cardSocials) {
         cardSocials.innerHTML = active.map(r =>
@@ -181,7 +207,6 @@ function applyRedes(redes) {
         ).join('');
     }
 
-    // Footer de la web
     const footerSocials = document.querySelector('.sl-footer-socials');
     if (footerSocials) {
         footerSocials.innerHTML = active.map(r =>
@@ -190,12 +215,9 @@ function applyRedes(redes) {
         ).join('');
     }
 
-    // Botones de WhatsApp en toda la página
     if (redes.whatsapp) {
         const waUrl = `https://wa.me/${redes.whatsapp.replace(/\D/g,'')}`;
-        document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
-            el.href = waUrl;
-        });
+        document.querySelectorAll('a[href*="wa.me"]').forEach(el => { el.href = waUrl; });
     }
 }
 
