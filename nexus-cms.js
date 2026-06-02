@@ -1,7 +1,7 @@
 /**
  * NEXUS CMS - Motor Dinámico para Plantillas NexoDigital
  * Soporta: live preview via postMessage + carga desde content.json
- * v3.0 — Colores separados tarjeta/web + textos completos
+ * v4.0 — Color total de tarjeta + contraste automático de texto
  */
 
 // ── LIVE PREVIEW desde el panel Admin ────────────────────────────────────
@@ -37,6 +37,7 @@ function applyTema(tema) {
     const hexCard = tema.color_card || tema.color_primario || '#00E5FF';
     const rgbWeb  = hexToRgb(hexWeb);
     const rgbCard = hexToRgb(hexCard);
+    const textColor = getContrastColor(hexCard); // blanco o negro según el color
 
     document.getElementById('nexus-color-override')?.remove();
 
@@ -62,24 +63,101 @@ function applyTema(tema) {
         [style*="sl-gold"]        { color: ${hexWeb} !important; }
         [style*="border-left: 4px solid var(--sl-gold)"] { border-left-color: ${hexWeb} !important; }
 
-        /* ── COLOR TARJETA (card, corners, social buttons) ── */
-        .card-corner::before, .card-corner::after {
-            background: linear-gradient(135deg, ${hexCard}, ${darken(hexCard,20)}) !important;
+        /* ══════════════════════════════════════════════════
+           COLOR TARJETA — TODO el color es el elegido
+           No quedan colores dorados ni azules hardcodeados
+        ══════════════════════════════════════════════════ */
+
+        /* Borde exterior y glow de la tarjeta */
+        .fut-card-body {
+            border-color: ${hexCard} !important;
+            box-shadow:
+                0 0 18px rgba(${rgbCard}, 0.55),
+                0 0 50px rgba(${rgbCard}, 0.22),
+                inset 0 0 30px rgba(${rgbCard}, 0.07) !important;
         }
-        .btn-floating-card       { border-color: ${hexCard} !important; color: ${hexCard} !important; }
-        .btn-floating-card:hover { background: ${hexCard} !important; color: #000 !important; }
+
+        /* Esquinas decorativas */
+        .card-corner::before,
+        .card-corner::after {
+            background: linear-gradient(135deg, ${hexCard}, ${darken(hexCard, 25)}) !important;
+        }
+
+        /* Banner del nombre — fondo translúcido del color elegido */
         .fut-name-banner {
-            border-top-color:    rgba(${rgbCard},0.8) !important;
-            border-bottom-color: rgba(${rgbCard},0.8) !important;
+            border-top:    1px solid rgba(${rgbCard}, 0.85) !important;
+            border-bottom: 1px solid rgba(${rgbCard}, 0.85) !important;
+            background:    rgba(${rgbCard}, 0.10) !important;
         }
+
+        /* Nombre y cargo — contraste automático blanco/negro */
+        .fut-name-banner h2,
+        .fut-name-banner h3,
+        .card-name,
+        [data-cms-text="card_nombre"],
+        [data-cms-text="card_titulo"] {
+            color: ${textColor} !important;
+            text-shadow: 0 0 14px rgba(${rgbCard}, 0.75) !important;
+        }
+
+        /* Slogan debajo del nombre */
+        .card-slogan,
+        [data-cms-text="card_slogan"] {
+            color: ${textColor} !important;
+            opacity: 0.85 !important;
+        }
+
+        /* Línea divisora */
         .fut-divider {
-            background: linear-gradient(90deg, transparent, rgba(${rgbCard},0.9), transparent) !important;
+            background: linear-gradient(90deg, transparent, ${hexCard}, transparent) !important;
         }
-        .social-btn              { border-color: rgba(${rgbCard},0.35) !important; }
-        .social-btn:hover        { background: rgba(${rgbCard},0.25) !important; border-color: rgba(${rgbCard},0.7) !important; box-shadow: 0 5px 15px rgba(${rgbCard},0.3) !important; }
-        .bottom-rating-circle    { background: linear-gradient(135deg, rgba(${rgbCard},0.25) 0%, rgba(13,71,161,0.4) 100%) !important; border-color: rgba(${rgbCard},0.5) !important; }
-        .shimmer-layer           { background: linear-gradient(90deg, transparent 0%, rgba(${rgbCard},0.15) 50%, transparent 100%) !important; }
-        .card-gold2              { background: ${hexCard} !important; }
+
+        /* Iconos de redes sociales */
+        .social-btn {
+            border-color: rgba(${rgbCard}, 0.45) !important;
+            color: ${hexCard} !important;
+        }
+        .social-btn:hover {
+            background:   rgba(${rgbCard}, 0.22) !important;
+            border-color: ${hexCard} !important;
+            color:        ${hexCard} !important;
+            box-shadow:   0 5px 18px rgba(${rgbCard}, 0.45) !important;
+        }
+
+        /* Botón "Más Información / Flip" */
+        .btn-flip {
+            border-color: rgba(${rgbCard}, 0.6) !important;
+            color:        ${hexCard} !important;
+            box-shadow:   0 0 12px rgba(${rgbCard}, 0.2) !important;
+        }
+        .btn-flip:hover {
+            background:  rgba(${rgbCard}, 0.18) !important;
+            box-shadow:  0 0 22px rgba(${rgbCard}, 0.55) !important;
+        }
+
+        /* Círculo inferior de iniciales */
+        .bottom-rating-circle {
+            background:   linear-gradient(135deg, rgba(${rgbCard}, 0.30), rgba(${rgbCard}, 0.12)) !important;
+            border-color: rgba(${rgbCard}, 0.6) !important;
+            color:        ${hexCard} !important;
+        }
+
+        /* Efecto shimmer/brillo interno */
+        .shimmer-layer {
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(${rgbCard}, 0.18) 50%,
+                transparent 100%
+            ) !important;
+        }
+
+        /* Línea decorativa card-gold2 */
+        .card-gold2 { background: ${hexCard} !important; }
+
+        /* Botón flotante "Ver Tarjeta" */
+        .btn-floating-card       { border-color: ${hexCard} !important; color: ${hexCard} !important; }
+        .btn-floating-card:hover { background:   ${hexCard} !important; color: #000 !important; }
     `;
     document.head.appendChild(s);
 
@@ -101,7 +179,6 @@ function applyTema(tema) {
 
 // ── 2. TEXTOS ─────────────────────────────────────────────────────────────
 function applyTextos(textos) {
-    // Aplicar todos los elementos con data-cms-text
     for (const [key, value] of Object.entries(textos)) {
         if (!value && value !== 0) continue;
         document.querySelectorAll(`[data-cms-text="${key}"]`).forEach(el => {
@@ -109,59 +186,51 @@ function applyTextos(textos) {
         });
     }
 
-    // Empresa: navbar span + footer h3
     if (textos.empresa_nombre) {
         document.querySelectorAll('[data-cms-text="empresa_nombre"]').forEach(el => {
             el.textContent = textos.empresa_nombre;
         });
     }
 
-    // Iniciales del círculo (solo si no tiene hijos)
     if (textos.card_initials) {
         document.querySelectorAll('[data-cms-text="card_initials"], .bottom-rating-circle').forEach(el => {
             if (el.children.length === 0) el.textContent = textos.card_initials;
         });
     }
 
-    // Hero title — si existe el campo completo lo ponemos en el primer span
     if (textos.hero_title) {
         document.querySelectorAll('[data-cms-text="hero_title"]').forEach(el => {
             el.textContent = textos.hero_title;
         });
     }
 
-    // Texto resaltado del hero (la palabra dorada)
     if (textos.hero_title_highlight) {
         document.querySelectorAll('[data-cms-text="hero_title_highlight"]').forEach(el => {
             el.textContent = textos.hero_title_highlight;
         });
     }
 
-    // Final del título
     if (textos.hero_title_end) {
         document.querySelectorAll('[data-cms-text="hero_title_end"]').forEach(el => {
             el.textContent = textos.hero_title_end;
         });
     }
 
-    // Descripción hero
     if (textos.hero_desc) {
         document.querySelectorAll('[data-cms-text="hero_desc"]').forEach(el => {
             el.textContent = textos.hero_desc;
         });
     }
 
-    // Botón CTA principal
     if (textos.btn_cta) {
         document.querySelectorAll('[data-cms-text="btn_cta"]').forEach(el => {
             el.textContent = textos.btn_cta;
         });
     }
 
-    // Estadísticas
-    if (textos.stat1_num)   document.querySelectorAll('[data-cms-text="stat1_num"]').forEach(el => el.textContent = textos.stat1_num);
+    if (textos.stat1_num)   document.querySelectorAll('[data-cms-text="stat1_num"]').forEach(el   => el.textContent = textos.stat1_num);
     if (textos.stat1_label) document.querySelectorAll('[data-cms-text="stat1_label"]').forEach(el => el.textContent = textos.stat1_label);
-    if (textos.stat2_num)   document.querySelectorAll('[data-cms-text="stat2_num"]').forEach(el => el.textContent = textos.stat2_num);
+    if (textos.stat2_num)   document.querySelectorAll('[data-cms-text="stat2_num"]').forEach(el   => el.textContent = textos.stat2_num);
     if (textos.stat2_label) document.querySelectorAll('[data-cms-text="stat2_label"]').forEach(el => el.textContent = textos.stat2_label);
 }
 
@@ -248,4 +317,19 @@ function darken(hex, amount) {
     if (!r) return hex;
     const d = v => Math.max(0, Math.min(255, parseInt(v,16) - amount));
     return `#${d(r[1]).toString(16).padStart(2,'0')}${d(r[2]).toString(16).padStart(2,'0')}${d(r[3]).toString(16).padStart(2,'0')}`;
+}
+
+/**
+ * Devuelve '#ffffff' (blanco) o '#000000' (negro) según el color de fondo
+ * para garantizar el mejor contraste posible en los textos de la tarjeta.
+ */
+function getContrastColor(hex) {
+    const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!r) return '#ffffff';
+    const R = parseInt(r[1], 16);
+    const G = parseInt(r[2], 16);
+    const B = parseInt(r[3], 16);
+    // Fórmula de luminancia perceptual (WCAG)
+    const luminance = (0.299 * R + 0.587 * G + 0.114 * B) / 255;
+    return luminance > 0.55 ? '#000000' : '#ffffff';
 }
