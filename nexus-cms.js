@@ -184,6 +184,12 @@ function applyTextos(textos) {
         document.querySelectorAll(`[data-cms-text="${key}"]`).forEach(el => {
             el.textContent = value;
         });
+        document.querySelectorAll(`[data-cms-href="${key}"]`).forEach(el => {
+            el.href = value;
+        });
+        document.querySelectorAll(`[data-cms-iframe="${key}"]`).forEach(el => {
+            el.src = `https://maps.google.com/maps?q=${encodeURIComponent(value)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+        });
     }
 
     if (textos.empresa_nombre) {

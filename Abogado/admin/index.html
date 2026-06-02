@@ -573,8 +573,16 @@
                         <input type="text" id="f-ubi-i2" class="form-input" placeholder="Ej. Atención previa cita">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Botón WhatsApp</label>
+                        <label class="form-label">Botón (Texto)</label>
                         <input type="text" id="f-ubi-btn" class="form-input" placeholder="Ej. Cómo llegar">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Link de Google Maps (Para el botón)</label>
+                        <input type="text" id="f-ubi-map-link" class="form-input" placeholder="Ej. https://maps.app.goo.gl/...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Dirección para mostrar el mapa visual (Ej. Ciudad, País o Calle)</label>
+                        <input type="text" id="f-ubi-map-address" class="form-input" placeholder="Ej. Quito, Ecuador">
                     </div>
 
                     <!-- LLAMADA A LA ACCIÓN (CTA) -->
@@ -767,6 +775,7 @@ function populateForm() {
     // Ubicacion
     setVal('f-ubi-titulo', t.ubi_titulo); setVal('f-ubi-glow', t.ubi_titulo_glow); setVal('f-ubi-desc', t.ubi_desc);
     setVal('f-ubi-i1', t.ubi_item1); setVal('f-ubi-i2', t.ubi_item2); setVal('f-ubi-btn', t.ubi_btn);
+    setVal('f-ubi-map-link', t.ubi_map_link); setVal('f-ubi-map-address', t.ubi_map_address);
     // CTA
     setVal('f-cta-tag', t.cta_tag); setVal('f-cta-titulo', t.cta_titulo); setVal('f-cta-glow', t.cta_titulo_glow);
     setVal('f-cta-desc', t.cta_desc); setVal('f-cta-btn1', t.cta_btn1); setVal('f-cta-btn2', t.cta_btn2);
@@ -831,7 +840,7 @@ function setupFormListeners() {
      'f-srv3-titulo','f-srv3-desc','f-srv3-i1','f-srv3-i2','f-srv3-i3','f-srv3-i4',
      'f-perfil-tag','f-perfil-titulo','f-perfil-glow',
      'f-perfil1-titulo','f-perfil1-desc','f-perfil2-titulo','f-perfil2-desc','f-perfil3-titulo','f-perfil3-desc',
-     'f-ubi-titulo','f-ubi-glow','f-ubi-desc','f-ubi-i1','f-ubi-i2','f-ubi-btn',
+     'f-ubi-titulo','f-ubi-glow','f-ubi-desc','f-ubi-i1','f-ubi-i2','f-ubi-btn','f-ubi-map-link','f-ubi-map-address',
      'f-cta-tag','f-cta-titulo','f-cta-glow','f-cta-desc','f-cta-btn1','f-cta-btn2',
      'f-faq1-q','f-faq1-a','f-faq2-q','f-faq2-a',
      'f-footer-desc','f-footer-tel','f-footer-email','f-footer-horario','f-footer-direccion','f-footer-copy',
@@ -919,6 +928,8 @@ function collectData() {
             ubi_item1:       document.getElementById('f-ubi-i1')?.value||'',
             ubi_item2:       document.getElementById('f-ubi-i2')?.value||'',
             ubi_btn:         document.getElementById('f-ubi-btn')?.value||'',
+            ubi_map_link:    document.getElementById('f-ubi-map-link')?.value||'',
+            ubi_map_address: document.getElementById('f-ubi-map-address')?.value||'',
             // CTA
             cta_tag:         document.getElementById('f-cta-tag')?.value||'',
             cta_titulo:      document.getElementById('f-cta-titulo')?.value||'',
