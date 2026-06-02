@@ -197,6 +197,23 @@
             border-radius:50%;animation:spin .8s linear infinite}
         @keyframes spin{to{transform:rotate(360deg)}}
         .loading-lbl{color:var(--text-muted);font-size:13px}
+
+        /* ── MOBILE RESPONSIVENESS ── */
+        @media (max-width: 800px) {
+            #editor-screen { overflow: auto; height: auto; min-height: 100vh; }
+            .editor-body { flex-direction: column; overflow: visible; }
+            .editor-sidebar { width: 100%; flex-direction: column; border-right: none; border-bottom: 1px solid var(--panel-border); }
+            .sidebar-nav { width: 100%; flex-direction: row; border-right: none; border-bottom: 1px solid var(--panel-border); }
+            .nav-tab { padding: 12px 14px; flex-direction: row; gap: 6px; }
+            .nav-tab.active::after { top: auto; bottom: 0; left: 0; right: 0; width: auto; height: 2px; }
+            .sidebar-panels { flex: none; max-height: none; overflow: visible; padding-bottom: 30px; }
+            .editor-preview { min-height: 800px; }
+            .preview-wrap.mobile #preview-iframe { width: 100%; max-width: 390px; }
+            .header-brand-name, .header-brand-sub { display: none; }
+            .save-status { display: none; }
+            .editor-header { padding: 0 10px; gap: 8px; }
+            .btn-group-item { padding: 6px 10px; font-size: 11px; }
+        }
     </style>
 </head>
 <body>
