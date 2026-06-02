@@ -7,7 +7,7 @@
     <title>Panel de Control | NexoDigital</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root{
@@ -225,17 +225,7 @@
     <div class="loading-lbl">Cargando panel de control...</div>
 </div>
 
-<!-- LOGIN -->
-<div id="login-screen">
-    <div class="login-card">
-        <div class="login-logo"><i class="fas fa-magic"></i></div>
-        <h1 class="login-title">Panel de Control</h1>
-        <p class="login-subtitle">Personaliza tu tarjeta digital y sitio web en tiempo real</p>
-        <button class="btn-login" id="btn-login">
-            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
-        </button>
-    </div>
-</div>
+<!-- LOGIN REMOVED: Now works fully local -->
 
 <!-- EDITOR -->
 <div id="editor-screen">
@@ -267,10 +257,7 @@
         </div>
 
         <button class="btn-publish" id="btn-publish">
-            <i class="fas fa-cloud-upload-alt"></i> Publicar
-        </button>
-        <button class="btn-logout" id="btn-logout" title="Cerrar sesión">
-            <i class="fas fa-sign-out-alt"></i>
+            <i class="fas fa-file-archive"></i> Descargar .zip
         </button>
     </header>
 
@@ -552,61 +539,31 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(sendPreview, 900);
     });
 
-    // Netlify Identity
-    if (window.netlifyIdentity) {
-        netlifyIdentity.on('init', u => {
-            u ? onLogin(u) : hide('loading');
-        });
-        netlifyIdentity.on('login', u => { onLogin(u); netlifyIdentity.close(); });
-        netlifyIdentity.on('logout', () => {
-            currentUser = null;
-            show('login-screen'); hide('editor-screen');
-        });
-        netlifyIdentity.init();
-    } else { hide('loading'); }
-
-    document.getElementById('btn-login').onclick = () => {
-        if (typeof netlifyIdentity === 'undefined' || !window.netlifyIdentity) {
-            alert('Error: El sistema de inicio de sesión no cargó.\n\n1. Asegúrate de tener conexión a internet.\n2. Desactiva tu bloqueador de anuncios (Brave Shields, uBlock, etc) para esta página.\n3. Confirma que Netlify Identity está activado en tu panel de Netlify.');
-            return;
-        }
-        netlifyIdentity.open('login');
-    };
-    document.getElementById('btn-logout').onclick = () => netlifyIdentity.logout();
-    document.getElementById('btn-publish').onclick = publishChanges;
+    // INICIO LOCAL (Sin Netlify Identity)
+    startEditor();
+    
+    document.getElementById('btn-publish').onclick = downloadZip;
 });
 
-// ── AUTH ──────────────────────────────────────────────
-async function onLogin(user) {
-    currentUser = user;
-    hide('login-screen');
+// ── LOCAL INIT ─────────────────────────────────────────
+async function startEditor() {
     document.getElementById('editor-screen').classList.add('visible');
-    show('loading');
-    document.querySelector('.loading-lbl').textContent = 'Cargando tu configuración...';
-    try { await loadContent(); } catch(e) { console.warn('loadContent error:', e); }
-    finally { hide('loading'); }
-}
-
-// ── LOAD FROM GITHUB ──────────────────────────────────
-async function loadContent() {
+    
     try {
-        await currentUser.jwt(true);
-        const token = currentUser.token.access_token;
-        const path = `${tplPath}/data/content.json`;
-        const res = await fetch(`/.netlify/git/github/contents/${path}`, {
-            headers: { Authorization: `Bearer ${token}` }
-        });
+        const res = await fetch('../data/content.json');
         if (res.ok) {
-            const fd = await res.json();
-            contentSha = fd.sha;
-            const decoded = JSON.parse(atob(fd.content.replace(/\n/g,'')));
-            formData = deepMerge(formData, decoded);
-            toast('Configuración cargada', 'success');
-        } else if (res.status === 404) {
-            toast('Archivo nuevo — configura y publica cuando estés listo', 'info');
+            const data = await res.json();
+            formData = deepMerge(formData, data);
+            toast('Configuración cargada localmente', 'success');
+        } else {
+            toast('Archivo de configuración no encontrado, usando defaults', 'info');
         }
-    } catch(e) { toast('Usando valores por defecto', 'info'); }
+    } catch(e) { 
+        toast('Usando valores por defecto', 'info'); 
+    }
+    
     try { populateForm(); } catch(e2) { console.warn('populateForm error:', e2); sendPreview(); }
+    hide('loading');
 }
 
 function deepMerge(base, override) {
@@ -744,41 +701,60 @@ function sendPreview() {
     iframe.contentWindow.postMessage({ type:'nexus-preview', content: formData }, '*');
 }
 
-// ── PUBLISH ───────────────────────────────────────────
-async function publishChanges() {
+// ── DESCARGA LOCAL (ZIP) ──────────────────────────────
+async function downloadZip() {
     const btn = document.getElementById('btn-publish');
     btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Publicando...';
-    setStatus('saving','Guardando...');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creando ZIP...';
+    setStatus('saving','Generando...');
+    
     try {
         formData = collectData();
-        await currentUser.jwt(true);
-        const token = currentUser.token.access_token;
-        const path = `${tplPath}/data/content.json`;
-        const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(formData, null, 2))));
-        const body = { message:`Admin: Actualización de ${tplPath}`, content: b64 };
-        if (contentSha) body.sha = contentSha;
-        const res = await fetch(`/.netlify/git/github/contents/${path}`, {
-            method:'PUT',
-            headers:{ Authorization:`Bearer ${token}`, 'Content-Type':'application/json' },
-            body: JSON.stringify(body),
-        });
-        if (res.ok) {
-            const d = await res.json();
-            contentSha = d.content.sha;
-            hasChanges = false;
-            setStatus('saved','Publicado ✓');
-            toast('¡Cambios publicados! En 1-2 min se verán en el sitio.', 'success');
-        } else {
-            const e = await res.json();
-            throw new Error(e.message || 'Error al publicar');
+        const zip = new JSZip();
+        
+        // 1. Añadir el JSON
+        const jsonString = JSON.stringify(formData, null, 2);
+        zip.file("data/content.json", jsonString);
+        
+        // 2. Procesar imágenes base64 y pasarlas a la carpeta img/uploads/
+        const imgTypes = { logo: 'logo.png', hero_image: 'hero.jpg', card_bg: 'bg.jpg' };
+        for (const [key, b64] of Object.entries(formData.imagenes)) {
+            if (b64 && b64.startsWith('data:image')) {
+                // Quitar la cabecera data:image/xxx;base64,
+                const base64Data = b64.split(',')[1];
+                const filename = imgTypes[key] || `${key}.png`;
+                zip.file(`img/uploads/${filename}`, base64Data, {base64: true});
+                
+                // Actualizar formData para que guarde la ruta, no el base64
+                formData.imagenes[key] = `img/uploads/${filename}`;
+            }
         }
-    } catch(e) {
-        setStatus('error','Error al publicar');
-        toast(`Error: ${e.message}`, 'error');
+        
+        // Reescribimos el JSON con las rutas corregidas (si es que se procesaron imágenes)
+        zip.file("data/content.json", JSON.stringify(formData, null, 2));
+
+        // 3. Generar archivo y descargar
+        const content = await zip.generateAsync({ type: "blob" });
+        const url = URL.createObjectURL(content);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `NexoDigital-${tplPath}-Cambios.zip`;
+        document.body.appendChild(a);
+        a.click();
+        URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+
+        hasChanges = false;
+        setStatus('saved','ZIP Descargado ✓');
+        toast('¡Archivo ZIP descargado! Envíalo a la agencia.', 'success');
+        
+    } catch(err) {
+        console.error(err);
+        setStatus('error','Error al crear ZIP');
+        toast('Error al crear el archivo ZIP', 'error');
     } finally {
         btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Publicar';
+        btn.innerHTML = '<i class="fas fa-file-archive"></i> Descargar .zip';
     }
 }
 
