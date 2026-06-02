@@ -257,7 +257,7 @@
         </div>
 
         <button class="btn-publish" id="btn-publish">
-            <i class="fas fa-file-archive"></i> Descargar .zip
+            <i class="fas fa-paper-plane"></i> Enviar Cambios
         </button>
     </header>
 
@@ -733,29 +733,52 @@ async function downloadZip() {
         // Reescribimos el JSON con las rutas corregidas (si es que se procesaron imágenes)
         zip.file("data/content.json", JSON.stringify(formData, null, 2));
 
-        // 3. Generar archivo y descargar
+        // 3. Generar archivo y descargar/compartir
         const content = await zip.generateAsync({ type: "blob" });
-        const url = URL.createObjectURL(content);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `NexoDigital-${tplPath}-Cambios.zip`;
-        document.body.appendChild(a);
-        a.click();
-        URL.revokeObjectURL(url);
-        document.body.removeChild(a);
+        const fileName = `NexoDigital-${tplPath}-Cambios.zip`;
+        const file = new File([content], fileName, { type: "application/zip" });
+
+        // Intentar compartir nativamente (Móvil)
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            try {
+                await navigator.share({
+                    title: 'Actualización Web',
+                    text: 'Hola, aquí están los archivos actualizados de mi página web.',
+                    files: [file]
+                });
+                toast('¡Archivo enviado con éxito!', 'success');
+            } catch(e) {
+                // El usuario canceló o falló, usar descarga normal
+                fallbackDownload(content, fileName);
+            }
+        } else {
+            // PC o navegador sin soporte de Share API
+            fallbackDownload(content, fileName);
+        }
 
         hasChanges = false;
-        setStatus('saved','ZIP Descargado ✓');
-        toast('¡Archivo ZIP descargado! Envíalo a la agencia.', 'success');
+        setStatus('saved','ZIP Listo ✓');
         
     } catch(err) {
         console.error(err);
-        setStatus('error','Error al crear ZIP');
+        setStatus('error','Error al empaquetar');
         toast('Error al crear el archivo ZIP', 'error');
     } finally {
         btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-file-archive"></i> Descargar .zip';
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Cambios';
     }
+}
+
+function fallbackDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+    toast('¡Archivo descargado! Envíalo a la agencia.', 'success');
 }
 
 function markDirty() {
